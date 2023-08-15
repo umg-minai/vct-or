@@ -43,8 +43,8 @@ All the work has to be done in the `sections/*.Rmd` files.
 
 You are welcome to:
 
-- submit suggestions and bug-reports at: <https://github.com/sgibb/MALDIquant/issues>
-- send a pull request on: <https://github.com/sgibb/MALDIquant/>
+- submit suggestions and bug-reports at: <https://github.com/umg-minai/vct-or/issues>
+- send a pull request on: <https://github.com/umg-minai/vct-or/>
 - compose an e-mail to: <mail@sebastiangibb.de>
 
 We try to follow:
