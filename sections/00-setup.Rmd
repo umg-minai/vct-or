@@ -1,0 +1,22 @@
+```{r knitr_setup, include = FALSE}
+frf <- function(...)
+    rprojroot::find_root_file(..., criterion = ".editorconfig", path = ".")
+
+knitr::opts_chunk$set(
+    cache.path = frf("cache", knitr::opts_knit$get('rmarkdown.pandoc.to'), "/")
+)
+```
+
+```{r package_bibliography, include = FALSE}
+knitr::write_bib(
+    c(
+        "base",
+        "gtsummary"
+    ),
+    file = frf("bibliography", "rpackages.bib")
+)
+```
+
+```{r libraries, include = FALSE}
+library("gtsummary")
+```

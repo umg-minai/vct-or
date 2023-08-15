@@ -1,0 +1,17 @@
+# Acknowledgement
+
+We thank Marco Reinke for exporting the Dräger Connect data.
+
+# Author Contributions
+
+Conceptualization, S.G. and S.K.;
+data acquisition, N.M.;
+data analysis, S.G. and N.M.;
+writing - draft preparation, S.G.;
+writing - review and editing, N.M., S.K. and S.G.;
+All authors have read and agreed to the published version of the manuscript.
+
+# Data and software availability
+
+The complete data, code and reproducible analysis can be found at
+https://github.com/umg-minai/vct-or.

@@ -1,0 +1,21 @@
+# Introduction
+
+The anthropogenic climate crisis is the largest threat to global health [@daalen2022].
+However, the health care sector itself is responsible for 5-10 % greenhouse gas emissions [@hu2021a; @hunfeld2022].
+Nearly half of these emissions are caused by anaesthetic gases used in anaesthesia and intensive care [@hu2021a].
+
+While sedation should be avoided it is often necessary in intensive care to facilitate mechanical ventilation and invasive procedures [@baron2015].
+It has been shown that inhaled in comparison to intravenous sedation might reduce opioid doses, improve spontan-breathing, and decrease time to wake-up and to extubation [@mesnil2011; @meiser2021].
+During the COVID-19 pandemic the application of inhaled sedation has increased [@blondonnet2022].
+Unfortunately the used inhaled agents, namely isoflurane and sevoflurane, are potent greenhouse gases with a global warming potential that exceeds carbon dioxide 510 and 144 times, respectively [@andersen2012; @andersen2021].
+An active carbon filter (CONTRAfluran, ZeoSys Medical GmbH, Germany) captures waste anaesthetic gases from the exhaust of the ventilator.
+
+@hinterberg2022 investigate the efficiency of inhaled anaesthetics recapturing systems in the operating room and found that only 25 % of the vaporised desflurane could be recaptured.
+It could be assumed that the recapture rate for isoflurane and sevoflurane would be even lower because of their higher blood-gas coefficients and higher metabolism rate.
+In contrast to the operating room patients in the intensive care unit are not necessarily disconnected from the breathing system after the sedation was finished.
+The patients might eliminate the inhaled anaesthetic through the active carbon filter completely which should result in an increasing recapture rate.
+However, due to leakages in the breathing system, metabolism and water absorption, the fraction of captured anaesthetic gas and the emission-sparing effect is unknown.
+
+evtl.
+Prolonged sedation with sevoflurane in comparison to intravenous sedation in critically ill patients – A randomized controlled trial, 2022, Jens Soukup
+

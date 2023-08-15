@@ -1,0 +1,4 @@
+# References
+
+<!-- force references to be placed below -->
+<div id="refs"></div>
