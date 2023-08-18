@@ -28,11 +28,11 @@ manuscript: $(OUTPUTDIR)/$(MANUSCRIPT).html
 $(OUTPUTDIR):
 	@mkdir -p $(OUTPUTDIR)
 
-$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) | $(OUTPUTDIR)
+$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_dir = '$(OUTPUTDIR)')"
 
-$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) | $(OUTPUTDIR)
+$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_format = 'bookdown::word_document2', output_dir = '$(OUTPUTDIR)')"
 
