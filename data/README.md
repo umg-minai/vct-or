@@ -1,6 +1,6 @@
 # Codebook for preprocessed data
 
-## vct-or.csv
+## cases.csv
 
 One line per case.
 

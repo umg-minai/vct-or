@@ -84,4 +84,4 @@ dirs <- list.files(
 
 d <- do.call(rbind, lapply(dirs, .create_weekly_summary, map = map))
 
-write.csv(d, file = frf("data", "vct-or.csv"), row.names = FALSE)
+write.csv(d, file = frf("data", "cases.csv"), row.names = FALSE)
