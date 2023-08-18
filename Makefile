@@ -1,15 +1,16 @@
 GUIX:=/usr/local/bin/guix
 GUIXTM:=${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest.scm
-DATA:=data/vct-or.csv
-RAWDATA:=raw-data/
+DATA:=data/acg.csv
+RAWDATA:=raw-data
 MANUSCRIPT:=manuscript
 SECTIONDIR:=sections
 OUTPUTDIR:=output
 DISTDIR:=distribute
 CACHEDIR:=cache
 RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
-CSV=$(wildcard $(RAWDATA)/*/*.csv)
+CSV=$(wildcard $(RAWDATA)/*/*.csv) $(wildcard $(RAWDATA)/*.csv)
+SCRIPTS=$(wildcard $(RAWDATA)/scripts/*.R)
 
 DATE=$(shell date +'%Y%m%d')
 GITHEAD=$(shell git rev-parse --short HEAD)
@@ -55,10 +56,10 @@ guix/channels.pinned.scm: guix/channels.scm FORCE
 
 FORCE:
 
-$(DATA): ${CSV} ${RAWDATA}/scripts/01-prepare-data.R
+$(DATA): ${CSV} ${SCRIPTS} guix/manifest-data-preparation.scm
 	${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest-data-preparation.scm -- \
-		Rscript raw-data/scripts/01-prepare-data.R
+		Rscript raw-data/scripts/00-setup.R
 
 clean: clean-cache clean-dist clean-output
 
