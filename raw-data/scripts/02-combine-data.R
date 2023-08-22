@@ -11,7 +11,7 @@ setorder(cases, OR, Start)
 setnames(cases, c("Start", "End"), c("CaseStart", "CaseEnd"))
 
 contrafluran <- fread(frf("raw-data", "contrafluran.csv"))
-contrafluran[, `:=` (Start = ymd_hm(Start), End = ymd_hm(End))]
+contrafluran[, `:=` (Start = ymd_hms(Start), End = ymd_hms(End))]
 setorder(contrafluran, OR, Start)
 setnames(contrafluran, colnames(contrafluran), paste0("Acg", colnames(contrafluran)))
 
