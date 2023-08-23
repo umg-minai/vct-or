@@ -6,28 +6,48 @@ frf <- function(...)
 map <- read.csv(frf("raw-data", "mapping.csv"))
 
 .read_case_files <- function(file) {
+    ## first row contains "Gesamt: nCases" in Date column
+    ncases <- as.numeric(
+        gsub(
+            "^Gesamt: *", "",
+            read.table(
+                file,
+                header = TRUE,
+                dec = ",",
+                sep = ";",
+                nrows = 1
+            )[1L]
+        )
+    )
+
+    ## skip header and first row
     cases <- read.table(
         file,
-        header = TRUE,
+        header = FALSE,
         dec = ",",
         sep = ";",
-        na.strings = "---"
-    )[c("Fälle.Datum", "Fälle.Zeit", "Fälle.Dauer..min.",
-        "Durchschnittl..FG.Flow.pro.Fall..L.min..Gesamt",
-        "Durchschnittl..FG.Flow.pro.Fall..L.min..O.sub.2..sub.",
-        "Durchschnittl..FG.Flow.pro.Fall..L.min..Air",
-        "Verbrauch.pro.Fall..ml..Sev", "Uptake.pro.Fall..ml..Sev",
-        "Effizienz.pro.Fall.....Sev")]
+        na.strings = "---",
+        skip = 2,
+    )[c(
+         1, # "Fälle.Datum",
+         2, # "Fälle.Zeit",
+         4, # "Fälle.Dauer..min.",
+         7, # "Durchschnittl..FG.Flow.pro.Fall..L.min..Gesamt",
+         8, # "Durchschnittl..FG.Flow.pro.Fall..L.min..O.sub.2..sub.",
+        10, # "Durchschnittl..FG.Flow.pro.Fall..L.min..Air",
+        14, # "Verbrauch.pro.Fall..ml..Sev",
+        18, # "Uptake.pro.Fall..ml..Sev",
+        22  # "Effizienz.pro.Fall.....Sev"
+    )]
     names(cases) <- c(
         "Date", "Time", "Duration",
         "AvgFlowTotal", "AvgFlowO2", "AvgFlowAir",
         "UsedVolumeSev", "UptakeVolumeSev", "EfficiencySev"
     )
-    ## first row contains "Gesamt: nCases" in Date column
-    cases$nCases <- as.numeric(gsub("Gesamt: *", "", cases$Date[1]))
 
-    ## drop first row and TIVA cases
-    cases <- cases[-1,]
+    ## add ncases for later merging with device overview
+    cases$nCases <- ncases
+    ## drop TIVA cases
     cases <- cases[!is.na(cases$UsedVolumeSev),]
     ## date format: Weekday, DOM. Month(Name) Year
     cases$Date <- dmy(cases$Date)
