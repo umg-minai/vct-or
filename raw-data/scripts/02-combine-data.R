@@ -9,6 +9,8 @@ cases <- fread(frf("data", "cases.csv"))[,
 ]
 setorder(cases, OR, Start)
 setnames(cases, c("Start", "End"), c("CaseStart", "CaseEnd"))
+## convert Duration from mins to secs
+cases[, Duration := Duration * 60]
 
 contrafluran <- fread(frf("raw-data", "contrafluran.csv"))
 contrafluran[, `:=` (Start = ymd_hms(Start), End = ymd_hms(End))]
@@ -36,18 +38,43 @@ acg <- acg[!is.na(AcgId),]
 ## anaesthesia)
 acg[, `:=` (
         OverhangDuration =
-            c(rep_len(NA, .N - 1), Duration[.N] - (CaseEnd[.N] - AcgEnd[.N])),
+            c(rep_len(NA, .N - 1),
+                if (CaseEnd[.N] > AcgEnd[.N])
+                    Duration[.N] - (CaseEnd[.N] - AcgEnd[.N])
+                else 0L
+            ),
         OverhangUsedVolumeSev =
-            c(rep_len(NA, .N - 1), UsedVolumeSev[.N] - AcgUsedVolumeSev[.N]),
+            c(rep_len(NA, .N - 1),
+                if (CaseEnd[.N] > AcgEnd[.N])
+                    UsedVolumeSev[.N] - AcgUsedVolumeSev[.N]
+                else 0
+              ),
         OverhangUptakeVolumeSev =
-            c(rep_len(NA, .N - 1), UptakeVolumeSev[.N] - AcgUptakeVolumeSev[.N])
+            c(rep_len(NA, .N - 1),
+                if (CaseEnd[.N] > AcgEnd[.N])
+                    UptakeVolumeSev[.N] - AcgUptakeVolumeSev[.N]
+                else 0
+            )
     ),
     by = .(AcgId)
 ]
 acg[, `:=` (
-        TotalDurationCases = sum(Duration[-.N]) + (CaseEnd[.N] - AcgEnd[.N]),
-        TotalUsedVolumeSev = sum(UsedVolumeSev[-.N]) + AcgUsedVolumeSev[.N],
-        TotalUptakeVolumeSev = sum(UptakeVolumeSev[-.N] + AcgUptakeVolumeSev[.N])
+        TotalDurationCases =
+            if (CaseEnd[.N] <= AcgEnd[.N])
+                sum(Duration)
+            else
+                sum(Duration[-.N]) + (AcgEnd[.N] - CaseStart[.N])
+        ,
+        TotalUsedVolumeSev =
+            if (CaseEnd[.N] <= AcgEnd[.N])
+                sum(UsedVolumeSev)
+            else
+                sum(UsedVolumeSev[-.N]) + AcgUsedVolumeSev[.N],
+        TotalUptakeVolumeSev =
+            if (CaseEnd[.N] <= AcgEnd[.N])
+                sum(UptakeVolumeSev)
+            else
+                sum(UptakeVolumeSev[-.N] + AcgUptakeVolumeSev[.N])
     ),
     by = .(AcgId)
 ]
@@ -55,14 +82,16 @@ acg[, `:=` (
 ## drop single case information
 acg <- acg[, .SD[.N], by = .(AcgId)]
 ## add overhang from previous case
+ocols <- grep("^Overhang", colnames(acg), value = TRUE)
+lcols = paste0("Last", ocols)
+acg[, (lcols) := shift(.SD, 1, 0, "lead"), .SDcols = ocols]
 acg <- acg[, `:=` (
         TotalDurationCases =
-            TotalDurationCases + c(0, OverhangDuration[-.N]),
+            TotalDurationCases + LastOverhangDuration,
         TotalUsedVolumeSev =
-            TotalUsedVolumeSev + c(0, OverhangUsedVolumeSev[-.N]),
+            TotalUsedVolumeSev + LastOverhangUsedVolumeSev,
         TotalUptakeVolumeSev =
-            TotalUptakeVolumeSev + c(0, OverhangUptakeVolumeSev[-.N]),
-    by = .(AcgId)
+            TotalUptakeVolumeSev + LastOverhangUptakeVolumeSev
 )]
 acg <- acg[,
     .(AcgId, AcgOR, AcgInitialWeight, AcgFinalWeight, AcgStart, AcgEnd,
