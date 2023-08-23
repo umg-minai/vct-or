@@ -57,12 +57,11 @@ map <- read.csv(frf("raw-data", "mapping.csv"))
 
     cases$Duration <- as.numeric(cases$Duration)
 
-    cases$WastedVolumeSev <- cases$UsedVolumeSev - cases$UptakeVolumeSev
     ## reorder columns
     cases <- cases[c(
         "nCases", "Date", "Start", "End", "Duration",
         "AvgFlowTotal", "AvgFlowO2", "AvgFlowAir",
-        "UsedVolumeSev", "UptakeVolumeSev", "WastedVolumeSev", "EfficiencySev"
+        "UsedVolumeSev", "UptakeVolumeSev", "EfficiencySev"
     )]
     cases
 }
