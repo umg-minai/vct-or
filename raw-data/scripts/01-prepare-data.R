@@ -102,5 +102,6 @@ dirs <- list.files(
 )
 
 d <- do.call(rbind, lapply(dirs, .create_weekly_summary, map = map))
+d <- unique(d)
 
 write.csv(d, file = frf("data", "cases.csv"), row.names = FALSE)
