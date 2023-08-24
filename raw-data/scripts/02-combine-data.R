@@ -97,5 +97,8 @@ acg <- acg[,
     .(AcgId, AcgOR, AcgInitialWeight, AcgFinalWeight, AcgStart, AcgEnd,
       TotalDurationCases, TotalUsedVolumeSev, TotalUptakeVolumeSev)
 ]
+## convert Duration back to mins
+acg[, TotalDurationCases := TotalDurationCases / 60]
+
 setnames(acg, colnames(acg), sub("^Acg", "", colnames(acg)))
 fwrite(acg, frf("data", "acg.csv"), row.names = FALSE)
