@@ -18,3 +18,15 @@ One line per case.
 - UptakeVolumeSev: sevoflurane uptake in ml.
 - WastedVolumeSev: wasted sevoflurane in ml (UsedVolumeSev - UptakeVolumeSev).
 - EfficiencySev: efficiency sevoflurane in %.
+
+## acg.csv
+
+- Id: id of the anaesthetic gas canister (AGC).
+- OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
+- InitialWeight: weight of the AGC before use.
+- FinalWeight: weight of the AGC after use (red LED on SENSOfluran unit).
+- Start: date and time when the AGC was installed.
+- End: date and time when the AGC was removed.
+- TotalDurationCases: total (summed) duration of all cases where this acg was used.
+- TotalUsedVolumeSev: total sevoflurane volume usage in ml of all cases where this acg was used.
+- TotalUptakeVolumeSev: total sevoflurane volume uptake in ml of all cases where this acg was used.
