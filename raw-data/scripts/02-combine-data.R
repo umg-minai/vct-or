@@ -12,6 +12,13 @@ setnames(cases, c("Start", "End"), c("CaseStart", "CaseEnd"))
 ## convert Duration from mins to secs
 cases[, Duration := Duration * 60]
 
+## replace NA with 0 for Uptake (often too short; accidentially turned on)
+## throw error if UsedVolumeSev is high
+i <- is.na(cases$UptakeVolumeSev)
+if (any(cases$UsedVolumeSev[i] > 1 & cases$Date > ymd("2023-08-06")))
+    stop("Mismatch between sevoflurane use and uptake")
+cases$UptakeVolumeSev[i] <- 0
+
 contrafluran <- fread(frf("raw-data", "contrafluran.csv"))
 contrafluran[, `:=` (Start = ymd_hms(Start), End = ymd_hms(End))]
 setorder(contrafluran, OR, Start)
