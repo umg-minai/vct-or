@@ -47,8 +47,6 @@ map <- read.csv(frf("raw-data", "mapping.csv"))
 
     ## add ncases for later merging with device overview
     cases$nCases <- ncases
-    ## drop TIVA cases
-    cases <- cases[!is.na(cases$UsedVolumeSev),]
     ## date format: Weekday, DOM. Month(Name) Year
     cases$Date <- dmy(cases$Date)
     ## time format: HH:MM - HH:MM

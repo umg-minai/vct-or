@@ -27,6 +27,11 @@ One line per case.
 - FinalWeight: weight of the AGC after use (red LED on SENSOfluran unit).
 - Start: date and time when the AGC was installed.
 - End: date and time when the AGC was removed.
+- TotalCases: total number of cases for this acg.
+- TotalCasesTiva: total number of total intravenous anaesthesia cases for this acg.
+- TotalCasesSev: total number of inhaled anaesthesia (sevoflurane) cases for this acg.
 - TotalDurationCases: total (summed) duration of all cases where this acg was used.
+- TotalDurationCasesTiva: total (summed) duration of all total intravenous anaesthesia cases where this acg was used.
+- TotalDurationCasesSev: total (summed) duration of all inhaled anaesthesia (sevoflurane) cases where this acg was used.
 - TotalUsedVolumeSev: total sevoflurane volume usage in ml of all cases where this acg was used.
 - TotalUptakeVolumeSev: total sevoflurane volume uptake in ml of all cases where this acg was used.
