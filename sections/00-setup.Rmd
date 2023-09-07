@@ -20,3 +20,23 @@ knitr::write_bib(
 ```{r libraries, include = FALSE}
 library("gtsummary")
 ```
+
+```{r import, include = FALSE}
+acg <- read.csv(frf("data", "acg.csv"))
+```
+
+```{r prepare, include = FALSE}
+sevodensity <- 1.55
+
+acg$Start <- as.POSIXct(acg$Start)
+acg$End <- as.POSIXct(acg$End)
+
+acg$WeightGain <- acg$FinalWeight - acg$InitialWeight
+acg$TotalUsedWeightSev <- acg$TotalUsedVolumeSev * sevodensity
+acg$TotalUptakeWeightSev <- acg$TotalUptakeVolumeSev * sevodensity
+acg$UsedVolumePerHourSev <- acg$TotalUsedVolumeSev / (acg$TotalDurationCasesSev / 60)
+acg$UsedWeightPerHourSev <- acg$TotalUsedWeightSev / (acg$TotalDurationCasesSev / 60)
+acg$MaxRecaptureRate <- acg$WeightGain / acg$TotalUsedWeightSev * 100
+
+acg$AvgDurationSev <- acg$TotalDurationCasesSev / acg$TotalCasesSev
+```

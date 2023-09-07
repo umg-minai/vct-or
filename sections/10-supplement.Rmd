@@ -1,5 +1,135 @@
 # Supplement
 
+## Overview about anaesthetic gas canisters
+
+```{r supplacgoverview, echo = FALSE, message = FALSE}
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_cases <- acg |>
+    select(
+        OR,
+        TotalCases,
+        TotalCasesTiva,
+        TotalCasesSev,
+        TotalDurationCases,
+        TotalDurationCasesTiva,
+        TotalDurationCasesSev,
+        AvgDurationSev
+    ) |>
+    dplyr::mutate_at(vars(matches("Duration")), function(x)x / 60) |>
+    tbl_summary(
+        by = OR,
+        missing_text = "(Missing)",
+        type = list(
+            TotalCases ~ "continuous",
+            TotalCasesTiva ~ "continuous",
+            TotalCasesSev ~ "continuous",
+            TotalDurationCases ~ "continuous",
+            TotalDurationCasesTiva ~ "continuous",
+            TotalDurationCasesSev ~ "continuous",
+            AvgDurationSev ~ "continuous"
+        ),
+        label = list(
+            TotalCases ~ "Number of cases",
+            TotalCasesTiva ~ "Number of total intravenous anaesthesia cases",
+            TotalCasesSev ~ "Number of inhaled anaesthesia cases",
+            TotalDurationCases ~ "Total duration of all cases [h]",
+            TotalDurationCasesTiva ~ "Total duration of total intravenous anaesthesia [h]",
+            TotalDurationCasesSev ~ "Total duration of inhaled anaesthesia [h]",
+            AvgDurationSev ~ "Average duration of inhaled anaesthesia [h]"
+        ),
+        digits = all_continuous() ~ 1
+    ) |>
+    add_overall() |>
+    add_p()
+
+tbl_weights <- acg |>
+    select(
+        OR,
+        InitialWeight,
+        FinalWeight,
+        WeightGain,
+        MaxRecaptureRate
+    ) |>
+    tbl_summary(
+        by = OR,
+        missing_text = "(Missing)",
+        type = list(
+            InitialWeight ~ "continuous",
+            FinalWeight ~ "continuous",
+            WeightGain ~ "continuous",
+            MaxRecaptureRate ~ "continuous"
+        ),
+        label = list(
+            InitialWeight ~ "Initial weight [g]",
+            FinalWeight ~ "Final weight [g]",
+            WeightGain ~ "Weight gain [g]"
+        ),
+        digits = all_continuous() ~ 1
+    ) |>
+    add_overall() |>
+    add_p()
+
+tbl_sevo_consumption <- acg |>
+    select(
+        OR,
+        TotalUsedVolumeSev,
+        TotalUsedWeightSev,
+        TotalUptakeVolumeSev,
+        TotalUptakeWeightSev,
+        UsedVolumePerHourSev,
+        UsedWeightPerHourSev
+    ) |>
+    tbl_summary(
+        by = OR,
+        missing_text = "(Missing)",
+        type = list(
+            TotalUsedVolumeSev ~ "continuous",
+            TotalUsedWeightSev ~ "continuous",
+            TotalUptakeVolumeSev ~ "continuous",
+            TotalUptakeWeightSev ~ "continuous",
+            UsedVolumePerHourSev ~ "continuous",
+            UsedWeightPerHourSev ~ "continuous"
+        ),
+        label = list(
+            TotalUsedVolumeSev ~ "Total used sevoflurane volume [ml]",
+            TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
+            UsedVolumePerHourSev ~ "Used sevoflurane volume per hour [ml/h]",
+            UsedWeightPerHourSev ~ "Used sevoflurane weight per hour [g/h]",
+            TotalUptakeVolumeSev ~ "Total uptaken sevoflurane volume [ml]",
+            TotalUptakeWeightSev ~ "Total uptaken sevoflurane weight [g]"
+        ),
+        digits = all_continuous() ~ 1
+    ) |>
+    add_overall() |>
+    add_p()
+
+tbl_stack(
+    tbls = list(
+        tbl_cases, tbl_sevo_consumption, tbl_weights
+    ),
+    group_header = c(
+        "Case summary",
+        "Sevoflurane consumption",
+        "Anaesthetic gas canister weights"
+    )
+) |>
+## indent variable names and missing
+modify_table_styling(column = "label", text_format = "indent") |>
+modify_table_styling(
+    rows = row_type %in% c("missing", "level"),
+    column = "label",
+    text_format = "indent2"
+) |>
+modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
+modify_caption(
+    paste0(
+        "Characteristics of all ", nrow(acg), " anaesthetic gas canisters. ",
+        "Cases, duration etc. are given as per canister."
+    )
+)
+```
+
 ## R session information
 
 ```{r sessioninfo}
