@@ -5,7 +5,7 @@ Id,InitialWeight,FinalWeight,OR,Start,End,UsedVolumeSev,UptakeVolumeSev,Comment
 4,1023.08,,,,,,,
 5,1027.79,,,,,,,
 6,1027.14,,,,,,,
-7,1023.95,,,,,,,
+7,1023.95,1442.2,21,2023-09-01 12:03:00,2023-09-14 11:00:00,0,0,Changed after finishing an anaesthesia
 8,1030.27,,,,,,,
 9,1032.5,1369.01,21,2023-08-24 13:22:00,2023-09-01 12:03:00,0,0,Changed after finishing an anaesthesia
 10,1031.24,1423,21,2023-08-17 08:35:00,2023-08-24 13:22:00,14.2,12.8,Changed after finishing an anaesthesia
