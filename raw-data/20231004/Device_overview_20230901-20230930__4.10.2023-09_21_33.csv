@@ -1,0 +1,25 @@
+﻿Geräte_Produkt;Geräte_Standort;Geräte_Seriennummer;Geräte_Gerätenummer;Fälle_Gesamt;Fälle_Inhalativ;Fälle_Durchschnittl. Dauer [min];Durchschnittl. Kosten_Pro Fall [EUR];Durchschnittl. Kosten_Pro Minute [EUR];Durchschnittl. FG-Flow pro Fall [L/min]_Gesamt;Durchschnittl. FG-Flow pro Fall [L/min]_O2;Durchschnittl. FG-Flow pro Fall [L/min]_N2O;Durchschnittl. FG-Flow pro Fall [L/min]_Air;Durchschnittl. Verbrauch pro Fall (mL)_Gesamt;Durchschnittl. Verbrauch pro Fall (mL)_Iso;Durchschnittl. Verbrauch pro Fall (mL)_Des;Durchschnittl. Verbrauch pro Fall (mL)_Sev;Durchschnittl. Uptake pro Fall [mL]_Gesamt;Durchschnittl. Uptake pro Fall [mL]_Iso;Durchschnittl. Uptake pro Fall [mL]_Des;Durchschnittl. Uptake pro Fall [mL]_Sev;Durchschnittl. Effizienz pro Fall [%]_Gesamt;Durchschnittl. Effizienz pro Fall [%]_Iso;Durchschnittl. Effizienz pro Fall [%]_Des;Durchschnittl. Effizienz pro Fall [%]_Sev;CO2-Äquivalent gesamt [kg]_Gesamt;CO2-Äquivalent gesamt [kg]_Iso;CO2-Äquivalent gesamt [kg]_Des;CO2-Äquivalent gesamt [kg]_Sev
+Gesamt;;;;195;127;89;11,83;0,11;2,35;2,15;;0,19;19,71;;;19,71;12,12;;;12,12;57,04;;;57,04;0,49;;;0,49
+A500;;ASDD-0018;;109;62;61;9,67;0,15;3,56;3,26;;0,30;16,11;;;16,11;5,07;;;5,07;31,44;;;31,44;0,20;;;0,20
+A500;;ASDD-0010;;56;49;153;15,26;0,09;1,46;1,36;;0,11;25,43;;;25,43;20,66;;;20,66;81,24;;;81,24;0,25;;;0,25
+A500;;ASDB-0026;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0019;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0007;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDB-0029;;30;16;70;9,70;0,10;2,08;1,89;;0,19;16,16;;;16,16;13,27;;;13,27;82,11;;;82,11;0,05;;;0,05
+A500;;ASDB-0027;null;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0016;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0006;null;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0013;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0020;null;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0023;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0003;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0008;null;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0022;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0009;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDB-0028;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0021;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0004;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0012;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDD-0011;;;;0;;;;;;;;;;;;;;;;;;;;;;
+A500;;ASDB-0024;;;;0;;;;;;;;;;;;;;;;;;;;;;
+Perseus A500;;ASDB-0023;;;;0;;;;;;;;;;;;;;;;;;;;;;
