@@ -41,7 +41,7 @@ All the work has to be done in the `sections/*.Rmd` files.
 
 ## Project history
 
-### current - 2023-10-09 [HEAD](https://github.com/umg-minai/vct-or/tree/main)
+### current - since 2023-10-09 [HEAD](https://github.com/umg-minai/vct-or/tree/main)
 
 ### pilot-draeger-connect - 2023-08-06 to 2023-10-08 [c49a8ce](https://github.com/umg-minai/vct-or/tree/pilot-draeger-connect)
 
