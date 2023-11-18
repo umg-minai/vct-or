@@ -94,10 +94,11 @@ map <- read.csv(frf("raw-data", "mapping.csv"))
     s
 }
 
-dirs <- list.files(
+files <- list.files(
     frf("raw-data"), pattern = "^202[34][01][0-9][0-3][0-9]",
     include.dirs = TRUE, full.names = TRUE
 )
+dirs <- files[file.info(files)$isdir]
 
 d <- do.call(rbind, lapply(dirs, .create_weekly_summary, map = map))
 d <- unique(d)
