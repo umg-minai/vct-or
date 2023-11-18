@@ -3,7 +3,7 @@ library("lubridate")
 frf <- function(...)
     rprojroot::find_root_file(..., criterion = ".editorconfig", path = ".")
 
-map <- read.csv(frf("raw-data", "mapping.csv"))
+map <- read.csv(frf("raw-data", "draeger-connect", "mapping.csv"))
 
 .read_case_files <- function(file) {
     ## first row contains "Gesamt: nCases" in Date column
@@ -95,7 +95,7 @@ map <- read.csv(frf("raw-data", "mapping.csv"))
 }
 
 files <- list.files(
-    frf("raw-data"), pattern = "^202[34][01][0-9][0-3][0-9]",
+    frf("raw-data", "draeger-connect"), pattern = "^202[34][01][0-9][0-3][0-9]",
     include.dirs = TRUE, full.names = TRUE
 )
 dirs <- files[file.info(files)$isdir]

@@ -1,6 +1,8 @@
 # Code book for raw data
 
-## mapping.csv
+## draeger-connect/
+
+### mapping.csv
 
 Mapping between device id and operating room.
 
@@ -8,20 +10,7 @@ Mapping between device id and operating room.
 - Description: human readable location (could change during study due to relocation of the Draeger Perseus device to another operating room).
 - OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
 
-## contrafluran.csv
-
-Information about the CONTRAfluran anaesthetic gas canister.
-
-- Id: id of the anaesthetic gas canister (AGC).
-- InitialWeight: weight of the AGC before use.
-- FinalWeight: weight of the AGC after use (red LED on SENSOfluran unit).
-- OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
-- Start: date and time when the AGC was installed.
-- End: date and time when the AGC was removed.
-- UsedVolumeSev: sevoflurane volume usage in ml as reported by the Draeger Perseus.
-- UptakeVolumeSev: sevoflurane volume uptake in ml as reported by the Draeger Perseus.
-
-## 2023xxxx/Device_overview_x*.csv
+### 2023xxxx/Device_overview_x*.csv
 
 Weekly summary report exported from Draeger connect software.
 
@@ -57,7 +46,7 @@ First line contains the total summary of all rows below.
 - CO2-Äquivalent gesamt [kg]_Des: not used.
 - CO2-Äquivalent gesamt [kg]_Sev not used.
 
-## 2023xxxx/fall_analyse_xxxx*.csv
+### 2023xxxx/fall_analyse_xxxx*.csv
 
 Weekly individual report exported from Draeger connect software.
 
@@ -90,3 +79,16 @@ First line contains the total summary of all rows below.
 - CO2-Äquivalent Iso: not used.
 - CO2-Äquivalent Des: not used.
 - CO2-Äquivalent Sev: not used.
+
+## contrafluran.csv
+
+Information about the CONTRAfluran anaesthetic gas canister.
+
+- Id: id of the anaesthetic gas canister (AGC).
+- InitialWeight: weight of the AGC before use.
+- FinalWeight: weight of the AGC after use (red LED on SENSOfluran unit).
+- OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
+- Start: date and time when the AGC was installed.
+- End: date and time when the AGC was removed.
+- UsedVolumeSev: sevoflurane volume consumption in ml as reported by the Draeger Perseus.
+- UptakeVolumeSev: sevoflurane volume uptake in ml as reported by the Draeger Perseus.
