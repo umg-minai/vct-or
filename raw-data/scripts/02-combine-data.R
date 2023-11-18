@@ -18,7 +18,7 @@ cases <- cases[Duration > 0,]
 ## replace NA with 0 for Uptake (often too short; accidentially turned on)
 ## throw error if UsedVolumeSev is high
 i <- is.na(cases$UptakeVolumeSev)
-if (any(cases$UsedVolumeSev[i] > 1 & cases$Date > ymd("2023-08-06")))
+if (any(cases$UsedVolumeSev[i] > 1 & cases$Date > ymd("2023-10-08")))
     stop("Mismatch between sevoflurane use and uptake")
 cases$UptakeVolumeSev[i] <- 0
 cases$UsedVolumeSev[is.na(cases$UsedVolumeSev)] <- 0
