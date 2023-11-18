@@ -1,4 +1,10 @@
 # Methods
 
+In this prospective singlecenter observational study we collected
+`r nrow(agc)` consecutive anaesthetic gas canisters from
+`r paste(format(range(c(agc$Start, agc$End)), "%B %Y"), collapse = " to ")`.
+
 The Ethics Committee at the University Medicine Greifswald
 approved this study (reference number: BB 102/23).
+
+Kern PCB 2500-2 Präzisionswaage Wägebereich (max.) 2.5 kg Ablesbarkeit 0.01 g

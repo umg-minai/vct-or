@@ -22,21 +22,21 @@ library("gtsummary")
 ```
 
 ```{r import, include = FALSE}
-acg <- read.csv(frf("data", "acg.csv"))
+agc <- read.csv(frf("data", "agc.csv"))
 ```
 
 ```{r prepare, include = FALSE}
 sevodensity <- 1.55
 
-acg$Start <- as.POSIXct(acg$Start)
-acg$End <- as.POSIXct(acg$End)
+agc$Start <- as.POSIXct(agc$Start)
+agc$End <- as.POSIXct(agc$End)
 
-acg$WeightGain <- acg$FinalWeight - acg$InitialWeight
-acg$TotalUsedWeightSev <- acg$TotalUsedVolumeSev * sevodensity
-acg$TotalUptakeWeightSev <- acg$TotalUptakeVolumeSev * sevodensity
-acg$UsedVolumePerHourSev <- acg$TotalUsedVolumeSev / (acg$TotalDurationCasesSev / 60)
-acg$UsedWeightPerHourSev <- acg$TotalUsedWeightSev / (acg$TotalDurationCasesSev / 60)
-acg$MaxRecaptureRate <- acg$WeightGain / acg$TotalUsedWeightSev * 100
+agc$WeightGain <- agc$FinalWeight - agc$InitialWeight
+agc$TotalUsedWeightSev <- agc$TotalUsedVolumeSev * sevodensity
+agc$TotalUptakeWeightSev <- agc$TotalUptakeVolumeSev * sevodensity
+agc$UsedVolumePerHourSev <- agc$TotalUsedVolumeSev / (agc$TotalDurationCasesSev / 60)
+agc$UsedWeightPerHourSev <- agc$TotalUsedWeightSev / (agc$TotalDurationCasesSev / 60)
+agc$MaxRecaptureRate <- agc$WeightGain / agc$TotalUsedWeightSev * 100
 
-acg$AvgDurationSev <- acg$TotalDurationCasesSev / acg$TotalCasesSev
+agc$AvgDurationSev <- agc$TotalDurationCasesSev / agc$TotalCasesSev
 ```

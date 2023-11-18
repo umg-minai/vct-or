@@ -33,27 +33,27 @@ setnames(contrafluran, colnames(contrafluran), paste0("Acg", colnames(contraflur
 cases[, jCaseStart := CaseStart]
 contrafluran[, `:=` (jAcgStart = AcgStart, jAcgEnd = AcgEnd)]
 
-acg <- contrafluran[
+agc <- contrafluran[
     cases,
     ,
     on = .(jAcgStart <= jCaseStart, jAcgEnd > jCaseStart, AcgOR == OR)
 ]
 
 ## drop temporary columns
-acg[, `:=` (jAcgStart = NULL, jAcgEnd = NULL)]
+agc[, `:=` (jAcgStart = NULL, jAcgEnd = NULL)]
 
 ## drop unmatched cases
-acg <- acg[!is.na(AcgId),]
+agc <- agc[!is.na(AcgId),]
 
-acg[, `:=` (
+agc[, `:=` (
     DurationTiva = fifelse(IsTiva, Duration, 0),
     DurationSev = fifelse(IsTiva, 0, Duration)
 )]
 
 ## sum usage and uptake
-## (don't add last entry from draeger connect, change of acg could happen during
+## (don't add last entry from draeger connect, change of agc could happen during
 ## anaesthesia)
-acg[, `:=` (
+agc[, `:=` (
         OverhangCasesSev =
             c(rep_len(NA, .N - 1),
                 if (CaseEnd[.N] > AcgEnd[.N])
@@ -81,7 +81,7 @@ acg[, `:=` (
     ),
     by = .(AcgId)
 ]
-acg[, `:=` (
+agc[, `:=` (
         TotalCasesTiva = sum(IsTiva),
         TotalCasesSev =
             if (CaseEnd[.N] <= AcgEnd[.N])
@@ -112,12 +112,12 @@ acg[, `:=` (
 ]
 
 ## drop single case information
-acg <- acg[, .SD[.N], by = .(AcgId)]
+agc <- agc[, .SD[.N], by = .(AcgId)]
 ## add overhang from previous case
-ocols <- grep("^Overhang", colnames(acg), value = TRUE)
+ocols <- grep("^Overhang", colnames(agc), value = TRUE)
 lcols = paste0("Last", ocols)
-acg[, (lcols) := shift(.SD, 1, 0, "lead"), .SDcols = ocols]
-acg <- acg[, `:=` (
+agc[, (lcols) := shift(.SD, 1, 0, "lead"), .SDcols = ocols]
+agc <- agc[, `:=` (
         TotalCasesSev =
             TotalCasesSev + LastOverhangCasesSev,
         TotalDurationCasesSev =
@@ -128,20 +128,20 @@ acg <- acg[, `:=` (
             TotalUptakeVolumeSev + LastOverhangUptakeVolumeSev
 )]
 ## convert Duration back to mins
-acg[, `:=` (
+agc[, `:=` (
     TotalDurationCasesSev = TotalDurationCasesSev / 60,
     TotalDurationCasesTiva = TotalDurationCasesTiva / 60
 )]
-acg[, `:=` (
+agc[, `:=` (
     TotalCases = TotalCasesTiva + TotalCasesSev,
     TotalDurationCases = TotalDurationCasesTiva + TotalDurationCasesSev
 )]
-acg <- acg[,
+agc <- agc[,
     .(AcgId, AcgOR, AcgInitialWeight, AcgFinalWeight, AcgStart, AcgEnd,
       TotalCases, TotalCasesTiva, TotalCasesSev,
       TotalDurationCases, TotalDurationCasesTiva, TotalDurationCasesSev,
       TotalUsedVolumeSev, TotalUptakeVolumeSev)
 ]
 
-setnames(acg, colnames(acg), sub("^Acg", "", colnames(acg)))
-fwrite(acg, frf("data", "acg.csv"), row.names = FALSE)
+setnames(agc, colnames(agc), sub("^Acg", "", colnames(agc)))
+fwrite(agc, frf("data", "agc.csv"), row.names = FALSE)

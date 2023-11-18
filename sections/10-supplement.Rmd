@@ -2,10 +2,10 @@
 
 ## Overview about anaesthetic gas canisters
 
-```{r supplacgoverview, echo = FALSE, message = FALSE}
+```{r supplagcoverview, echo = FALSE, message = FALSE}
 theme_gtsummary_compact(font_size = 8L)
 
-tbl_cases <- acg |>
+tbl_cases <- agc |>
     select(
         OR,
         TotalCases,
@@ -43,7 +43,7 @@ tbl_cases <- acg |>
     add_overall() |>
     add_p()
 
-tbl_weights <- acg |>
+tbl_weights <- agc |>
     select(
         OR,
         InitialWeight,
@@ -70,7 +70,7 @@ tbl_weights <- acg |>
     add_overall() |>
     add_p()
 
-tbl_sevo_consumption <- acg |>
+tbl_sevo_consumption <- agc |>
     select(
         OR,
         TotalUsedVolumeSev,
@@ -124,7 +124,7 @@ modify_table_styling(
 modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
 modify_caption(
     paste0(
-        "Characteristics of all ", nrow(acg), " anaesthetic gas canisters. ",
+        "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
         "Cases, duration etc. are given as per canister."
     )
 )

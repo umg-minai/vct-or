@@ -1,7 +1,7 @@
 GUIX:=/usr/local/bin/guix
 GUIXTM:=${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest.scm
-DATA:=data/acg.csv
+DATA:=data/agc.csv
 RAWDATA:=raw-data
 MANUSCRIPT:=manuscript
 SECTIONDIR:=sections
