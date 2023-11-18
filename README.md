@@ -45,7 +45,7 @@ All the work has to be done in the `sections/*.Rmd` files.
 
 ### pilot-draeger-connect - 2023-08-06 to 2023-10-08 [c49a8ce](https://github.com/umg-minai/vct-or/tree/pilot-draeger-connect)
 
-Initially we used sevoflurane usage data logged by "Dräger connect" in the assumption it was reading the vapor dial settings and fresh gas flows.
+Initially we used sevoflurane usage data logged by "Dräger connect" in the assumption it was reading the D-Vapor 3000 dial settings and fresh gas flows.
 The data from "Dräger connect" were estimated based on the flow and the inspiratory/endtidal sevoflurane concentration.
 While the measurements are reasonably for Dräger Primus anaesthesia machines (see [Biro et al. 2014](https://doi.org/10.1007/s10877-014-9639-6)) we restart our study and weigh the sevoflurane bottles to determine the amount of used agent.
 
