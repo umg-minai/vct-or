@@ -19,8 +19,7 @@ GITHEAD=$(shell git rev-parse --short HEAD)
 
 .PHONEY: \
 	clean clean-dist clean-output \
-	dist guix-pin-channels \
-	env
+	dist env guix-pin-channels
 
 all: manuscript
 
