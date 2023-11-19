@@ -14,10 +14,9 @@ One line per case.
 - AvgFlowTotal: average total fresh gas flow in L/min.
 - AvgFlowO2: average oxygen fresh gas flow in L/min.
 - AvgFlowAir: average air fresh gas flow in L/min.
-- UsedVolumeSev: used sevoflurane in ml.
-- UptakeVolumeSev: sevoflurane uptake in ml.
-- WastedVolumeSev: wasted sevoflurane in ml (UsedVolumeSev - UptakeVolumeSev).
-- EfficiencySev: efficiency sevoflurane in %.
+- UsedVolumeSev: used sevoflurane in ml as exported from Draeger connect.
+- UptakeVolumeSev: sevoflurane uptake in ml as exported from Draeger connect.
+- EfficiencySev: efficiency sevoflurane in % as exported from Draeger connect.
 
 ## agc.csv
 
@@ -33,5 +32,4 @@ One line per case.
 - TotalDurationCases: total (summed) duration of all cases where this agc was used.
 - TotalDurationCasesTiva: total (summed) duration of all total intravenous anaesthesia cases where this agc was used.
 - TotalDurationCasesSev: total (summed) duration of all inhaled anaesthesia (sevoflurane) cases where this agc was used.
-- TotalUsedVolumeSev: total sevoflurane volume usage in ml of all cases where this agc was used.
-- TotalUptakeVolumeSev: total sevoflurane volume uptake in ml of all cases where this agc was used.
+- TotalUsedWeightSev: total sevoflurane consumption in gram of all cases where this agc was used.
