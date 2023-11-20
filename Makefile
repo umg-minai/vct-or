@@ -45,11 +45,11 @@ dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
 gh-pages: manuscript
 	git checkout gh-pages
 	sed 's#</h4>#</h4> \
-  <div style="background-color: \#ffc107; padding: 10px; text-align: center;"> \
-  <strong>This study is work-in-progress!</strong><br /> \
-  Please find details at <a href="https://github.com/umg-minai/vct-or">https://github.com/umg-minai/vct-or</a>.<br /> \
-  Manuscript date: $(shell date +"%Y-%m-%d %H:%M"); Version: <a href="https://github.com/umg-minai/vct-or/commit/$(GITHEADL)">$(GITHEAD)</a> \
-  </div>#' $(OUTPUTDIR)/$(MANUSCRIPT).html > index.html
+<div style="background-color: \#ffc107; padding: 10px; text-align: center;"> \
+<strong>This study is work-in-progress!</strong><br /> \
+Please find details at <a href="https://github.com/umg-minai/vct-or">https://github.com/umg-minai/vct-or</a>.<br /> \
+Manuscript date: $(shell date +"%Y-%m-%d %H:%M"); Version: <a href="https://github.com/umg-minai/vct-or/commit/$(GITHEADL)">$(GITHEAD)</a> \
+</div>#' $(OUTPUTDIR)/$(MANUSCRIPT).html > index.html
 	git add index.html
 	git commit -m "chore: update index.html"
 	git checkout main
