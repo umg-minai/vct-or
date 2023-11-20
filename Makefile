@@ -7,7 +7,6 @@ MANUSCRIPT:=manuscript
 SECTIONDIR:=sections
 OUTPUTDIR:=output
 DISTDIR:=distribute
-CACHEDIR:=cache
 RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
 CSV=$(wildcard $(RAWDATA)/*/*.csv) $(wildcard $(RAWDATA)/*.csv)
 SCRIPTS=$(wildcard $(RAWDATA)/scripts/*.R)
@@ -67,10 +66,7 @@ $(DATA): ${CSV} ${SCRIPTS} guix/manifest-data-preparation.scm
 		shell --manifest=guix/manifest-data-preparation.scm -- \
 		Rscript raw-data/scripts/00-setup.R
 
-clean: clean-cache clean-dist clean-output
-
-clean-cache:
-	@rm -rf $(CACHEDIR)
+clean: clean-dist clean-output
 
 clean-dist:
 	@rm -rf $(DISTDIR)
