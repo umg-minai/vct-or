@@ -9,8 +9,6 @@ cases <- fread(frf("data", "cases.csv"))[,
 ]
 setorder(cases, OR, Start)
 setnames(cases, c("Start", "End"), c("CaseStart", "CaseEnd"))
-## convert Duration from mins to secs
-cases[, Duration := Duration * 60]
 
 ## drop cases without a duration
 cases <- cases[Duration > 0,]
@@ -27,23 +25,23 @@ cases[, IsTiva := UsedVolumeSev == 0]
 contrafluran <- fread(frf("raw-data", "contrafluran.csv"))
 contrafluran[, `:=` (Start = ymd_hms(Start), End = ymd_hms(End))]
 setorder(contrafluran, OR, Start)
-setnames(contrafluran, colnames(contrafluran), paste0("Acg", colnames(contrafluran)))
+setnames(contrafluran, colnames(contrafluran), paste0("Agc", colnames(contrafluran)))
 
 ## perform non-equi join to get contrafluran case connection, tmp columns needed
 cases[, jCaseStart := CaseStart]
-contrafluran[, `:=` (jAcgStart = AcgStart, jAcgEnd = AcgEnd)]
+contrafluran[, `:=` (jAgcStart = AgcStart, jAgcEnd = AgcEnd)]
 
 agc <- contrafluran[
     cases,
     ,
-    on = .(jAcgStart <= jCaseStart, jAcgEnd > jCaseStart, AcgOR == OR)
+    on = .(jAgcStart <= jCaseStart, jAgcEnd > jCaseStart, AgcOR == OR)
 ]
 
 ## drop temporary columns
-agc[, `:=` (jAcgStart = NULL, jAcgEnd = NULL)]
+agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
 
 ## drop unmatched cases
-agc <- agc[!is.na(AcgId),]
+agc <- agc[!is.na(AgcId),]
 
 agc[, `:=` (
     DurationTiva = fifelse(IsTiva, Duration, 0),
@@ -56,88 +54,63 @@ agc[, `:=` (
 agc[, `:=` (
         OverhangCasesSev =
             c(rep_len(NA, .N - 1),
-                if (CaseEnd[.N] > AcgEnd[.N])
-                    (CaseEnd[.N] - AcgEnd[.N]) / (DurationSev[.N])
+                if (CaseEnd[.N] > AgcEnd[.N]) {
+                    as.numeric(
+                        difftime(CaseEnd[.N], AgcEnd[.N], units = "mins")
+                    ) / (DurationSev[.N])
+                }
                 else 0L
             ),
         OverhangDurationSev =
             c(rep_len(NA, .N - 1),
-                if (CaseEnd[.N] > AcgEnd[.N])
-                    DurationSev[.N] - (CaseEnd[.N] - AcgEnd[.N])
+                if (CaseEnd[.N] > AgcEnd[.N]) {
+                    DurationSev[.N] - as.numeric(
+                        difftime(CaseEnd[.N], AgcEnd[.N], units = "mins")
+                    )
+                }
                 else 0L
-            ),
-        OverhangUsedVolumeSev =
-            c(rep_len(NA, .N - 1),
-                if (CaseEnd[.N] > AcgEnd[.N])
-                    UsedVolumeSev[.N] - AcgUsedVolumeSev[.N]
-                else 0
-              ),
-        OverhangUptakeVolumeSev =
-            c(rep_len(NA, .N - 1),
-                if (CaseEnd[.N] > AcgEnd[.N])
-                    UptakeVolumeSev[.N] - AcgUptakeVolumeSev[.N]
-                else 0
             )
     ),
-    by = .(AcgId)
+    by = .(AgcId)
 ]
 agc[, `:=` (
         TotalCasesTiva = sum(IsTiva),
         TotalCasesSev =
-            if (CaseEnd[.N] <= AcgEnd[.N])
+            if (CaseEnd[.N] <= AgcEnd[.N])
                 sum(!IsTiva)
             else
-                sum(!IsTiva) - ((AcgEnd[.N] - CaseStart[.N]) / (Duration[.N]))
+                sum(!IsTiva) - OverhangCasesSev[.N]
         ,
         TotalDurationCasesSev =
-            if (CaseEnd[.N] <= AcgEnd[.N])
+            if (CaseEnd[.N] <= AgcEnd[.N])
                 sum(DurationSev)
             else
-                sum(DurationSev[-.N]) + (AcgEnd[.N] - CaseStart[.N])
+                sum(DurationSev) - OverhangDurationSev[.N]
         ,
         # change of the ACG during a TIVA case should never happen
-        TotalDurationCasesTiva = sum(DurationTiva),
-        TotalUsedVolumeSev =
-            if (CaseEnd[.N] <= AcgEnd[.N])
-                sum(UsedVolumeSev)
-            else
-                sum(UsedVolumeSev[-.N]) + AcgUsedVolumeSev[.N],
-        TotalUptakeVolumeSev =
-            if (CaseEnd[.N] <= AcgEnd[.N])
-                sum(UptakeVolumeSev)
-            else
-                sum(UptakeVolumeSev[-.N] + AcgUptakeVolumeSev[.N])
+        TotalDurationCasesTiva = sum(DurationTiva)
     ),
-    by = .(AcgId)
+    by = .(AgcId)
 ]
 
 ## drop single case information
-agc <- agc[, .SD[.N], by = .(AcgId)]
+agc <- agc[, .SD[.N], by = .(AgcId)]
 ## add overhang from previous case
 ocols <- grep("^Overhang", colnames(agc), value = TRUE)
 lcols = paste0("Last", ocols)
-agc[, (lcols) := shift(.SD, 1, 0, "lead"), .SDcols = ocols]
+agc[, (lcols) := shift(.SD, 1, 0, "lag"), .SDcols = ocols]
 agc <- agc[, `:=` (
         TotalCasesSev =
             TotalCasesSev + LastOverhangCasesSev,
         TotalDurationCasesSev =
-            TotalDurationCasesSev + LastOverhangDurationSev,
-        TotalUsedVolumeSev =
-            TotalUsedVolumeSev + LastOverhangUsedVolumeSev,
-        TotalUptakeVolumeSev =
-            TotalUptakeVolumeSev + LastOverhangUptakeVolumeSev
-)]
-## convert Duration back to mins
-agc[, `:=` (
-    TotalDurationCasesSev = TotalDurationCasesSev / 60,
-    TotalDurationCasesTiva = TotalDurationCasesTiva / 60
+            TotalDurationCasesSev + LastOverhangDurationSev
 )]
 agc[, `:=` (
     TotalCases = TotalCasesTiva + TotalCasesSev,
     TotalDurationCases = TotalDurationCasesTiva + TotalDurationCasesSev
 )]
 agc <- agc[,
-    .(AcgId, AcgOR, AcgInitialWeight, AcgFinalWeight, AcgStart, AcgEnd,
+    .(AgcId, AgcOR, AgcInitialWeight, AgcFinalWeight, AgcStart, AgcEnd,
       TotalCases, TotalCasesTiva, TotalCasesSev,
       TotalDurationCases, TotalDurationCasesTiva, TotalDurationCasesSev,
       TotalUsedVolumeSev, TotalUptakeVolumeSev)
