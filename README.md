@@ -28,7 +28,7 @@ This repository contains the (raw) data and analysis of this investigation.
 
 ### [current](https://github.com/umg-minai/vct-or/tree/main) - since 2023-10-09
 
-### [pilot-draeger-connect]((https://github.com/umg-minai/vct-or/tree/pilot-draeger-connect) - 2023-08-06 to 2023-10-08
+### [pilot-draeger-connect](https://github.com/umg-minai/vct-or/tree/pilot-draeger-connect) - 2023-08-06 to 2023-10-08
 
 Initially we used sevoflurane usage data logged by "Dräger connect" in the assumption it was reading the D-Vapor 3000 dial settings and fresh gas flows.
 The data from "Dräger connect" were estimated based on the flow and the inspiratory/endtidal sevoflurane concentration.
