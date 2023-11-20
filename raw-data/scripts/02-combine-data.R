@@ -10,8 +10,8 @@ cases <- fread(frf("data", "cases.csv"))[,
 setorder(cases, OR, Start)
 setnames(cases, c("Start", "End"), c("CaseStart", "CaseEnd"))
 
-## drop cases without a duration
-cases <- cases[Duration > 0,]
+## drop cases with a duration less or equal 5 min
+cases <- cases[Duration > 5,]
 
 ## replace NA with 0 for Uptake (often too short; accidentially turned on)
 ## throw error if UsedVolumeSev is high
