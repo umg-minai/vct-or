@@ -13,6 +13,7 @@ SCRIPTS=$(wildcard $(RAWDATA)/scripts/*.R)
 
 DATE=$(shell date +'%Y%m%d')
 GITHEAD=$(shell git rev-parse --short HEAD)
+GITHEADL=$(shell git rev-parse HEAD)
 
 .DELETE_ON_ERROR:
 
@@ -43,7 +44,12 @@ dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
 
 gh-pages: manuscript
 	git checkout gh-pages
-	cp $(OUTPUTDIR)/$(MANUSCRIPT).html index.html
+	sed 's#</h4>#</h4> \
+  <div style="background-color: \#ffc107; padding: 10px; text-align: center;"> \
+  <strong>This study is work-in-progress!</strong><br /> \
+  Please find details at <a href="https://github.com/umg-minai/vct-or">https://github.com/umg-minai/vct-or</a>.<br /> \
+  Manuscript date: $(shell date +"%Y-%m-%d %H:%M"); Version: <a href="https://github.com/umg-minai/vct-or/commit/$(GITHEADL)">$(GITHEAD)</a> \
+  </div>#' $(OUTPUTDIR)/$(MANUSCRIPT).html > index.html
 	git add index.html
 	git commit -m "chore: update index.html"
 	git checkout main
