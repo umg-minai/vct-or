@@ -3,3 +3,18 @@
 @hinterberg2022: meisten Filter leer (nur 8 % der möglichen Füllmenge), neuer Filter je Patient, 70 % weight gain attributable to desflurane, höhere MAC und längere Dauer mit geringerer recapture rate assoziiert, laut Supplement, hoher FGF 0.8 l/min
 
 Hu et al TIVA vs IA + VCT
+
+vgl. Cost Effizienz ggü. AGFS u. CO2-Effizienz ggü. AGFS
+
+Leckage can't captured
+Retention in patient can't captured
+
+Kalmar et al 2023: An ISO
+14040-compliant life cycle analysis conducted by an inde-
+pendent organisation (ERM) on behalf of Baxter (Deerfield, IL,
+USA; full data are available for presentation by Baxter on
+request) reveals that the carbon footprint associated with
+canister production, transport, desorption, and recycling/
+disposal, based on 2020 UK carbon intensity assumptions,
+equals total emissions of 45.4 kg of CO2e per 1 kg of captured
+volatile anaesthetics.
