@@ -1,6 +1,5 @@
 # Tables
 
 ```{r table1, echo = FALSE, warning = FALSE, message = FALSE, cache = FALSE}
-theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 ```
