@@ -112,9 +112,45 @@ agc[, `:=` (
 agc <- agc[,
     .(AgcId, AgcOR, AgcInitialWeight, AgcFinalWeight, AgcStart, AgcEnd,
       TotalCases, TotalCasesTiva, TotalCasesSev,
-      TotalDurationCases, TotalDurationCasesTiva, TotalDurationCasesSev,
-      TotalUsedVolumeSev, TotalUptakeVolumeSev)
+      TotalDurationCases, TotalDurationCasesTiva, TotalDurationCasesSev)
 ]
 
-setnames(agc, colnames(agc), sub("^Acg", "", colnames(agc)))
+## add consumption data
+
+files <- list.files(
+    frf("raw-data", "sevoflurane-consumption"),
+    pattern = "^2[0-9]\\.csv$",
+    full.names = TRUE
+)
+consumption <- do.call(rbind, c(mapply(
+    function(file, or)cbind.data.frame(OR = as.numeric(or), read.csv(file)),
+    file = files, or = tools::file_path_sans_ext(basename(files)),
+    SIMPLIFY = FALSE
+), make.row.names = FALSE))
+
+consumption$DiffWeight <- consumption$InitialWeight - consumption$FinalWeight
+consumption <- as.data.table(consumption)
+
+## perform non-equi join to get contrafluran consumption connection, tmp columns needed
+consumption[, Date := ymd_hms(Date)]
+agc[, `:=` (jAgcStart = AgcStart, jAgcEnd = AgcEnd)]
+
+agc <- agc[
+    consumption[, .(OR, Date, DiffWeight)],
+    ,
+    on = .(jAgcStart < Date, jAgcEnd >= Date, AgcOR == OR)
+]
+
+## drop temporary columns
+agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
+
+## drop unmatched cases
+agc <- agc[!is.na(AgcId),]
+
+agc <- agc[, TotalUsedWeightSev := sum(DiffWeight), by = AgcId]
+agc[, DiffWeight := NULL]
+
+agc <- unique(agc)
+
+setnames(agc, colnames(agc), sub("^Agc", "", colnames(agc)))
 fwrite(agc, frf("data", "agc.csv"), row.names = FALSE)

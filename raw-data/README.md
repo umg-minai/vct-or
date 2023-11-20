@@ -80,6 +80,18 @@ First line contains the total summary of all rows below.
 - CO2-Äquivalent Des: not used.
 - CO2-Äquivalent Sev: not used.
 
+## sevoflurane-consumption/
+
+### 21.csv/25.csv
+
+One file for each operating room.
+
+- Id: id of the sevoflurane bottle (initially we started with unique Ids, e.g. first bottle in 21 was 1 and first bottle in 25 was 2; subsequently we used unique increasing numbers in each room (so the ids are not unique across the csv-files; the bottles are kept in each room).
+- Date: date of weight measurement, %Y-%m-%d %H:%M:%S.
+- InitialWeight: weight of the sevoflurane bottle before the vapor was filled.
+- FinalWeight: weight of the sevoflurane bottle after the vapor was filled (if it was not filled, we just copy the InitialWeight).
+- Comment: comment.
+
 ## contrafluran.csv
 
 Information about the CONTRAfluran anaesthetic gas canister.

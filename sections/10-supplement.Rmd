@@ -6,6 +6,7 @@
 theme_gtsummary_compact(font_size = 8L)
 
 tbl_cases <- agc |>
+    mutate(OR = ifelse(OR == 21, "21 (ENT)", "25 (Neurosurgery)")) |>
     select(
         OR,
         TotalCases,
@@ -63,7 +64,8 @@ tbl_weights <- agc |>
         label = list(
             InitialWeight ~ "Initial weight [g]",
             FinalWeight ~ "Final weight [g]",
-            WeightGain ~ "Weight gain [g]"
+            WeightGain ~ "Weight gain [g]",
+            MaxRecaptureRate ~ "Weight gain/sevoflurane consumption [%]"
         ),
         digits = all_continuous() ~ 1
     ) |>
@@ -75,8 +77,6 @@ tbl_sevo_consumption <- agc |>
         OR,
         TotalUsedVolumeSev,
         TotalUsedWeightSev,
-        TotalUptakeVolumeSev,
-        TotalUptakeWeightSev,
         UsedVolumePerHourSev,
         UsedWeightPerHourSev
     ) |>
@@ -86,18 +86,14 @@ tbl_sevo_consumption <- agc |>
         type = list(
             TotalUsedVolumeSev ~ "continuous",
             TotalUsedWeightSev ~ "continuous",
-            TotalUptakeVolumeSev ~ "continuous",
-            TotalUptakeWeightSev ~ "continuous",
             UsedVolumePerHourSev ~ "continuous",
             UsedWeightPerHourSev ~ "continuous"
         ),
         label = list(
-            TotalUsedVolumeSev ~ "Total used sevoflurane volume [ml]",
+            TotalUsedVolumeSev ~ "Total used sevoflurane volume [mL]",
             TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
-            UsedVolumePerHourSev ~ "Used sevoflurane volume per hour [ml/h]",
-            UsedWeightPerHourSev ~ "Used sevoflurane weight per hour [g/h]",
-            TotalUptakeVolumeSev ~ "Total uptaken sevoflurane volume [ml]",
-            TotalUptakeWeightSev ~ "Total uptaken sevoflurane weight [g]"
+            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour [mL/h]",
+            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour [g/h]"
         ),
         digits = all_continuous() ~ 1
     ) |>
@@ -124,6 +120,7 @@ modify_table_styling(
 modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
 modify_caption(
     paste0(
+        "ENT: ear, nose and throat surgery; ",
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
         "Cases, duration etc. are given as per canister."
     )

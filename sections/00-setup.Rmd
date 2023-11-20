@@ -32,8 +32,7 @@ agc$Start <- as.POSIXct(agc$Start)
 agc$End <- as.POSIXct(agc$End)
 
 agc$WeightGain <- agc$FinalWeight - agc$InitialWeight
-agc$TotalUsedWeightSev <- agc$TotalUsedVolumeSev * sevodensity
-agc$TotalUptakeWeightSev <- agc$TotalUptakeVolumeSev * sevodensity
+agc$TotalUsedVolumeSev <- agc$TotalUsedWeightSev / sevodensity
 agc$UsedVolumePerHourSev <- agc$TotalUsedVolumeSev / (agc$TotalDurationCasesSev / 60)
 agc$UsedWeightPerHourSev <- agc$TotalUsedWeightSev / (agc$TotalDurationCasesSev / 60)
 agc$MaxRecaptureRate <- agc$WeightGain / agc$TotalUsedWeightSev * 100
