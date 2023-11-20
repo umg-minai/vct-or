@@ -48,10 +48,6 @@ gh-pages: manuscript
 	git commit -m "chore: update index.html"
 	git checkout main
 
-## start guix development environment
-env: guix/manifest.scm
-	${GUIXTM}
-
 ## pinning guix channels to latest commits
 guix-pin-channels: guix/channels.pinned.scm
 

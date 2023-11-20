@@ -1,9 +1,5 @@
 (specifications->manifest
-  '("bash-minimal"
-    "coreutils"
-    "nss-certs"
-    "r-minimal"
+  '("r-minimal"
     "r-bookdown"
     "r-gtsummary"
-    "r-rprojroot"
-    "r-viridislite"))
+    "r-rprojroot"))

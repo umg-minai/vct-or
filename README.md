@@ -72,7 +72,6 @@ All the work has to be done in the `sections/*.Rmd` files.
   co-authors.
 - `make gh-pages` updates the `gh-pages` branch to the latest manuscript.
 - `make clean` removes all generated files.
-- `make env` runs a shell in the `guix` generated environment.
 
 
 ## Contact/Contribution
