@@ -70,6 +70,7 @@ All the work has to be done in the `sections/*.Rmd` files.
 - `make` or `make manuscript` produces an `.html` file in `output/`.
 - `make dist` produces a `.docx` in `distribute/` which could be send to the
   co-authors.
+- `make gh-pages` updates the `gh-pages` branch to the latest manuscript.
 - `make clean` removes all generated files.
 - `make env` runs a shell in the `guix` generated environment.
 

@@ -19,7 +19,7 @@ GITHEAD=$(shell git rev-parse --short HEAD)
 
 .PHONEY: \
 	clean clean-dist clean-output \
-	dist env guix-pin-channels
+	dist gh-pages env guix-pin-channels
 
 all: manuscript
 
@@ -41,6 +41,13 @@ $(DISTDIR):
 
 dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
 	@cp $< $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).docx"
+
+gh-pages: manuscript
+	git checkout gh-pages
+	cp $(OUTPUTDIR)/$(MANUSCRIPT).html index.html
+	git add index.html
+	git commit -m "chore: update index.html"
+	git checkout main
 
 ## start guix development environment
 env: guix/manifest.scm
