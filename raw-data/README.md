@@ -102,5 +102,4 @@ Information about the CONTRAfluran anaesthetic gas canister.
 - OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
 - Start: date and time when the AGC was installed.
 - End: date and time when the AGC was removed.
-- UsedVolumeSev: sevoflurane volume consumption in ml as reported by the Draeger Perseus.
-- UptakeVolumeSev: sevoflurane volume uptake in ml as reported by the Draeger Perseus.
+- Comment: comment.
