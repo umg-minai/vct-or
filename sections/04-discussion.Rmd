@@ -18,3 +18,7 @@ canister production, transport, desorption, and recycling/
 disposal, based on 2020 UK carbon intensity assumptions,
 equals total emissions of 45.4 kg of CO2e per 1 kg of captured
 volatile anaesthetics.
+
+## Limitations
+
+Vapor verliert in 24 h < 0.5 ml Sevo (das nicht über den Filter geht) und mgl. Schwankungen bei maximaler Füllung.
