@@ -37,5 +37,7 @@ Id,Date,InitialWeight,FinalWeight,Comment
 8,2023-11-17 01:05:00,265.41,62.57,
 10,2023-11-17 01:10:00,422.86,422.86,
 10,2023-11-20 08:08:00,423.14,423.14,
-10,2023-11-21 10:00:00,423.14,276.12,Red LED after finishing an anaesthesia - not changed immediatly but during the next case (a TIVA) - reset time from 11:07 to 10:00 (end of previous case) to match draeger connect data; AGC change 16 ->
-10,2023-11-22 07:18:00,276.12,276.12,
+10,2023-11-21 10:00:00,423.14,276.12,Red LED after finishing an anaesthesia - not changed immediatly but during the next case (a TIVA) - reset time from 11:07 to 10:00 (end of previous case) to match draeger connect data; AGC change 16 -> 17
+10,2023-11-22 07:18:00,276.16,276.16,
+10,2023-11-23 16:30:00,276.10,162.46,
+10,2023-11-25 18:40:00,162.49,162.49,
