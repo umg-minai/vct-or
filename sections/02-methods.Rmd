@@ -20,7 +20,7 @@ The vapor weighs more than nine kg.
 A scale that was precise enough to measure more than 9 kg with a precision of a few grams was not available.
 That's why we decided to weigh the sevoflurane bottles before and after maximum filling of the vapor and use the difference in weigh to record the sevoflurane consumption.
 The vapor was maximum filled before we attach the first CONTRAfluran anaesthetic gas canister (AGC; ZeoSys medical, Luckenwalde, Germany).
-If the CONTRAfluran AGC was exhausted, visible by the red LED and warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany), the vapor was again filled to the maximum.
+If the CONTRAfluran AGC was exhausted, visible by the red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany), the vapor was again filled to the maximum.
 In case a new bottle of sevoflurane was opened, it was attached to a non-study vapor to lose any excess pressure before the study vapor was filled.
 To determine the amount of captured gas we weighed the CONTRAfluran ACG before usage and after it was exhausted.
 All ACGs were closed and stored in a zip lock bag.
