@@ -3,5 +3,6 @@ Id,InitialWeight,FinalWeight,OR,Start,End,Comment
 12,1022.22,1294.2,21,2023-10-09 06:43:00,2023-10-16 11:29:00,
 13,1034.19,1415.2,21,2023-10-24 09:31:00,2023-11-02 11:10:00,Changed after finishing an anaesthesia
 14,1034.05,1383.14,25,2023-10-09 06:45:00,2023-11-02 10:40:00,Changed after finishing an anaesthesia
-16|1028.65,1317,58,21,2023-11-14 08:32:00,2023-11-21 11:07:00,Red LED after finishing an anaesthesia - not changed immediatly but during the next case (a TIVA) - reset time from 11:07 to 10:00 (end of previous case) to match draeger connect data
+16,1028.65,1317.58,21,2023-11-14 08:32:00,2023-11-21 11:07:00,Red LED after finishing an anaesthesia - not changed immediatly but during the next case (a TIVA) - reset time from 11:07 to 10:00 (end of previous case) to match draeger connect data
+17,1028.42,1415.17,21,2023-11-21 11:07:00,2023-11-30 10:01:00,Changed after finishing an anaesthesia - Vapor was not refilled immediatly (but two cases (2 hours) before - will be a slightly too high recapture rate; the next AGC will have a too low one)
 18,1024.61,1434.62,21,2023-11-02 11:10:00,2023-11-14 08:32:00,Changed after finishing an anaesthesia
