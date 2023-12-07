@@ -8,7 +8,7 @@ SECTIONDIR:=sections
 OUTPUTDIR:=output
 DISTDIR:=distribute
 RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
-CSV=$(wildcard $(RAWDATA)/*/*.csv) $(wildcard $(RAWDATA)/*.csv)
+CSV=$(wildcard $(RAWDATA)/draeger-connect/*/*.csv) $(wildcard $(RAWDATA)/*/*.csv) $(wildcard $(RAWDATA)/*.csv)
 SCRIPTS=$(wildcard $(RAWDATA)/scripts/*.R)
 
 DATE=$(shell date +'%Y%m%d')
