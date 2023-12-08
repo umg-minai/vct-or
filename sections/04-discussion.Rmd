@@ -22,3 +22,4 @@ volatile anaesthetics.
 ## Limitations
 
 Vapor verliert in 24 h < 0.5 ml Sevo (das nicht über den Filter geht) und mgl. Schwankungen bei maximaler Füllung.
+Tropfen in "Einfüllstutzen", damit evtl. Überschätzung des Verbrauchs.
