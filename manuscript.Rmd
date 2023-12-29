@@ -1,17 +1,6 @@
 ---
 title: >
     TBD
-abstract: >
-  **Objectives**:
-
-  **Methods**:
-
-  **Results**:
-
-  **Conclusion**:
-
-  **Keywords**:
-
 institute:
     - KAINS: Department of Anesthesiology and Intensive Care Medicine, University Hospital Greifswald, Ferdinand-Sauerbruch-Straße, D-17475 Greifswald, Germany.
 author:
@@ -62,12 +51,18 @@ link-citations: yes
 linkcolor: blue
 output:
     bookdown::html_document2:
+        keep_md: true # keep images for submission
+        number_sections: false
         pandoc_args:
+            - --lua-filter=pandoc/lua-filters/abstract-section.lua
             - --lua-filter=pandoc/lua-filters/scholarly-metadata.lua
             - --lua-filter=pandoc/lua-filters/author-info-blocks.lua
             - --lua-filter=pandoc/lua-filters/wordcount.lua
     bookdown::word_document2:
+        keep_md: true # keep images for submission
+        number_sections: false
         pandoc_args:
+            - --lua-filter=pandoc/lua-filters/abstract-section.lua
             - --lua-filter=pandoc/lua-filters/scholarly-metadata.lua
             - --lua-filter=pandoc/lua-filters/author-info-blocks.lua
             - --lua-filter=pandoc/lua-filters/wordcount.lua

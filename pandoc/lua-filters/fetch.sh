@@ -8,3 +8,4 @@ for FILTER in ${FILTERS}; do
 done
 
 curl ${CURLOPT} https://raw.githubusercontent.com/crsh/rmdfiltr/master/inst/wordcount.lua
+curl ${CURLOPT} https://raw.githubusercontent.com/pandoc-ext/abstract-section/main/_extensions/abstract-section/abstract-section.lua
