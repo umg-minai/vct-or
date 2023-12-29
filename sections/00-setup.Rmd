@@ -30,7 +30,7 @@ agc <- read.csv(frf("data", "agc.csv"))
 ```
 
 ```{r prepare, include = FALSE}
-sevodensity <- 1.55
+sevodensity <- 1.52 # @Hu2021
 
 agc$Start <- as.POSIXct(agc$Start)
 agc$End <- as.POSIXct(agc$End)
