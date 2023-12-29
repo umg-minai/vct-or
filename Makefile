@@ -10,6 +10,7 @@ DISTDIR:=distribute
 RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
 CSV=$(wildcard $(RAWDATA)/draeger-connect/*/*.csv) $(wildcard $(RAWDATA)/*/*.csv) $(wildcard $(RAWDATA)/*.csv)
 SCRIPTS=$(wildcard $(RAWDATA)/scripts/*.R)
+BIB=bibliography/bibliography.bib
 
 DATE=$(shell date +'%Y%m%d')
 GITHEAD=$(shell git rev-parse --short HEAD)
@@ -28,11 +29,11 @@ manuscript: $(OUTPUTDIR)/$(MANUSCRIPT).html
 $(OUTPUTDIR):
 	@mkdir -p $(OUTPUTDIR)
 
-$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) guix/manifest.scm | $(OUTPUTDIR)
+$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(BIB) $(DATA) guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_dir = '$(OUTPUTDIR)')"
 
-$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) guix/manifest.scm | $(OUTPUTDIR)
+$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(BIB) $(DATA) guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_format = 'bookdown::word_document2', output_dir = '$(OUTPUTDIR)')"
 
