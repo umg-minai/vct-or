@@ -34,4 +34,5 @@ All data processing and statistical analyses were performed using R version
 Summary tables were generated using the *gtsummary* package [@gtsummary; @R-gtsummary].
 All data and analysis can be found at https://github.com/umg-minai/vct-or **TODO** (add zenodo citation link).
 
-The Ethics Committee at the University Medicine Greifswald approved this study protocol (reference number: BB 102/23).
+The study was approved by the ethics committee of the University Medicine Greifswald
+(reference number: `r rmarkdown::metadata[["ethics_committee"]]`).

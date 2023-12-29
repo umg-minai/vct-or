@@ -21,6 +21,10 @@ knitr::write_bib(
 library("gtsummary")
 ```
 
+```{r helper_functions, include = FALSE}
+.cli_text <- function(...)cli::cli_format_method(cli::cli_text(...))
+```
+
 ```{r import, include = FALSE}
 agc <- read.csv(frf("data", "agc.csv"))
 ```
