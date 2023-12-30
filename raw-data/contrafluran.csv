@@ -6,5 +6,6 @@ Id,InitialWeight,FinalWeight,OR,Start,End,Comment
 16,1028.65,1317.58,21,2023-11-14 08:32:00,2023-11-21 10:05:00,Red LED after finishing an anaesthesia - not changed immediatly but during the next case (a TIVA) - reset time from 11:07 to 10:05 (end of previous case) to match draeger connect data
 17,1028.42,1415.17,21,2023-11-21 10:07:00,2023-11-30 10:01:00,Changed after finishing an anaesthesia
 18,1024.61,1434.62,21,2023-11-02 11:10:00,2023-11-14 08:32:00,Changed after finishing an anaesthesia
+19,1030.97,1456.77,21,2023-12-11 15:34:00,2023-12-28 12:00:00,Changed after finishing an anaesthesia
 20,1022.80,1407.15,21,2023-11-30 10:04:00,2023-12-11 15:30:00,Changed after finishing an anaesthesia
 22,1031.79,1404.77,25,2023-11-02 10:40:00,2023-12-07 17:47:00,
