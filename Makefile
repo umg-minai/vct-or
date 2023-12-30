@@ -20,7 +20,7 @@ GITHEADL=$(shell git rev-parse HEAD)
 
 .PHONEY: \
 	clean clean-dist clean-output \
-	dist gh-pages env guix-pin-channels
+	dist gh-pages guix-pin-channels
 
 all: manuscript
 
