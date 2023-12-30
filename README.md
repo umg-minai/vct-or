@@ -16,7 +16,7 @@ This repository contains the (raw) data and analysis of this investigation.
 
 ### Manuscript
 
-- `manuscript.Rmd`: main file (contains Abstract and author information) loading all subsections.
+- `manuscript.Rmd`: main file (contains manuscript and author information) loading all subsections.
 - `sections/*.Rmd`: a file per subsection containing the manuscript content.
 
 ### Miscellaneous files
