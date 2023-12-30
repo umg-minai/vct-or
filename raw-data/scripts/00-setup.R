@@ -1,3 +1,4 @@
+options(warn = 2)
 frf <- function(...)
     rprojroot::find_root_file(..., criterion = ".editorconfig", path = ".")
 
