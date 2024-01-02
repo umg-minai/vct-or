@@ -66,15 +66,15 @@ First line contains the total summary of all rows below.
 - Verbrauch pro Fall (ml) Gesamt: not used.
 - Verbrauch pro Fall (ml) Iso: not used.
 - Verbrauch pro Fall (ml) Des: not used.
-- Verbrauch pro Fall (ml) Sev: used sevoflurane in ml.
+- Verbrauch pro Fall (ml) Sev: used sevoflurane in ml; not used.
 - Uptake pro Fall (ml) Gesamt: not used.
 - Uptake pro Fall (ml) Iso: not used.
 - Uptake pro Fall (ml) Des: not used.
-- Uptake pro Fall (ml) Sev: sevoflurane uptake in ml.
+- Uptake pro Fall (ml) Sev: not used.
 - Effizienz pro Fall (%) Gesamt: not used.
 - Effizienz pro Fall (%) Iso: not used.
 - Effizienz pro Fall (%) Des: not used.
-- Effizienz pro Fall (%) Sev: efficiency sevoflurane in %.
+- Effizienz pro Fall (%) Sev: not used.
 - CO2-Äquivalent Gesamt: not used.
 - CO2-Äquivalent Iso: not used.
 - CO2-Äquivalent Des: not used.
