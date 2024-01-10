@@ -23,6 +23,12 @@ library("gtsummary")
 
 ```{r helper_functions, include = FALSE}
 .cli_text <- function(...)cli::cli_format_method(cli::cli_text(...))
+
+.pct <- function(x, prec=".1") {
+    sprintf(
+        paste0("%", prec, "f%%"), x * 100
+    )
+}
 ```
 
 ```{r import, include = FALSE}

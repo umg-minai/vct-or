@@ -1,3 +1,22 @@
 # Results
 
+```{r co2eq}
+
+SevoCO2eq = c(
+    waste = 144 # @Andersen2021
+    ## TODO manufacturing
+)
+
+TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
+TotalRecycledSev <- NA # TODO, response Zeosys needed
+RecyclingRate <- TotalRecycledSev / TotalUsedWeightSev
+```
+
+During the study period we consumed `r TotalUsedWeightSev` gram Sevoflurane
+where `r TotalRecycledSev` could recycled (recapture rate
+`r .pct(RecyclingRate, prec = ".0")` %).
+
+Assuming a greenhouse warming potential over a 100 year time horizont (GWP~100~) of `r SevoCO2eq["waste"]` we saved
+`r RecyclingRate * SevoCO2eq["waste"]` g carbon dioxide equivalents (CO~2~eq) [@Andersen2021].
+
 TODO: calc saved CO2-eq
