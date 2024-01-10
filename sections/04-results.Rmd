@@ -14,7 +14,7 @@ RecyclingRate <- TotalRecycledSev / TotalUsedWeightSev
 
 During the study period we consumed `r TotalUsedWeightSev` gram Sevoflurane
 where `r TotalRecycledSev` could recycled (recapture rate
-`r .pct(RecyclingRate, prec = ".0")` %).
+`r .pct(RecyclingRate, prec = ".0")`).
 
 ```{r table1, echo = FALSE, warning = FALSE, message = FALSE, cache = FALSE}
 theme_gtsummary_compact(font_size = 8L)
