@@ -43,7 +43,9 @@ author:
             - Writing - review & editing
             - Validation
             - Supervision
-ethics_committee: BB 102/23
+ethics_committee:
+    reference_number: BB 102/23
+    approval_date: August 8, 2023
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
