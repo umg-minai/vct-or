@@ -30,6 +30,13 @@ author:
             - Data curation
             - Formal analysis
             - Writing - review & editing
+    - 'Falk von Dincklage, MD':
+        email: falk.vondincklage@med.uni-greifswald.de
+        institute: [KAINS]
+        correspondence: false
+        competing_interest: none
+        role:
+            - Writing - review & editing
     - 'Stephan Knigge, MD':
         email: stephan.knigge@med.uni-greifswald.de
         institute: [KAINS]

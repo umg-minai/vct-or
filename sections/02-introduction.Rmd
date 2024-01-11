@@ -2,13 +2,12 @@
 
 The anthropogenic climate crisis is the largest threat to global health [@Daalen2022].
 However, the health care sector itself is responsible for 5-10 % greenhouse gas emissions [@Hu2021].
-Almost half of these emissions are caused by anaesthetic gases used in anaesthesia and intensive care [@Hu2021].
+Almost half of these emissions are caused by volatile anaesthetics used in anaesthesia and intensive care [@Hu2021].
 
-Active carbon absorbers can attached to the exhaust port of the anaesthesia machines to capture excess anaesthetic gases can decrease the emissions and recycle valuable anaesthetic gases.
-@Hinterberg2022 investigate the efficiency of inhaled anaesthetics recapturing systems, namely CONTRAfluran (ZeoSys medical, Luckenwalde, Germany), in the operating room and found that only 25 % of the vaporised desflurane could be recaptured.
-As @Kalmar2023 pointed out the recovery process depend on the amount of recaptured anaesthetic gas and is more sufficient for full carbon absorbers which was not the case in the study by @Hinterberg2022.
-Due to its higher blood-gas coefficients and metabolism rate it could be assumed that the recapture rate for sevoflurane would be even lower as the one for desflurane.
-Using SageTech Medical's Volatile Capture Device (SageTech Medical, Paignton, UK), that in contrast to CONTRAfluran needs an additional anaesthetic gas scavenger system, @Gandhi2023 found a recapture rate for sevoflurane of 43-51%.
-
-The recapture and recycling rate of the passive anaesthetic gas recapture system, CONTRAfluran, for sevoflurane is still unknown.
-
+To decrease these emissions and recycle volatile anaesthetics active carbon absorbers can be attached to the exhaust port of the anaesthesia machines.
+A previous study by @Hinterberg2022, which investigated the efficiency of the CONTRAfluran (ZeoSys medical, Luckenwalde, Germany) recapturing system for volatile anaesthetics in the operating room, found that only 25 % of the vaporised desflurane could be recaptured.
+But as @Kalmar2023 pointed out, the recovery process depends highly on the saturation of the carbon absorbers, with a higher rate of recaptured anaesthetic gas for full carbon absorbers, but unfortunately absorber saturation was only at 15 % in the study by @Hinterberg2022.
+Therefore, it can be assumed that higher recovery rates could be obtained, when absorbers are used to a higher saturation level.
+This might be one reason why [@Gandhi2023] reported a significantly higher recapture rate of 43-51% using SageTech Medical's Volatile Capture Device (SageTech Medical, Paignton, UK) for sevoflurane, even though one would expect that the recapture rate for sevoflurane would be lower in comparison to desflurane, due to the higher blood-gas coefficients and metabolism rate of sevoflurane.
+But as this system includes an additional scavenger system to capture the volatile anaesthetic, it remains unknown how efficient passive recapture systems for sevoflurane can be, when used to higher saturation levels.
+Therefore, we conducted this study, in which we used passive absorbers (CONTRAfluran) for sevoflurane until they reached the maximum saturation levels and investigated the efficiency of the overall recovery process.
