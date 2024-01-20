@@ -7,9 +7,12 @@ in two different operating rooms.
 
 In the first operating room we mainly took care for patients for ear, nose and throat surgery.
 Generally the first and second case each day were children where we did inhaled inductions with a fresh gas flow in the range of the minute ventilation of the child.
-Mostly we used a supraglottical airway in the five to six cases per day.
+Mostly we used a supraglottical airway in the five to six cases per day. All
+cases were inducted in the operating room.
 
 In the second operating room we did mainly tracheal intubations for neurosurgical spine surgery and had around two cases a day.
+The first case was inducted in the operating room, the following cases in the
+anaesthetic room.
 
 Following our standard operating procedures a minimal or metabolic flow (< 0.5 L/min, mostly 0.35 L/min) was used during the steady-state phase in all cases.
 
