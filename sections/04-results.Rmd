@@ -3,7 +3,7 @@
 ```{r co2eq}
 
 SevoCO2eq = c(
-    waste = 144 # @Andersen2021
+    waste = 140 # @Nielsen2024
     ## TODO manufacturing
 )
 
@@ -142,6 +142,6 @@ modify_caption(
 ```
 
 Assuming a greenhouse warming potential over a 100 year time horizont (GWP~100~) of `r SevoCO2eq["waste"]` we saved
-`r RecyclingRate * SevoCO2eq["waste"]` g carbon dioxide equivalents (CO~2~eq) [@Andersen2021].
+`r RecyclingRate * SevoCO2eq["waste"]` g carbon dioxide equivalents (CO~2~eq) [@Nielsen2024].
 
 TODO: calc saved CO2-eq

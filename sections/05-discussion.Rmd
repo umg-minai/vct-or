@@ -25,6 +25,8 @@ and longer duration yield lower relative recapture (more saturation);
 
 simulated values for 8 l/min induction for 15 min, and 0.5 l/min FGF for an hour (vapor set to 3.7% Sevo?; no information about etSevo) are not comparable to our setting: 4-6 l/min for 3-5 min for inhalative induction (or 0.5 l/min for a few minutes after intravenous induction), 0.3 l/min maintenance); 30 ml Sevo consumption in @Dexter2023 vs ~ 10 ml/h in our setting
 
+metabolism of sevoflurane
+
 ## Limitations
 
 Vapor verliert in 24 h < 0.5 ml Sevo (das nicht über den Filter geht) und mgl. Schwankungen bei maximaler Füllung.
