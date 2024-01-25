@@ -101,9 +101,9 @@ lcols = paste0("Last", ocols)
 agc[, (lcols) := shift(.SD, 1, 0, "lag"), .SDcols = ocols]
 agc <- agc[, `:=` (
         TotalCasesSev =
-            TotalCasesSev + LastOverhangCasesSev,
+            round(TotalCasesSev + LastOverhangCasesSev, 2),
         TotalDurationCasesSev =
-            TotalDurationCasesSev + LastOverhangDurationSev
+            round(TotalDurationCasesSev + LastOverhangDurationSev, 2)
 )]
 agc[, `:=` (
     TotalCases = TotalCasesTiva + TotalCasesSev,
