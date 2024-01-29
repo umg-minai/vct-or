@@ -123,7 +123,7 @@ files <- list.files(
     full.names = TRUE
 )
 consumption <- do.call(rbind, c(mapply(
-    function(file, or)cbind.data.frame(OR = as.numeric(or), read.csv(file)),
+    function(file, or)cbind.data.frame(OR = as.numeric(or), read.csv(file, comment.char = "#")),
     file = files, or = tools::file_path_sans_ext(basename(files)),
     SIMPLIFY = FALSE
 ), make.row.names = FALSE))
