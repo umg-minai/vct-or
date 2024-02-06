@@ -1,6 +1,6 @@
 # Results
 
-```{r co2eq}
+```{r co2eq, include = FALSE}
 
 SevoCO2eq = c(
     waste = 140 # @Nielsen2024
