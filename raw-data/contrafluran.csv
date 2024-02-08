@@ -13,3 +13,7 @@ Id,InitialWeight,FinalWeight,OR,Start,End,Comment
 24,1043.83,1424.84,25,2023-12-07 17:45:00,2024-01-06 04:47:00,
 26,1039.10,1438.10,21,2024-01-12 09:31:00,2024-01-23 14:15:00,Changed after finishing an anaesthesia
 15,1029.35,1171.95,21,2023-12-28 12:01:00,2024-01-01 19:35:00,Changed for unknown reason
+23,1034.92,1034.92,21,2024-01-23 14:15:00,2024-01-25 06:45:00,Removed pre maintenance of Perseus (weight not measured)
+23,1034.92,1441.33,21,2024-01-27 14:30:00,2024-01-31 13:12:00,Installed post maintenance
+25,1028.41,1028.41,25,2024-01-06 04:47:00,2024-01-26 08:50:00,Removed pre maintenance of Perseus (weight not measured)
+25,1028.41,1469.20,25,2024-01-27 15:49:00,2024-02-08 15:30:00,Installed post maintenance
