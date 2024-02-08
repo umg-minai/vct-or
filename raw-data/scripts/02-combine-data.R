@@ -69,7 +69,7 @@ agc[, `:=` (
                 else 0L
             )
     ),
-    by = .(AgcId)
+    by = .(AgcId, AgcStart)
 ]
 agc[, `:=` (
         TotalCasesTiva = sum(IsTiva),
@@ -88,11 +88,11 @@ agc[, `:=` (
         # change of the ACG during a TIVA case should never happen
         TotalDurationCasesTiva = sum(DurationTiva)
     ),
-    by = .(AgcId)
+    by = .(AgcId, AgcStart)
 ]
 
 ## drop single case information
-agc <- agc[, .SD[.N], by = .(AgcId)]
+agc <- agc[, .SD[.N], by = .(AgcId, AgcStart)]
 ## add overhang from previous case
 ocols <- grep("^Overhang", colnames(agc), value = TRUE)
 lcols = paste0("Last", ocols)
@@ -103,15 +103,6 @@ agc <- agc[, `:=` (
         TotalDurationCasesSev =
             round(TotalDurationCasesSev + LastOverhangDurationSev, 2)
 )]
-agc[, `:=` (
-    TotalCases = TotalCasesTiva + TotalCasesSev,
-    TotalDurationCases = TotalDurationCasesTiva + TotalDurationCasesSev
-)]
-agc <- agc[,
-    .(AgcId, AgcOR, AgcInitialWeight, AgcFinalWeight, AgcStart, AgcEnd,
-      TotalCases, TotalCasesTiva, TotalCasesSev,
-      TotalDurationCases, TotalDurationCasesTiva, TotalDurationCasesSev)
-]
 
 ## add consumption data
 
@@ -143,10 +134,39 @@ agc <- agc[
 ## drop temporary columns
 agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
 
-agc <- agc[, TotalUsedWeightSev := sum(DiffWeight), by = AgcId]
-agc[, DiffWeight := NULL]
+agc[, TotalUsedWeightSev := sum(DiffWeight), by = .(AgcId, AgcStart)]
 
-agc <- unique(agc)
+## drop duplicated cases (before one row per entry in consumption data)
+agc <- unique(agc[,.(
+        AgcId, AgcOR, AgcInitialWeight, AgcFinalWeight,
+        TotalCasesTiva, TotalCasesSev,
+        TotalDurationCasesTiva, TotalDurationCasesSev,
+        TotalUsedWeightSev
+)])
+
+## group multiple AGC periods and drop now duplicated AGC information
+agc <- unique(agc[, .(
+        AgcOR,
+        AgcInitialWeight = min(AgcInitialWeight),
+        AgcFinalWeight = max(AgcFinalWeight),
+        TotalUsedWeightSev = sum(TotalUsedWeightSev),
+        TotalCasesTiva = sum(TotalCasesTiva),
+        TotalCasesSev = sum(TotalCasesSev),
+        TotalDurationCasesTiva = sum(TotalDurationCasesTiva),
+        TotalDurationCasesSev = sum(TotalDurationCasesSev)
+    ),
+    by = .(AgcId)
+])
+agc[, `:=` (
+    TotalCases = TotalCasesTiva + TotalCasesSev,
+    TotalDurationCases = TotalDurationCasesTiva + TotalDurationCasesSev
+)]
+setcolorder(agc, c(
+    "AgcId", "AgcOR",
+    "AgcInitialWeight", "AgcFinalWeight", "TotalUsedWeightSev",
+    "TotalCases", "TotalCasesTiva", "TotalCasesSev",
+    "TotalDurationCases", "TotalDurationCasesTiva", "TotalDurationCasesSev"
+))
 
 setnames(agc, colnames(agc), sub("^Agc", "", colnames(agc)))
 fwrite(agc, frf("data", "agc.csv"), row.names = FALSE)
