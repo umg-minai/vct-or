@@ -11,4 +11,4 @@ times <- unique(
     contrafluran[, .(Start = min(Start), End = max(End)), by = .(OR)]
 )
 
-fwrite(times, frf("data", "period.csv"), row.names = FALSE)
+fwrite(times, frf("data", "periods.csv"), row.names = FALSE)

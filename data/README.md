@@ -34,7 +34,7 @@ One line per case.
 - UptakeVolumeSev: sevoflurane uptake in ml as exported from Draeger connect.
 - EfficiencySev: efficiency sevoflurane in % as exported from Draeger connect.
 
-## period.csv
+## periods.csv
 
 - OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
 - Start: date and time when the first anaesthetic gas canister (AGC) was installed.
