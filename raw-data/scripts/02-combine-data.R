@@ -25,7 +25,9 @@ cases[, IsTiva := UsedVolumeSev == 0]
 contrafluran <- fread(frf("raw-data", "contrafluran.csv"))
 contrafluran[, `:=` (Start = ymd_hms(Start), End = ymd_hms(End))]
 setorder(contrafluran, OR, Start)
-setnames(contrafluran, colnames(contrafluran), paste0("Agc", colnames(contrafluran)))
+setnames(
+    contrafluran, colnames(contrafluran), paste0("Agc", colnames(contrafluran))
+)
 
 ## perform non-equi join to get contrafluran case connection, tmp columns needed
 cases[, jCaseStart := CaseStart]
@@ -112,7 +114,9 @@ files <- list.files(
     full.names = TRUE
 )
 consumption <- do.call(rbind, c(mapply(
-    function(file, or)cbind.data.frame(OR = as.numeric(or), read.csv(file, comment.char = "#")),
+    function(file, or)cbind.data.frame(
+        OR = as.numeric(or), read.csv(file, comment.char = "#")
+    ),
     file = files, or = tools::file_path_sans_ext(basename(files)),
     SIMPLIFY = FALSE
 ), make.row.names = FALSE))
@@ -120,7 +124,8 @@ consumption <- do.call(rbind, c(mapply(
 consumption$DiffWeight <- consumption$InitialWeight - consumption$FinalWeight
 consumption <- as.data.table(consumption)
 
-## perform non-equi join to get contrafluran consumption connection, tmp columns needed
+## perform non-equi join to get contrafluran consumption connection, tmp
+## columns needed
 consumption[, Date := ymd_hms(Date)]
 agc[, `:=` (jAgcStart = AgcStart, jAgcEnd = AgcEnd)]
 
