@@ -34,14 +34,12 @@ contrafluran[, `:=` (jAgcStart = AgcStart, jAgcEnd = AgcEnd)]
 agc <- contrafluran[
     cases,
     ,
-    on = .(jAgcStart <= jCaseStart, jAgcEnd > jCaseStart, AgcOR == OR)
+    on = .(jAgcStart <= jCaseStart, jAgcEnd > jCaseStart, AgcOR == OR),
+    nomatch = NULL
 ]
 
 ## drop temporary columns
 agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
-
-## drop unmatched cases
-agc <- agc[!is.na(AgcId),]
 
 agc[, `:=` (
     DurationTiva = fifelse(IsTiva, Duration, 0),
@@ -138,14 +136,12 @@ agc[, `:=` (jAgcStart = AgcStart, jAgcEnd = AgcEnd)]
 agc <- agc[
     consumption[, .(OR, Date, DiffWeight)],
     ,
-    on = .(jAgcStart < Date, jAgcEnd >= Date, AgcOR == OR)
+    on = .(jAgcStart < Date, jAgcEnd >= Date, AgcOR == OR),
+    nomatch = NULL
 ]
 
 ## drop temporary columns
 agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
-
-## drop unmatched cases
-agc <- agc[!is.na(AgcId),]
 
 agc <- agc[, TotalUsedWeightSev := sum(DiffWeight), by = AgcId]
 agc[, DiffWeight := NULL]
