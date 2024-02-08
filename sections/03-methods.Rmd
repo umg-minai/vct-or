@@ -2,7 +2,7 @@
 
 In this prospective single-center observational study we collected
 `r nrow(agc)` consecutive CONTRAfluran anaesthetic gas canisters from
-`r paste(format(range(c(agc$Start, agc$End)), "%B %Y"), collapse = " to ")`
+`r paste(format(range(c(periods$Start, periods$End)), "%B %Y"), collapse = " to ")`
 in two different operating rooms.
 
 In the first operating room we mainly took care for patients for ear, nose and throat surgery.

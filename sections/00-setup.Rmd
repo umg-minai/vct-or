@@ -33,13 +33,11 @@ library("gtsummary")
 
 ```{r import, include = FALSE}
 agc <- read.csv(frf("data", "agc.csv"))
+periods <- read.csv(frf("data", "periods.csv"))
 ```
 
 ```{r prepare, include = FALSE}
 sevodensity <- 1.52 # @Hu2021
-
-agc$Start <- as.POSIXct(agc$Start)
-agc$End <- as.POSIXct(agc$End)
 
 agc$WeightGain <- agc$FinalWeight - agc$InitialWeight
 agc$TotalUsedVolumeSev <- agc$TotalUsedWeightSev / sevodensity
@@ -48,4 +46,6 @@ agc$UsedWeightPerHourSev <- agc$TotalUsedWeightSev / (agc$TotalDurationCasesSev 
 agc$MaxRecaptureRate <- agc$WeightGain / agc$TotalUsedWeightSev * 100
 
 agc$AvgDurationSev <- agc$TotalDurationCasesSev / agc$TotalCasesSev
+
+periods[c("Start", "End")] <- lapply(periods[c("Start", "End")], as.POSIXct)
 ```
