@@ -2,6 +2,8 @@
 
 @Hinterberg2022: meisten Filter leer (nur 8 % der möglichen Füllmenge), neuer Filter je Patient, 70 % weight gain attributable to desflurane, höhere MAC und längere Dauer mit geringerer recapture rate assoziiert, laut Supplement, hoher FGF 0.8 l/min
 
+MAC vs MAC~awake~ Sevo vs Desfl
+
 Hu et al TIVA vs IA + VCT
 
 vgl. Cost Effizienz ggü. AGFS u. CO2-Effizienz ggü. AGFS
