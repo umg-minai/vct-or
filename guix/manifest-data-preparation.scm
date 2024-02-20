@@ -2,4 +2,5 @@
   '("r-minimal"
     "r-data-table"
     "r-lubridate"
-    "r-rprojroot"))
+    "r-rprojroot"
+    "r-validate"))
