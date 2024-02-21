@@ -10,7 +10,7 @@ Mapping between device id and operating room.
 - Description: human readable location (could change during study due to relocation of the Draeger Perseus device to another operating room).
 - OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
 
-### 2023xxxx/Device_overview_x*.csv
+### 2023xxxx/Device_overview_x\*.csv
 
 Weekly summary report exported from Draeger connect software.
 
@@ -46,7 +46,7 @@ First line contains the total summary of all rows below.
 - CO2-Äquivalent gesamt [kg]_Des: not used.
 - CO2-Äquivalent gesamt [kg]_Sev not used.
 
-### 2023xxxx/fall_analyse_xxxx*.csv
+### 2023xxxx/fall_analyse_xxxx\*.csv
 
 Weekly individual report exported from Draeger connect software.
 
