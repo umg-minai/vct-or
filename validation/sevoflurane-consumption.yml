@@ -1,0 +1,8 @@
+---
+options:
+  raise: all
+include:
+  - rules/sevoflurane-consumption/BottleId.yml
+  - rules/sevoflurane-consumption/Date.yml
+  - rules/sevoflurane-consumption/Weight.yml
+---

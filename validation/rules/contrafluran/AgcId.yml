@@ -1,0 +1,16 @@
+rules:
+- expr: is.character(Id)
+  name: 'RAI1'
+  label: 'agc id chr'
+  description: |
+    Id has to be a character.
+- expr: field_format(Id, '^CH*')
+  name: 'RAI2'
+  label: 'agc id ^CH'
+  description: |
+    Id has to start with CH.
+- expr: field_length(Id, n = 12)
+  name: 'RAI3'
+  label: 'agc id ^CH'
+  description: |
+    Id has to be of length 12.

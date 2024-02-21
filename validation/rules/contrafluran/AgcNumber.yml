@@ -1,0 +1,11 @@
+rules:
+- expr: is.integer(Number)
+  name: 'RAN1'
+  label: 'agc number int'
+  description: |
+    Number has to be an integer.
+- expr: in_range(Number, min = 11, max = 30)
+  name: 'RAN2'
+  label: 'agc number range'
+  description: |
+    Number has to between 11 and 30.

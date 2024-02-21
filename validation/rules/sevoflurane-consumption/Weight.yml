@@ -1,0 +1,39 @@
+rules:
+- expr: is.double(InitialWeight)
+  name: 'RIW1'
+  label: 'initial weight dbl'
+  description: |
+    InitialWeight has to be a double.
+- expr: in_range(InitialWeight, min = 52, max = 435)
+  name: 'RIW2'
+  label: 'initial weight range'
+  description: |
+    InitialWeight has to be between 52 and 435 g.
+- expr: is.double(InitialWeight)
+  name: 'RFW1'
+  label: 'final weight dbl'
+  description: |
+    FinalWeight has to be a double.
+- expr: in_range(FinalWeight, min = 52, max = 435)
+  name: 'RFW2'
+  label: 'final weight range'
+  description: |
+    InitialWeight has to be between 52 and 435 g.
+- expr: InitialWeight >= FinalWeight
+  name: 'RFW3'
+  label: 'weight gain'
+  description: |
+    FinalWeight has to be less or equal than InitialWeight.
+- expr: sum_by(InitialWeight - FinalWeight, Id) < 250 * 1.52 * 1.005
+  name: 'RWC1'
+  label: 'weight per bottle'
+  description: |
+    Ensure weight loss is not more than a bottle (250 ml) sevoflurane
+    (density 1.52), and a little tolerance of 1/2 1%
+    (weight error in multiple measurements).
+- expr: c(500, head(InitialWeight, -1)) * 1.002 > InitialWeight | c(0, head(Id, -1)) < Id
+  name: 'RWC2'
+  label: 'weight comparision'
+  description: |
+    InitialWeight has to be descreasing from row to row except
+    we used a new bottle (add 0.2 % tolerance for measurement tolerance/errors).

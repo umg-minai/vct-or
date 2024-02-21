@@ -1,0 +1,16 @@
+rules:
+- expr: is.integer(Id)
+  name: 'RBI1'
+  label: 'bottle id int'
+  description: |
+    Number has to be an integer.
+- expr: Id > 0L
+  name: 'RBI2'
+  label: 'bottle id > 0'
+  description: |
+    Id has to be larger than 0.
+- expr: c(0, head(Id, -1)) <= Id
+  name: 'RBI3'
+  label: 'bottle id eq/inq'
+  description: |
+    Id has to be equal or increasing.

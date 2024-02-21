@@ -1,0 +1,6 @@
+rules:
+- expr: OR %in% c(21L, 25L)
+  name: 'ROV1'
+  label: 'valid OR'
+  description: |
+    OR has to be 21 or 25.

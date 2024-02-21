@@ -1,0 +1,10 @@
+---
+options:
+  raise: all
+include:
+  - rules/contrafluran/AgcId.yml
+  - rules/contrafluran/AgcNumber.yml
+  - rules/contrafluran/OR.yml
+  - rules/contrafluran/Weight.yml
+  - rules/contrafluran/Date.yml
+---

@@ -20,7 +20,8 @@ GITHEADL=$(shell git rev-parse HEAD)
 
 .PHONEY: \
 	clean clean-dist clean-output \
-	dist gh-pages guix-pin-channels
+	dist gh-pages guix-pin-channels \
+	validate validate-raw-data
 
 all: manuscript
 
@@ -68,6 +69,13 @@ $(DATA): ${CSV} ${SCRIPTS} guix/manifest-data-preparation.scm
 	${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest-data-preparation.scm -- \
 		Rscript raw-data/scripts/00-setup.R
+
+validate: validate-raw-data
+
+validate-raw-data:
+	${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
+		shell --manifest=guix/manifest-data-preparation.scm -- \
+		Rscript validation/validate.R
 
 clean: clean-dist clean-output
 

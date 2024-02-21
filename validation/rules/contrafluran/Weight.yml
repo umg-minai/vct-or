@@ -1,0 +1,27 @@
+rules:
+- expr: is.double(InitialWeight)
+  name: 'RIW1'
+  label: 'initial weight dbl'
+  description: |
+    InitialWeight has to be a double.
+- expr: in_range(InitialWeight, min = 1020, max = 1048)
+  name: 'RIW2'
+  label: 'initial weight range'
+  description: |
+    InitialWeight has to be between 1020 and 1048 g.
+- expr: is.double(InitialWeight)
+  name: 'RFW1'
+  label: 'final weight dbl'
+  description: |
+    FinalWeight has to be a double.
+- expr: in_range(FinalWeight, min = 1020, max = 1475)
+  name: 'RFW2'
+  label: 'final weight range'
+  description: |
+    InitialWeight has to be between 1020 and 1475 g.
+- expr: FinalWeight - InitialWeight > 250 * 1.52 * 0.98 | FinalWeight == InitialWeight
+  name: 'RFW3'
+  label: 'weight gain'
+  description: |
+    FinalWeight has to be at least 375 g larger than InitialWeight
+    (a bottle sevoflurane 250 ml, density 1.52, with error tolerance of 2%).
