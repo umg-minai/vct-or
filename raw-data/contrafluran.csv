@@ -17,4 +17,5 @@ CH0100022442,23,1034.92,1034.92,21,2024-01-23 14:15:00,2024-01-25 06:45:00,Remov
 CH0100022442,23,1034.92,1441.33,21,2024-01-27 14:30:00,2024-02-06 13:15:00,Installed post maintenance
 CH0100022366,25,1028.41,1028.41,25,2024-01-06 04:47:00,2024-01-26 08:50:00,Removed pre maintenance of Perseus (weight not measured)
 CH0100022366,25,1028.41,1469.20,25,2024-01-27 15:49:00,2024-02-08 15:30:00,Installed post maintenance
-CH0100009267,27,1047.37,1472.92,21,2024-02-06 13:12:00,2024-02-15 11:00:00,Two yellow LEDs just before finishing an anaesthesia - dimishing during higher flows - red LED during the next case (a TIVA) - reset time from 13:17 to 11:00 (end of previous case) to match draeger connect data
+CH0100009267,27,1047.37,1472.92,21,2024-02-06 13:12:00,2024-02-15 13:17:00,
+CH0100009250,28,1065.49,1488.81,21,2024-02-15 13:17:00,2024-02-29 08:30:00,
