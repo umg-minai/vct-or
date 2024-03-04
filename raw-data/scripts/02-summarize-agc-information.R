@@ -43,28 +43,23 @@ agc <- contrafluran[
 ## drop temporary columns
 agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
 
-agc[, `:=` (
-    DurationTiva = fifelse(IsTiva, Duration, 0),
-    DurationSev = fifelse(IsTiva, 0, Duration)
-)]
-
 ## sum usage and uptake
 ## (don't add last entry from draeger connect, change of agc could happen during
 ## anaesthesia)
 agc[, `:=` (
-        OverhangCasesSev =
+        OverhangCases =
             c(rep_len(NA, .N - 1),
                 if (CaseEnd[.N] > AgcEnd[.N]) {
                     as.numeric(
                         difftime(CaseEnd[.N], AgcEnd[.N], units = "mins")
-                    ) / (DurationSev[.N])
+                    ) / (Duration[.N])
                 }
                 else 0L
             ),
-        OverhangDurationSev =
+        OverhangDuration =
             c(rep_len(NA, .N - 1),
                 if (CaseEnd[.N] > AgcEnd[.N]) {
-                    DurationSev[.N] - as.numeric(
+                    Duration[.N] - as.numeric(
                         difftime(CaseEnd[.N], AgcEnd[.N], units = "mins")
                     )
                 }
@@ -73,22 +68,18 @@ agc[, `:=` (
     ),
     by = .(AgcId, AgcStart)
 ]
+
 agc[, `:=` (
-        TotalCasesTiva = sum(IsTiva),
+        TotalCasesTiva =
+            sum(IsTiva) - as.integer(IsTiva[.N]) * OverhangCases[.N],
         TotalCasesSev =
-            if (CaseEnd[.N] <= AgcEnd[.N])
-                sum(!IsTiva)
-            else
-                sum(!IsTiva) - OverhangCasesSev[.N]
-        ,
+            sum(!IsTiva) - as.integer(!IsTiva[.N]) * OverhangCases[.N],
+        TotalDurationCasesTiva =
+            sum(Duration[IsTiva]) -
+            as.integer(IsTiva[.N]) * OverhangDuration[.N],
         TotalDurationCasesSev =
-            if (CaseEnd[.N] <= AgcEnd[.N])
-                sum(DurationSev)
-            else
-                sum(DurationSev) - OverhangDurationSev[.N]
-        ,
-        # change of the ACG during a TIVA case should never happen
-        TotalDurationCasesTiva = sum(DurationTiva)
+            sum(Duration[!IsTiva]) -
+            as.integer(!IsTiva[.N]) * OverhangDuration[.N]
     ),
     by = .(AgcId, AgcStart)
 ]
@@ -96,14 +87,28 @@ agc[, `:=` (
 ## drop single case information
 agc <- agc[, .SD[.N], by = .(AgcId, AgcStart)]
 ## add overhang from previous case
-ocols <- grep("^Overhang", colnames(agc), value = TRUE)
+ocols <- grep("^Overhang|^IsTiva", colnames(agc), value = TRUE)
 lcols = paste0("Last", ocols)
 agc[, (lcols) := shift(.SD, 1, 0, "lag"), .SDcols = ocols]
 agc <- agc[, `:=` (
-        TotalCasesSev =
-            round(TotalCasesSev + LastOverhangCasesSev, 2),
-        TotalDurationCasesSev =
-            round(TotalDurationCasesSev + LastOverhangDurationSev, 2)
+        TotalCasesTiva = round(
+            TotalCasesTiva + as.integer(LastIsTiva) * LastOverhangCases,
+            2
+        ),
+        TotalCasesSev = round(
+            TotalCasesSev + as.integer(!LastIsTiva) * LastOverhangCases,
+            2
+        ),
+        TotalDurationCasesTiva = round(
+            TotalDurationCasesTiva +
+                as.integer(LastIsTiva) * LastOverhangDuration,
+            2
+        ),
+        TotalDurationCasesSev = round(
+            TotalDurationCasesSev +
+                as.integer(!LastIsTiva) * LastOverhangDuration,
+            2
+        )
 )]
 
 ## add consumption data
