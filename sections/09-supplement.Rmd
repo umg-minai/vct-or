@@ -1,5 +1,23 @@
 # Supplement
 
+## Table of anaesthetic gas canisters
+
+```{r tableagc, echo = FALSE, message = FALSE}
+library("kableExtra")
+agc[c("Id", "OR", "InitialWeight", "FinalWeight", "TotalUsedWeightSev",
+      "TotalCases", "TotalCasesTiva", "TotalCasesSev",
+      "TotalDurationCases", "TotalDurationCasesTiva",
+      "TotalDurationCasesSev", "WeightGain", "UsedWeightPerHourSev",
+      "AvgDurationSev", "MaxRecaptureRate")] |>
+    dplyr::mutate_at(vars(matches("Duration")), function(x)x / 60) |>
+    kbl(
+        digits = 2,
+        caption = "Details of anaesthetic gas canisters"
+    ) |>
+    kable_classic(full_width = FALSE) |>
+    kable_styling(font_size = 9)
+```
+
 ## R session information
 
 
