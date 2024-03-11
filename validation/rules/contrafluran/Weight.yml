@@ -4,22 +4,22 @@ rules:
   label: 'initial weight dbl'
   description: |
     InitialWeight has to be a double.
-- expr: in_range(InitialWeight, min = 1020, max = 1066)
+- expr: in_range(min_by(InitialWeight, Id), min = 1020, max = 1066)
   name: 'RIW2'
   label: 'initial weight range'
   description: |
     InitialWeight has to be between 1020 and 1066 g.
-- expr: is.double(InitialWeight)
+- expr: is.double(FinalWeight)
   name: 'RFW1'
   label: 'final weight dbl'
   description: |
     FinalWeight has to be a double.
-- expr: in_range(FinalWeight, min = 1020, max = 1489)
+- expr: in_range(max_by(FinalWeight, Id), min = 1380, max = 1489)
   name: 'RFW2'
   label: 'final weight range'
   description: |
-    InitialWeight has to be between 1020 and 1489 g.
-- expr: FinalWeight - InitialWeight > 250 * 1.52 * 0.98 | FinalWeight == InitialWeight
+    FinalWeight has to be between 1380 and 1489 g.
+- expr: max_by(FinalWeight, Id) - min_by(InitialWeight, Id) > 250 * 1.52 * 0.98
   name: 'RFW3'
   label: 'weight gain'
   description: |
