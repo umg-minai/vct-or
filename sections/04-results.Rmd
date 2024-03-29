@@ -125,10 +125,10 @@ tbl_stack(
     )
 ) |>
 ## indent variable names and missing
-modify_table_styling(column = "label", text_format = "indent") |>
+modify_table_styling(columns = "label", text_format = "indent") |>
 modify_table_styling(
     rows = row_type %in% c("missing", "level"),
-    column = "label",
+    columns = "label",
     text_format = "indent2"
 ) |>
 modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
