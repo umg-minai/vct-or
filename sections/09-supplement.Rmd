@@ -8,7 +8,7 @@ agc[c("Id", "OR", "InitialWeight", "FinalWeight", "TotalUsedWeightSev",
       "TotalCases", "TotalCasesTiva", "TotalCasesSev",
       "TotalDurationCases", "TotalDurationCasesTiva",
       "TotalDurationCasesSev", "WeightGain", "UsedWeightPerHourSev",
-      "AvgDurationSev", "MaxRecaptureRate")] |>
+      "AvgDurationSev", "InVivoMassTransfer")] |>
     dplyr::mutate_at(vars(matches("Duration")), function(x)x / 60) |>
     kbl(
         digits = 2,

@@ -8,13 +8,13 @@ SevoCO2eq = c(
 )
 
 TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
-TotalRecycledSev <- NA # TODO, response Zeosys needed
-RecyclingRate <- TotalRecycledSev / TotalUsedWeightSev
+TotalRecoveredSev <- NA # TODO, response Zeosys needed
+CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
 ```
 
 During the study period we consumed `r TotalUsedWeightSev` gram Sevoflurane
-where `r TotalRecycledSev` could recycled (recapture rate
-`r .pct(RecyclingRate, prec = ".0")`).
+where `r TotalRecoveredSev` could recovered (capture efficiency
+`r .pct(CaptureEfficiency, prec = ".0")`).
 
 ```{r table1, echo = FALSE, message = FALSE}
 theme_gtsummary_compact(font_size = 8L)
@@ -64,7 +64,7 @@ tbl_weights <- agc |>
         InitialWeight,
         FinalWeight,
         WeightGain,
-        MaxRecaptureRate
+        InVivoMassTransfer
     ) |>
     tbl_summary(
         by = OR,
@@ -73,13 +73,13 @@ tbl_weights <- agc |>
             InitialWeight ~ "continuous",
             FinalWeight ~ "continuous",
             WeightGain ~ "continuous",
-            MaxRecaptureRate ~ "continuous"
+            InVivoMassTransfer ~ "continuous"
         ),
         label = list(
             InitialWeight ~ "Initial weight [g]",
             FinalWeight ~ "Final weight [g]",
             WeightGain ~ "Weight gain [g]",
-            MaxRecaptureRate ~ "Weight gain/sevoflurane consumption [%]"
+            InVivoMassTransfer ~ "In vivo mass transfer [%]"
         ),
         digits = all_continuous() ~ 1
     ) |>
@@ -142,6 +142,7 @@ modify_caption(
 ```
 
 Assuming a greenhouse warming potential over a 100 year time horizont (GWP~100~) of `r SevoCO2eq["waste"]` we saved
-`r RecyclingRate * SevoCO2eq["waste"]` g carbon dioxide equivalents (CO~2~eq) [@Nielsen2024].
+`r CaptureEfficiency * SevoCO2eq["waste"]` g carbon dioxide equivalents (CO~2~eq) [@Nielsen2024].
 
 TODO: calc saved CO2-eq
+taxonomy introduced in @Gandhi2024
