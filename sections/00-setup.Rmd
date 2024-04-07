@@ -18,7 +18,10 @@ knitr::write_bib(
 ```
 
 ```{r libraries, include = FALSE}
+library("english")
 library("gtsummary")
+
+options(english.UK = FALSE)
 ```
 
 ```{r helper_functions, include = FALSE}
@@ -28,6 +31,15 @@ library("gtsummary")
     sprintf(
         paste0("%", prec, "f%%"), x * 100
     )
+}
+
+#' return numbers as words
+.as.word <- function(x)
+    ifelse(x > 12, as.character(x), as.character(as.english(as.numeric(x))))
+.as.Word <- function(x).capitalize(.as.word(x))
+.capitalize <- function(x) {
+    substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+    x
 }
 ```
 
