@@ -13,30 +13,30 @@ author:
         competing_interest: none
         role:
             - Conceptualization
-            - Data curation
-            - Formal analysis
-            - Methodology
-            - Validation
-            - Writing - original draft
-            - Writing - review & editing
-            - Supervision
+            - data curation
+            - formal analysis
+            - methodology
+            - validation
+            - writing -- original draft
+            - writing -- review and editing
+            - supervision
     - 'Nadin Möller':
         email: nadin.moeller@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
         competing_interest: none
         role:
-            - Investigation
-            - Data curation
-            - Formal analysis
-            - Writing - review & editing
+            - data curation
+            - investigation
+            - formal analysis
+            - writing -- review and editing
     - 'Falk von Dincklage, MD':
         email: falk.vondincklage@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
         competing_interest: none
         role:
-            - Writing - review & editing
+            - writing -- review and editing
     - 'Stephan Knigge, MD':
         email: stephan.knigge@med.uni-greifswald.de
         institute: [KAINS]
@@ -44,12 +44,12 @@ author:
         competing_interest: none
         role:
             - Conceptualization
-            - Data curation
-            - Investigation
-            - Methodology
-            - Writing - review & editing
-            - Validation
-            - Supervision
+            - data curation
+            - investigation
+            - methodology
+            - writing -- review and editing
+            - validation
+            - supervision
 ethics_committee:
     reference_number: BB 102/23
     approval_date: August 8, 2023
