@@ -4,5 +4,4 @@
     "r-bookdown"
     "r-english"
     "r-gtsummary"
-    "r-kableextra"
     "r-rprojroot"))

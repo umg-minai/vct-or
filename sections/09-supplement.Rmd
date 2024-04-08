@@ -2,20 +2,70 @@
 
 ## Table of anaesthetic gas canisters
 
-```{r tableagc, echo = FALSE, message = FALSE}
-library("kableExtra")
-agc[c("Id", "OR", "InitialWeight", "FinalWeight", "TotalUsedWeightSev",
-      "TotalCases", "TotalCasesTiva", "TotalCasesSev",
-      "TotalDurationCases", "TotalDurationCasesTiva",
-      "TotalDurationCasesSev", "WeightGain", "UsedWeightPerHourSev",
-      "AvgDurationSev", "InVivoMassTransfer")] |>
-    dplyr::mutate_at(vars(matches("Duration")), function(x)x / 60) |>
-    kbl(
-        digits = 2,
-        caption = "Details of anaesthetic gas canisters"
-    ) |>
-    kable_classic(full_width = FALSE) |>
-    kable_styling(font_size = 9)
+```{r tableagc, echo = FALSE, message = FALSE, caption = "Details of anaesthetic gas canisters."}
+library("flextable")
+
+typology <- data.frame(
+    col_keys = c(
+        "Id", "OR", "InitialWeight", "FinalWeight", "WeightGain",
+        "TotalCases", "TotalCasesSev",
+        "TotalDurationCases", "TotalDurationCasesSev", "AvgDurationSev",
+        "TotalUsedWeightSev", "UsedWeightPerHourSev",
+        "InVivoMassTransfer"
+    ),
+    what = c(
+            "Id", "OR", "Weight [g]", "Weight [g]", "Weight [g]",
+            "Cases", "Cases",
+            "Duration [h]", "Duration [h]", "Duration [h]",
+            "Sevoflurane consumption", "Sevoflurane consumption",
+            "MT [%]"
+    ),
+    measure = c(
+            "Id", "OR", "Initial", "Final", "Gain", "Total", "Sevo",
+            "Total", "Total Sevo", "Avg Sevo",
+            "Total [g]", "Avg [g/h]", "MT [%]"
+    ),
+    stringsAsFactors = FALSE
+)
+
+agc[c(
+    "Id", "OR", "InitialWeight", "FinalWeight", "WeightGain",
+    "TotalCases", "TotalCasesSev",
+    "TotalDurationCases", "TotalDurationCasesSev", "AvgDurationSev",
+    "TotalUsedWeightSev", "UsedWeightPerHourSev",
+    "InVivoMassTransfer")] |>
+    knitr::kable(
+        digits = 1,
+        col.names = c(
+            "Id", "OR",
+            "W~i~", "W~f~", "W~d~",
+            "N", "N~sev~",
+            "D", "D~sev~", "D~avg~",
+            "C~sev~", "C~avg~",
+            "MT"
+        ),
+        caption = paste0(
+            "Details of anaesthetic gas canisters. ",
+            paste0(
+                c(
+                    "C~sev~: total used sevoflurane [g]",
+                    "C~avg~: average used sevoflurane [g/h]",
+                    "D: total duration [h]",
+                    "D~sev~: total duration of sevoflurane cases [h]",
+                    "D~avg~: average duration of sevoflurane cases [h]",
+                    "Id: lot number",
+                    "MT: in vivo mass transfer [%]",
+                    "N: total number of anaesthesia cases",
+                    "N~sev~: total number of sevoflurane cases",
+                    "OR: operation room",
+                    "W~d~: weight gain",
+                    "W~f~: final weight",
+                    "W~i~: initial weight"
+                ),
+                collapse = "; "
+            )
+        )
+    )
 ```
 
 ## R session information
