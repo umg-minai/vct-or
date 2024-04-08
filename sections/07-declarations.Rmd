@@ -65,7 +65,7 @@ for (i in seq_along(l)) {
 }
 cat(
     paste0(actbs, collapse = "; "),
-    "; All authors have read and agreed to the published version",
+    ". All authors have read and agreed to the published version",
     " of the manuscript.",
     sep = ""
 )
