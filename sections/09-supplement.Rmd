@@ -3,31 +3,6 @@
 ## Table of anaesthetic gas canisters
 
 ```{r tableagc, echo = FALSE, message = FALSE, caption = "Details of anaesthetic gas canisters."}
-library("flextable")
-
-typology <- data.frame(
-    col_keys = c(
-        "Id", "OR", "InitialWeight", "FinalWeight", "WeightGain",
-        "TotalCases", "TotalCasesSev",
-        "TotalDurationCases", "TotalDurationCasesSev", "AvgDurationSev",
-        "TotalUsedWeightSev", "UsedWeightPerHourSev",
-        "InVivoMassTransfer"
-    ),
-    what = c(
-            "Id", "OR", "Weight [g]", "Weight [g]", "Weight [g]",
-            "Cases", "Cases",
-            "Duration [h]", "Duration [h]", "Duration [h]",
-            "Sevoflurane consumption", "Sevoflurane consumption",
-            "MT [%]"
-    ),
-    measure = c(
-            "Id", "OR", "Initial", "Final", "Gain", "Total", "Sevo",
-            "Total", "Total Sevo", "Avg Sevo",
-            "Total [g]", "Avg [g/h]", "MT [%]"
-    ),
-    stringsAsFactors = FALSE
-)
-
 agc[c(
     "Id", "OR", "InitialWeight", "FinalWeight", "WeightGain",
     "TotalCases", "TotalCasesSev",
