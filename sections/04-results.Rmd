@@ -55,7 +55,6 @@ tbl_cases <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_overall() |>
     add_p()
 
 tbl_weights <- agc |>
@@ -83,8 +82,9 @@ tbl_weights <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_overall() |>
     add_p()
+
+tbl_weights_overall <- add_overall(tbl_weights)
 
 tbl_sevo_consumption <- agc |>
     select(
@@ -111,10 +111,9 @@ tbl_sevo_consumption <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_overall() |>
     add_p()
 
-tbl_stack(
+tbl1 <- tbl_stack(
     tbls = list(
         tbl_cases, tbl_sevo_consumption, tbl_weights
     ),
@@ -139,6 +138,7 @@ modify_caption(
         "Cases, duration etc. are given as per canister."
     )
 )
+tbl1
 ```
 
 Assuming a greenhouse warming potential over a 100 year time horizont (GWP~100~) of `r SevoCO2eq["waste"]` we saved
