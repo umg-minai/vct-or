@@ -25,6 +25,15 @@ options(english.UK = FALSE)
 ```
 
 ```{r helper_functions, include = FALSE}
+.tbl <- function(tbl, variable, column = "Overall", ...) {
+    if (column == "Overall")
+        column <- "stat_0"
+    gtsummary::inline_text(
+        tbl,
+        variable = all_of(variable), column = all_of(column), ...
+    )
+}
+
 .cli_text <- function(...)cli::cli_format_method(cli::cli_text(...))
 
 .pct <- function(x, prec=".1") {
