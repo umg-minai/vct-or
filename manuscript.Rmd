@@ -61,7 +61,7 @@ linkcolor: blue
 output:
     bookdown::html_document2:
         keep_md: true # keep images for submission
-        number_sections: false
+        number_sections: true
         pandoc_args:
             - --lua-filter=pandoc/lua-filters/abstract-section.lua
             - --lua-filter=pandoc/lua-filters/scholarly-metadata.lua
