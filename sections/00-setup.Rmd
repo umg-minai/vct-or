@@ -36,9 +36,10 @@ options(english.UK = FALSE)
 
 .cli_text <- function(...)cli::cli_format_method(cli::cli_text(...))
 
-.pct <- function(x, prec=".1") {
+.pct <- function(x, prec = ".1", symbol = rep_len(TRUE, length(x))) {
     sprintf(
-        paste0("%", prec, "f%%"), x * 100
+        paste0("%", prec, "f", ifelse(symbol, " %%", "")),
+        x * 100
     )
 }
 
