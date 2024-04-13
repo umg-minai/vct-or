@@ -1,5 +1,5 @@
 Id,Date,InitialWeight,FinalWeight,Comment
-2,2023-10-09 06:50:00,251.63,149.75,AGC 14
+2,2023-10-09 06:40:00,251.63,149.75,AGC 14; adapt time from 6:50 to 6:40 because vapor was filled before first anaesthesia (around 8:30) was applied; no sevoflurane was consumed before over this AGC
 2,2023-10-10 07:13:00,149.75,110.9,
 4,2023-10-11 15:56:00,434.12,321.79,
 4,2023-10-12 07:31:00,321.72,321.72,
