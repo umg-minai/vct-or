@@ -146,9 +146,18 @@ agc[, `:=` (jAgcStart = NULL, jAgcEnd = NULL)]
 
 agc[, TotalUsedWeightSev := sum(DiffWeight), by = .(AgcId, AgcStart)]
 
+## calculate storage loss
+agc <- agc[, `:=` (
+        AgcLostWeight = AgcFinalWeight - AgcFinalWeight2,
+        AgcDaysStored = as.integer(
+            round(difftime(ymd("20240409"), AgcEnd, units = "days"))
+        )
+)]
+
 ## drop duplicated cases (before one row per entry in consumption data)
 agc <- unique(agc[,.(
         AgcId, AgcOR, AgcInitialWeight, AgcFinalWeight,
+        AgcLostWeight, AgcDaysStored,
         TotalCasesTiva, TotalCasesSev,
         TotalDurationCasesTiva, TotalDurationCasesSev,
         TotalUsedWeightSev
@@ -159,6 +168,8 @@ agc <- unique(agc[, .(
         AgcOR,
         AgcInitialWeight = min(AgcInitialWeight),
         AgcFinalWeight = max(AgcFinalWeight),
+        AgcLostWeight = max(AgcLostWeight),
+        AgcDaysStored = min(AgcDaysStored),
         TotalUsedWeightSev = sum(TotalUsedWeightSev),
         TotalCasesTiva = sum(TotalCasesTiva),
         TotalCasesSev = sum(TotalCasesSev),
@@ -173,8 +184,8 @@ agc[, `:=` (
 )]
 setcolorder(agc, c(
     "AgcId", "AgcOR",
-    "AgcInitialWeight", "AgcFinalWeight", "TotalUsedWeightSev",
-    "TotalCases", "TotalCasesTiva", "TotalCasesSev",
+    "AgcInitialWeight", "AgcFinalWeight", "AgcLostWeight", "AgcDaysStored",
+    "TotalUsedWeightSev", "TotalCases", "TotalCasesTiva", "TotalCasesSev",
     "TotalDurationCases", "TotalDurationCasesTiva", "TotalDurationCasesSev"
 ))
 
