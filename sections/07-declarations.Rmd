@@ -73,4 +73,5 @@ cat(
 
 ## Acknowledgement
 
-We thank Marco Reinke and Steffen Suermann from Draeger Medical Deutschland GmbH for exporting the Draeger connect data and for helpful discussions about sevoflurane consumption.
+We thank Marco Reinke and Steffen Suermann from Draeger Medical Deutschland GmbH for exporting the Draeger connect data, the Draeger Perseus' logbooks and for helpful discussions about sevoflurane consumption.
+Additonally we like to thank Christian Ewers, managing director of ZeoSys medical, for reporting the amount of recovered sevoflurane and information about the desorption process.

@@ -1,1 +1,18 @@
 # Conclusion
+
+The capture effiency depends on fresh gas flow and duration of anaesthesia, and
+was higher for sevoflurane captured by a passive charcoal absorbers (CONTRAfluran)
+until they reached the maximum saturation levels than previously reported.
+Using metabolic flow the proportional capture efficiencies were
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")`
+and
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`
+in the two studied operating rooms.
+However, focusing on capture efficiency is misleading and the carbon footprint
+should be assessed instead.
+The estimated carbon footprint for inhaled anaesthesia utilizing metabolic flow
+and applying vapor capture technology is still higher than for total intravenous
+anaesthesia.
+This highlights the most important action, reducing wastage upfront
+wherever possible, i.e. critical indication of inhaled anaesthesia and
+using metabolic flow.

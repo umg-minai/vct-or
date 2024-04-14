@@ -80,3 +80,7 @@ agc$AvgDurationSev <- agc$TotalDurationCasesSev / agc$TotalCasesSev
 
 periods[c("Start", "End")] <- lapply(periods[c("Start", "End")], as.POSIXct)
 ```
+
+```{r fit-weight-loss, include = FALSE}
+fit.weigth.loss <- lm(LostWeight ~ 0 + DaysStored, data = agc)
+```

@@ -1,20 +1,71 @@
 # Results
 
+```{r counts, include = FALSE}
+ORnames <- paste0("OR", unique(agc$OR))
+nCases <- tapply(agc$TotalCases, agc$OR, sum)
+nCasesTiva <- tapply(agc$TotalCasesTiva, agc$OR, sum)
+nCasesSev <- tapply(agc$TotalCasesSev, agc$OR, sum)
+pCasesSev <- nCasesSev / nCases
+```
+
+
 ```{r co2eq, include = FALSE}
 
 SevoCO2eq = c(
-    waste = 140 # @Nielsen2024
-    ## TODO manufacturing
+    waste = 140, # @Nielsen2024
+    manufacturing = 143.2928 # @Hu2021, supplement 1-s2.0-S0921344921000185-mmc2.xlsx, Table "CO2-Eq (Route-C):E37" 886.5143 and Table "CO2-Eq (Route-E):E38" 143.2928 - Route B
+    # 20.625
+    # Presentation Baxter LCA: Life Cycle Assessment of Anaesthetic Gas Capture in the Operating Room using ContraFluran Tom Costelloe, Michael Collins, Doyin Oladele and Simon Aumônier 25/01/2022
+    # source should be: "Life Cycle Greenhouse Gas Emissions of Anaesthetic Drugs", Sherman et al. Anesthesia & Analgesia. 114(5):1086-1090, May 2012; could not find direct number; maybe could be calculated with LCA software given the ingredients
 )
 
-TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
-TotalRecoveredSev <- NA # TODO, response Zeosys needed
-CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
-```
+CONTRAfluranCO2eq <- 66.6 # @Costelloe2022, Scenario UK, page 14
 
-During the study period we consumed `r TotalUsedWeightSev` gram Sevoflurane
-where `r TotalRecoveredSev` could recovered (capture efficiency
-`r .pct(CaptureEfficiency, prec = ".0")`).
+AGSSkWh <- 0.1 # @Schuster2023
+kWhCO2eq <- 0.485 # @Schuster2023
+
+TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
+TotalWeightGain <- sum(agc$WeightGain)
+TotalRecoveredSev <- TotalWeightGain * 0.85 #NA # TODO, response ZeoSys needed
+CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
+AGC14EstimatedUsedWeightSev <- 112.5 # consumption temporary based on Draeger connect 112.5 g; recalculation when logbook available
+
+agc$ProportionalCaptureEfficiency <-
+    (agc$WeightGain / TotalWeightGain * TotalRecoveredSev) /
+    agc$TotalUsedWeightSev
+
+TotalDurationCases <- sum(agc$TotalDurationCases)
+
+TotalCO2eq <- c(
+    CONTRAfluran = unname(
+        # manufacturing
+        TotalUsedWeightSev * SevoCO2eq["manufacturing"] +
+        # waste
+        (TotalUsedWeightSev - TotalRecoveredSev) * SevoCO2eq["waste"] +
+        # CONTRAfluran production/transportion/desorption
+        (TotalWeightGain * CONTRAfluranCO2eq) -
+        # saving
+        TotalRecoveredSev * SevoCO2eq["manufacturing"]
+    ),
+    AGSS =
+        TotalUsedWeightSev * sum(SevoCO2eq) +
+        TotalDurationCases * AGSSkWh * kWhCO2eq
+)
+
+ORCO2eq <- tapply(agc, agc$OR, function(aa) {
+    UsedSev <- sum(aa$TotalUsedWeightSev)
+    RecoSev <- TotalRecoveredSev * sum(aa$WeightGain) / TotalWeightGain
+
+    # manufacturing
+    UsedSev * SevoCO2eq["manufacturing"] +
+    # waste
+    (UsedSev - RecoSev) * SevoCO2eq["waste"] +
+    # CONTRAfluran production/transportion/desorption
+    (sum(aa$WeightGain) * CONTRAfluranCO2eq) -
+    # saving
+    RecoSev * SevoCO2eq["manufacturing"]
+})
+```
 
 ```{r table1, echo = FALSE, message = FALSE}
 theme_gtsummary_compact(font_size = 8L)
@@ -63,7 +114,11 @@ tbl_weights <- agc |>
         InitialWeight,
         FinalWeight,
         WeightGain,
-        InVivoMassTransfer
+        InVivoMassTransfer,
+        ProportionalCaptureEfficiency
+    ) |>
+    dplyr::mutate(
+        ProportionalCaptureEfficiency = ProportionalCaptureEfficiency * 100
     ) |>
     tbl_summary(
         by = OR,
@@ -72,13 +127,15 @@ tbl_weights <- agc |>
             InitialWeight ~ "continuous",
             FinalWeight ~ "continuous",
             WeightGain ~ "continuous",
-            InVivoMassTransfer ~ "continuous"
+            InVivoMassTransfer ~ "continuous",
+            ProportionalCaptureEfficiency ~ "continuous"
         ),
         label = list(
             InitialWeight ~ "Initial weight [g]",
             FinalWeight ~ "Final weight [g]",
             WeightGain ~ "Weight gain [g]",
-            InVivoMassTransfer ~ "In vivo mass transfer [%]"
+            InVivoMassTransfer ~ "In vivo mass transfer [%]",
+            ProportionalCaptureEfficiency ~ "Proportional capture efficiency [%]"
         ),
         digits = all_continuous() ~ 1
     ) |>
@@ -141,8 +198,85 @@ modify_caption(
 tbl1
 ```
 
-Assuming a greenhouse warming potential over a 100 year time horizont (GWP~100~) of `r SevoCO2eq["waste"]` we saved
-`r CaptureEfficiency * SevoCO2eq["waste"]` g carbon dioxide equivalents (CO~2~eq) [@Nielsen2024].
+The anaesthesia cases, sevoflurane consumption, and weights per AGC are
+presented in Table \@ref(tab:table1).
 
-TODO: calc saved CO2-eq
-taxonomy introduced in @Gandhi2024
+During the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` weeks study period we had `r sum(nCases)` anaesthesia cases in total (`r paste0(ORnames, collapse = ", ")`).
+In `r paste0(.pct(pCasesSev, prec=".0", symbol = c(FALSE, TRUE)), collapse = " and ")`
+of cases an inhaled anaesthesia was used in `r paste0(ORnames, collapse = " and " )`.
+The average duration of these inhaled anaesthesia cases of
+`r .tbl(tbl_cases, "AvgDurationSev", column = "stat_1", pattern = "{median}")`
+and
+`r .tbl(tbl_cases, "AvgDurationSev", column = "stat_2", pattern = "{median}")` h and
+the average sevofluran consumption of
+`r .tbl(tbl_sevo_consumption, "UsedWeightPerHourSev", column = "stat_1", pattern = "{median}")`
+and
+`r .tbl(tbl_sevo_consumption, "UsedWeightPerHourSev", column = "stat_2", pattern = "{median}")`
+g/h for `r paste0(ORnames, collapse = " and ")` differed significantly (both
+`r .tbl(tbl_cases, "AvgDurationSev", column = "p.value")`).
+
+In total `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` sevoflurane was used
+and `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` could be recovered
+(capture efficiency `r .pct(CaptureEfficiency, prec = ".0")`).
+
+The median weight of new and exhausted AGCs was
+`r .tbl(tbl_weights_overall, "InitialWeight")` and
+`r .tbl(tbl_weights_overall, "FinalWeight")` g, respectively.
+This was a median (Q1, Q3) weight gain of `r .tbl(tbl_weights_overall, "WeightGain")` g.
+However, the median in vivo mass transfer was significantly different with
+`r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
+and
+`r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`
+due to the significantly different sevoflurane consumption in both operating rooms.
+Assuming the same proportion of sevoflurane could be accounted for the relative
+weight gain of each AGC the proportional capture efficiency, with
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
+and
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]` was statistically different as well.
+The details of each AGC can be found in Supplemental Table \@ref(tab:tableagc).
+
+After removal of the last exhausted AGC, CH0100012088, in `r ORnames[2]`
+the vapor was not refilled and the weigh difference of the sevoflurane bottle
+not recorded.
+Thats why we calculate the sevoflurane consumption data for the four last
+anaesthesia cases as described in @Biro2015
+(Supplemental Section \@ref(estimation-of-sevoflurane-consumption)).
+They described an overestimation of the sevoflurane consumption by 7.6 %.
+For our AGC CH0100012088 this would result in an error of
+`r .pct((AGC14EstimatedUsedWeightSev * 0.076) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
+and would just slightly underestimate the in vivo mass transfer and proportional
+capture efficiency.
+
+Before sending all AGCs to Zeosys we weighed them again and found an almost
+linear decrease in weight over time of around `r round(fit.weigth.loss$coefficients * 1000)` mg per day
+(Figure \@ref(fig:plot-weight-lost) and Supplemental Section \@ref(weight-lost-during-storage))).
+
+```{r plot-weight-lost, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 8, echo = FALSE, fig.cap = "Weight loss during storage."}
+old.par <- par(no.readonly = TRUE)
+on.exit(par(old.par))
+
+xlim <- range(agc$DaysStored)
+ylim <- range(agc$LostWeight)
+
+col.fit <- "#0f0f0f"
+
+plot(
+    NA,
+    xlim = xlim, ylim = ylim,
+    axes = FALSE, xlab = "", ylab = ""
+)
+points(agc$DaysStored, agc$LostWeight, col = viridisLite::cividis(1), pch = 20)
+abline(fit.weigth.loss, lty = "dashed", lwd = 2, col = col.fit)
+text(
+    x = max(agc$DaysStored), y = max(agc$LostWeight),
+    labels =
+        bquote(R^2*"="*.(round(summary(fit.weigth.loss)$r.squared, 3))),
+    adj = c(1.5, -0.2), col = col.fit, cex = 1.2
+
+)
+title(main = "WEIGHT LOSS DURING STORAGE", col.main = "#808080", adj = 0L)
+title(xlab = "DAYS STORED", adj = 0L, col.lab = "#808080")
+title(ylab = "WEIGHT LOST [g]", adj = 1L, col.lab = "#808080")
+axis(1L, col = "#808080", col.axis = "#808080", lwd.ticks = 0)
+axis(2L, col = "#808080", col.axis = "#808080", lwd.ticks = 0, las = 2)
+```

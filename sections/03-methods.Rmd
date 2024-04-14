@@ -1,40 +1,45 @@
 # Methods
 
 In this prospective single-center observational study we collected
-`r nrow(agc)` consecutive CONTRAfluran anaesthetic gas canisters from
+`r nrow(agc)` consecutive CONTRAfluran AGC from
 `r paste(format(range(c(periods$Start, periods$End)), "%B %Y"), collapse = " to ")`
 in two different operating rooms.
 
-In the first operating room we mainly took care for patients for ear, nose and throat surgery.
+In the first operating room (referred to as OR21) we mainly took care for patients for ear, nose and throat surgery.
 Generally the first and second case each day were children where we did inhaled inductions with a fresh gas flow in the range of the minute ventilation of the child.
 Mostly we used a supraglottical airway in the five to six cases per day. All
 cases were inducted and emerged in the operating room.
 
-In the second operating room we did mainly tracheal intubations for neurosurgical spine surgery and had around two cases a day.
-The first case was inducted in the operating room, the following cases in the
-anaesthetic room. All cases were emerged in the operating room.
+In the second operating room (referred to as OR25) we did mainly tracheal intubations for neurosurgical spine surgery and had around two cases a day.
+The first case was always inducted in the operating room, the following cases sometimes in the
+anaesthetic room where no AGC was installed. All cases were emerged in the operating room.
 
-Following our standard operating procedures a minimal or metabolic flow (< 0.5 L/min, mostly 0.35 L/min) was used during the steady-state phase in all cases.
+Following our standard operating procedures a minimal or metabolic flow (< 0.5 L/min, mostly 0.3 L/min) was used during the steady-state phase in all cases.
 
 We used the Draeger connect software (Draeger Medical Deutschland GmbH, Luebeck, Germany) to determine the number and duration of anaesthesia cases.
 
 Volatile anaesthesia was applied using Draeger Perseus A500 anaesthesia machines equipped with bypass vaporizer, Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
-The vapor weighs more than nine kg.
-A scale that was precise enough to measure more than 9 kg with a precision of a few grams was not available.
-That's why we decided to weigh the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vapor and use the difference in weigh to record the sevoflurane consumption.
-The vapor was maximum filled before we attach the first CONTRAfluran anaesthetic gas canister (AGC; ZeoSys medical, Luckenwalde, Germany).
-If the CONTRAfluran AGC was exhausted, visible by the red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany), the vapor was again filled to the maximum.
-In case a new bottle of sevoflurane was opened, it was attached to a non-study vapor to lose any excess pressure before the study vapor was filled.
-To determine the amount of captured gas we weighed the CONTRAfluran AGC before usage and after it was exhausted.
-All AGCs were closed and stored in a zip lock bag.
+We weighed the the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vapor and use the difference in weigh to record the sevoflurane consumption.
+The vapor was maximum filled before we attached the first CONTRAfluran AGC (ZeoSys medical, Luckenwalde, Germany).
+If the AGC was exhausted, visible by the red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany), the vapor was filled to the maximum, again.
+In case a new bottle of sevoflurane was opened, it was attached to a non-study vapor to lose any excess pressure, subsequently it was weighed before the study vapor was filled.
+The weight gain of an AGC was determined by weighing the AGC before usage and after it was exhausted.
+Each exhausted AGC was closed and stored in a zip lock bag.
+Before returning the AGCs to ZeoSys we weighed all AGCs again.
+We measured the weight of the AGCs and sevoflurane bottles with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight=2500g; d=0.01g).
 
-We measured the weight of the AGC and sevoflurane bottles with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight=2500g; d=0.01g).
+ZeoSys stored all AGCs for further four weeks due to regulatory reasons before starting the desorption and recovery process.
+Afterwards they sent us the information about the amount of recovered sevoflurane.
+
+The primary outcome was the amount of recovered sevoflurane.
+The secondary outcomes were the avoided carbon dioxide equivalents and the difference of both operating rooms.
 
 All data processing and statistical analyses were performed using R version
 `r paste0(sessionInfo()$R.version[c("major", "minor")], collapse = ".")`
 [@R-base].
-
-Summary tables were generated using the *gtsummary* package [@gtsummary; @R-gtsummary].
+For statistical comparison the two-sided Wilcoxon rank-sum test was used.
+A *p*-value less than 0.05 was considered a statistically significant difference.
+Summary tables were generated using the *gtsummary* package [@Sjoberg2021; @R-gtsummary].
 All data and analysis can be found at https://github.com/umg-minai/vct-or [@vctordata].
 
 The study was approved by the ethics committee of the University Medicine Greifswald
