@@ -28,7 +28,7 @@ TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
 TotalWeightGain <- sum(agc$WeightGain)
 TotalRecoveredSev <- TotalWeightGain * 0.85 #NA # TODO, response ZeoSys needed
 CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
-AGC14EstimatedUsedWeightSev <- 112.5 # consumption temporary based on Draeger connect 112.5 g; recalculation when logbook available
+AGC14EstimatedUsedWeightSev <- sum(flowvapor$Consumption)
 
 agc$ProportionalCaptureEfficiency <-
     (agc$WeightGain / TotalWeightGain * TotalRecoveredSev) /
@@ -240,10 +240,10 @@ the vapor was not refilled and the weigh difference of the sevoflurane bottle
 not recorded.
 Thats why we calculate the sevoflurane consumption data for the four last
 anaesthesia cases as described in @Biro2015
-(Supplemental Section \@ref(estimation-of-sevoflurane-consumption)).
-They described an overestimation of the sevoflurane consumption by 7.6 %.
+(`r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)`; Supplemental Section \@ref(estimation-of-sevoflurane-consumption)).
+They described an overestimation of the sevoflurane consumption by 6.2 %.
 For our AGC CH0100012088 this would result in an error of
-`r .pct((AGC14EstimatedUsedWeightSev * 0.076) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
+`r .pct((AGC14EstimatedUsedWeightSev * 0.062) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
 and would just slightly underestimate the in vivo mass transfer and proportional
 capture efficiency.
 

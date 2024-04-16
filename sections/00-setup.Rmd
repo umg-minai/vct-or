@@ -65,6 +65,7 @@ options(english.UK = FALSE)
 ```{r import, include = FALSE}
 agc <- read.csv(frf("data", "agc.csv"))
 periods <- read.csv(frf("data", "periods.csv"))
+flowvapor <- read.csv(frf("data", "flow-vapor-settings.csv"))
 ```
 
 ```{r prepare, include = FALSE}
@@ -83,4 +84,23 @@ periods[c("Start", "End")] <- lapply(periods[c("Start", "End")], as.POSIXct)
 
 ```{r fit-weight-loss, include = FALSE}
 fit.weigth.loss <- lm(LostWeight ~ 0 + DaysStored, data = agc)
+```
+
+```{r sevoflurane-consumption-estimation-agc14, include = FALSE}
+#' Calculate volatile agent consumption as described in @Biro2015
+#'
+#' @param flow double, fresh gas flow in L/min
+#' @param vapor double, concentration of volatile anaesthetic in Vol%
+#' @param duration double, duration of setting in min
+#' @param density double(1), density of the used volatile agent
+#' @param satvol double(1), saturated gas volume of the used volatile agent
+#' @return volatile agent consumption in g
+.consumption <- function(flow, vapor, duration, density = sevodensity,
+                         satvol = 184) {
+    ( ((flow * 1000) * vapor * duration) / (satvol * 100) )  * density
+}
+
+flowvapor$Consumption <- .consumption(
+    flowvapor$Flow, flowvapor$Vapor, flowvapor$Duration
+)
 ```

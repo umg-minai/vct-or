@@ -41,7 +41,10 @@ d[c(
                     "W~f~: final weight when exhausted, direct after deconnection",
                     "W~i~: initial weight",
                     "W~l~: weight lost after exhausted and before shipping",
-                    "^\\*^: the sevoflurane consumption of ", AGC14EstimatedUsedWeightSev, " g for the last four cases was estimated (\\@ref(estimation-of-sevoflurane-consumption))."
+                    "^\\*^: the sevoflurane consumption of ",
+                        sprintf("%.2f", AGC14EstimatedUsedWeightSev),
+                        " g for the last four cases was estimated ",
+                        "(\\@ref(estimation-of-sevoflurane-consumption))."
                 ),
                 collapse = "; "
             )
@@ -62,128 +65,38 @@ summary(fit.weigth.loss)
 
 ## Estimation of sevoflurane consumption
 
-After changing the last AGC *CH0100009273* in OR25 the vapor was not refilled.
-Therefore we had to calculate the sevoflurane consumption for the last four
-anaesthesia cases. We retrospectively reviewed the anaesthesia chart where the
-fresh gas flow (FGF) and end-tidal sevoflurane concentration (ETC) was documented
-every 15 min.
+After changing the last AGC *CH0100012088* in OR25 the vapor was not refilled.
+Therefore we retrospectively calculate the sevoflurane consumption for the
+last four anaesthesia cases using the user log entry provided by the Draeger
+Perseus anaesthesia machine.
+The calculation was done as described in @Biro2015.
 
-```{r sevoflurane-consumption-assumptions, include = FALSE}
-ifgf <- c(1.0, 0.5)
-ietc <- c(1.0, 1.5)
-```
-
-The induction phase is not documented in a granular enough level.
-Therefore we assume the first 5 min with a
-FGF `r sprintf("%.1f l/min", ifgf[1])` and
-ETC `r sprintf("%.1f %%", ietc[1])`, and
-the following 5 min with a
-FGF `r sprintf("%.1f l/min", ifgf[2])` and
-ETC `r sprintf("%.1f %%", ietc[2])`.
-
-```{r sevoflurane-consumption-cases, echo = FALSE, caption = "Fresh gas flow and end-tidal sevoflurane concentration of the last four anaesthesia cases."}
-induction <- data.frame(
-    id = rep(1:4, each = 2),
-    fgf = rep(ifgf, 4),
-    etc = rep(ietc, 4)
-)
-cases <- data.frame(
-    id =  c(rep(1, 9), rep(2, 14), rep(3, 10), rep(4, 5)),
-    fgf = c(
-        # case 1
-        0.3, rep(0.2, 8),
-        # case 2
-        rep(0.3, 14),
-        # case 3
-        rep(0.3, 10),
-        # case 4
-        rep(0.3, 5)
-    ),
-    etc = c(
-        # case 1
-        1.46, 1.37, 1.24, 1.12, 1.17, 1.24, 1.33, 1.40, 1.46,
-        # case 2
-        1.15, 1.29, 1.21, 1.31, 1.42, 1.47, 1.51, 1.52, 1.48, 1.52, 1.51, 1.49,
-        1.42, 1.40,
-        # case 3
-        1.09, 1.65, 1.66, 1.67, 1.69, 1.60, 1.52, 1.49, 1.54, 1.15,
-        # case 4
-        1.83, 1.39, 1.23, 1.18, 1.14
-    )
-)
-cases <- rbind(induction, cases)
-cases <- cases[order(cases$id),]
+```{r sevoflurane-consumption-estimation-agc14-tables, echo = FALSE}
 knitr::kable(
-    cases,
-    row.names = FALSE,
-    col.names = c(
-        "Id", "Fresh gas flow [l/min]",
-        "End-tidal sevoflurane concentration [%]"
-    ),
+    col.names = c("Case", "Time", "Fresh gas flow [L/min]",
+                  "Vapor [Vol%]", "Duration [min]",
+                  "Sevoflurane consumption [g]"),
+    digits = 2,
+    flowvapor,
     caption = paste0(
-        "Fresh gas flow and end-tidal sevoflurane concentration of the ",
-        "last four anaesthesia cases."
+        "Overview of settings and consumption of the last four cases for ",
+        "AGC *CH0100012088*."
     )
 )
-```
 
-We estimate the used sevoflurane by the following equation,
-$m = et_{Sevo} * FGF * t * M / V_{m}$
-, where
-$m$ is the mass of consumed sevoflurane,
-$et_{Sevo}$ the end-tidal sevoflurane concentration,
-$FGF$ the fresh gas flow,
-$t$ the time unit in minutes,
-$M$ the molar mass of sevoflurane (200 g/mol, @Hu2021),
-and $V_{m}$ the molare volume at normal temperature and pressure (293.15 K,
-101.325 kPa).
-
-```{r sevoflurane-consumption-functions, include = FALSE}
-#' Molar volume
-#'
-#' V = (nRT)/P
-#'
-#' @param temperature `double` in Kelvin.
-#' @param pressure `double` in kPa.
-#' @return `double`, molare volume at `temperature` and `pressure`.
-#' @examples
-#' # at STP
-#' .molar_volume(273.15, 101.325)
-#' # at NTP
-#' .molar_volume(293.15, 101.325)
-.molar_volume <- function(temperature, pressure) {
-    8.31446261815324 * temperature / pressure
-}
-
-#' Consumption of Volatile Anaesthetic per min
-#'
-#' @param etc `double`, end-tidal concentration of volatile anaesthetic
-#' @param fgf `double`, fresh gas flow
-#' @param mass `double`, molare mass in g/mol.
-#' @param temperature `double` in Kelvin.
-#' @param pressure `double` in kPa.
-#' @return `double`, volatile anaesthetic consumption in gram per minute
-.va_gram_per_min <- function(etc, fgf, mass,
-                             # NTP
-                             temperature = 293.15, pressure = 101.325) {
-    (etc * fgf) / .molar_volume(temperature, pressure) * mass
-}
-```
-
-```{r sevoflurane-consumption-estimate, echo = FALSE}
-cases$gpm <- .va_gram_per_min(
-    etc = cases$etc / 100, fgf = cases$fgf, mass = 200
-)
 knitr::kable(
-    col.names = c("Case", "Sevoflurane consumption [g]"),
-    digits = 1,
+    col.names = c("Case", "Total sevoflurane consumption [g]"),
+    digits = 2,
     cbind(
         case = 1:4,
-        tapply(cases$gpm, cases$id, \(gpm)sum(15 * gpm))
+        tapply(flowvapor$Consumption, flowvapor$Case, sum)
+    ),
+    caption = paste0(
+        "Sevofluran consumption of the last four cases for ",
+        "AGC *CH0100009273*."
     )
 )
 ```
-
 
 ## R session information
 
