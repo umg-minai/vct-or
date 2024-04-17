@@ -2,9 +2,7 @@
 
 ```{r counts, include = FALSE}
 nCases <- tapply(agc$TotalCases, agc$OR, sum)
-nCasesTiva <- tapply(agc$TotalCasesTiva, agc$OR, sum)
 nCasesSev <- tapply(agc$TotalCasesSev, agc$OR, sum)
-pCasesSev <- nCasesSev / nCases
 ```
 
 
@@ -75,10 +73,7 @@ tbl_cases <- agc |>
     select(
         OR,
         TotalCases,
-        TotalCasesTiva,
         TotalCasesSev,
-        TotalDurationCases,
-        TotalDurationCasesTiva,
         TotalDurationCasesSev,
         AvgDurationSev
     ) |>
@@ -88,19 +83,13 @@ tbl_cases <- agc |>
         missing_text = "(Missing)",
         type = list(
             TotalCases ~ "continuous",
-            TotalCasesTiva ~ "continuous",
             TotalCasesSev ~ "continuous",
-            TotalDurationCases ~ "continuous",
-            TotalDurationCasesTiva ~ "continuous",
             TotalDurationCasesSev ~ "continuous",
             AvgDurationSev ~ "continuous"
         ),
         label = list(
             TotalCases ~ "Number of cases",
-            TotalCasesTiva ~ "Number of total intravenous anaesthesia cases",
             TotalCasesSev ~ "Number of inhaled anaesthesia cases",
-            TotalDurationCases ~ "Total duration of all cases [h]",
-            TotalDurationCasesTiva ~ "Total duration of total intravenous anaesthesia [h]",
             TotalDurationCasesSev ~ "Total duration of inhaled anaesthesia [h]",
             AvgDurationSev ~ "Average duration of inhaled anaesthesia [h]"
         ),
@@ -163,8 +152,8 @@ tbl_sevo_consumption <- agc |>
         label = list(
             TotalUsedVolumeSev ~ "Total used sevoflurane volume [mL]",
             TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
-            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour [mL/h]",
-            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour [g/h]"
+            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour inhaled anaesthesia [mL/h]",
+            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour inhaled anaesthesia [g/h]"
         ),
         digits = all_continuous() ~ 1
     ) |>
@@ -175,9 +164,9 @@ tbl1 <- tbl_stack(
         tbl_cases, tbl_sevo_consumption, tbl_weights
     ),
     group_header = c(
-        "Case summary",
-        "Sevoflurane consumption",
-        "Anaesthetic gas canister weights"
+        "(A) Case summary",
+        "(B) Sevoflurane consumption",
+        "(C) Anaesthetic gas canister characteristics"
     )
 ) |>
 ## indent variable names and missing
