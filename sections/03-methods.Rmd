@@ -5,14 +5,23 @@ In this prospective single-center observational study we collected
 `r paste(format(range(c(periods$Start, periods$End)), "%B %Y"), collapse = " to ")`
 in two different operating rooms.
 
-In the first operating room (referred to as `r ORnames[1]`) we mainly took care for patients for ear, nose and throat surgery.
-Generally the first and second case each day were children where we did inhaled inductions with a fresh gas flow in the range of the minute ventilation of the child.
-Mostly we used a supraglottical airway in the five to six cases per day. All
-cases were inducted and emerged in the operating room.
+In the first operating room (referred to as `r ORnames[1]`),
+we mostly took care of patients for ear, nose and throat surgery.
+Generally the first and second case each day were children
+where we did inhaled inductions with a fresh gas flow in the range of
+the minute ventilation of the respective child.
+The following cases were mostly adults.
+We mostly used supraglottical airways.
+All cases, in median `r .as.word(round(ORcases[1]))` cases per day,
+were inducted and emerged from anaesthesia in the operating room.
 
-In the second operating room (referred to as `r ORnames[2]`) we did mainly tracheal intubations for neurosurgical spine surgery and had around two cases a day.
-The first case was always inducted in the operating room, the following cases sometimes in the
-anaesthetic room where no AGC was installed. All cases were emerged in the operating room.
+In the second operating room (referred to as `r ORnames[2]`),
+we mostly took care of patients for neurosurgical spine surgery.
+Here, the median number of cases is `r .as.word(round(ORcases[2]))` per day
+and the patients were mostly adults that were intubated.
+The first case was always inducted in the operating room,
+the following cases sometimes in a special induction room where no AGC was installed.
+All cases were emerged from anaesthesia in the operating room.
 
 Following our standard operating procedures a minimal or metabolic flow (< 0.5 L/min, mostly 0.3 L/min) was used during the steady-state phase in all cases.
 

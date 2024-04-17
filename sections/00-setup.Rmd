@@ -29,6 +29,7 @@ knitr::write_bib(
 ```{r libraries, include = FALSE}
 library("english")
 library("gtsummary")
+library("lubridate")
 
 options(english.UK = FALSE)
 ```
@@ -69,13 +70,13 @@ ORnames <- paste0("OR", 1:2)
 
 ```{r import, include = FALSE}
 agc <- read.csv(frf("data", "agc.csv"))
+cases <- read.csv(frf("data", "cases.csv"))
 periods <- read.csv(frf("data", "periods.csv"))
 flowvapor <- read.csv(frf("data", "flow-vapor-settings.csv"))
 ```
 
 ```{r prepare, include = FALSE}
-agc$OR[agc$OR == 21] <- ORnames[1]
-agc$OR[agc$OR == 25] <- ORnames[2]
+agc$OR <- ifelse(agc$OR == 21, ORnames[1], ORnames[2])
 agc$WeightGain <- agc$FinalWeight - agc$InitialWeight
 agc$TotalUsedVolumeSev <- agc$TotalUsedWeightSev / sevodensity
 agc$UsedVolumePerHourSev <- agc$TotalUsedVolumeSev / (agc$TotalDurationCasesSev / 60)
@@ -83,6 +84,14 @@ agc$UsedWeightPerHourSev <- agc$TotalUsedWeightSev / (agc$TotalDurationCasesSev 
 agc$InVivoMassTransfer <- agc$WeightGain / agc$TotalUsedWeightSev * 100
 
 agc$AvgDurationSev <- agc$TotalDurationCasesSev / agc$TotalCasesSev
+
+cases$Date <- ymd(cases$Date)
+cases <- cases[wday(cases$Date) %in% 2:6,] # keep only working days
+cases$OR <- ifelse(cases$Device == "ASDD-0018", ORnames[1], ORnames[2])
+
+ORcases <- vapply(
+    split(cases$Date, cases$OR), \(x)median(tapply(x, x, length)), NA_real_
+)
 
 periods[c("Start", "End")] <- lapply(periods[c("Start", "End")], as.POSIXct)
 ```
