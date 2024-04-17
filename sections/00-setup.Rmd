@@ -62,6 +62,11 @@ options(english.UK = FALSE)
 }
 ```
 
+```{r constants, include = FALSE}
+sevodensity <- 1.52 # @Hu2021
+ORnames <- paste0("OR", 1:2)
+```
+
 ```{r import, include = FALSE}
 agc <- read.csv(frf("data", "agc.csv"))
 periods <- read.csv(frf("data", "periods.csv"))
@@ -69,8 +74,8 @@ flowvapor <- read.csv(frf("data", "flow-vapor-settings.csv"))
 ```
 
 ```{r prepare, include = FALSE}
-sevodensity <- 1.52 # @Hu2021
-
+agc$OR[agc$OR == 21] <- ORnames[1]
+agc$OR[agc$OR == 25] <- ORnames[2]
 agc$WeightGain <- agc$FinalWeight - agc$InitialWeight
 agc$TotalUsedVolumeSev <- agc$TotalUsedWeightSev / sevodensity
 agc$UsedVolumePerHourSev <- agc$TotalUsedVolumeSev / (agc$TotalDurationCasesSev / 60)

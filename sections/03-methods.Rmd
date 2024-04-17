@@ -5,12 +5,12 @@ In this prospective single-center observational study we collected
 `r paste(format(range(c(periods$Start, periods$End)), "%B %Y"), collapse = " to ")`
 in two different operating rooms.
 
-In the first operating room (referred to as OR21) we mainly took care for patients for ear, nose and throat surgery.
+In the first operating room (referred to as `r ORnames[1]`) we mainly took care for patients for ear, nose and throat surgery.
 Generally the first and second case each day were children where we did inhaled inductions with a fresh gas flow in the range of the minute ventilation of the child.
 Mostly we used a supraglottical airway in the five to six cases per day. All
 cases were inducted and emerged in the operating room.
 
-In the second operating room (referred to as OR25) we did mainly tracheal intubations for neurosurgical spine surgery and had around two cases a day.
+In the second operating room (referred to as `r ORnames[2]`) we did mainly tracheal intubations for neurosurgical spine surgery and had around two cases a day.
 The first case was always inducted in the operating room, the following cases sometimes in the
 anaesthetic room where no AGC was installed. All cases were emerged in the operating room.
 

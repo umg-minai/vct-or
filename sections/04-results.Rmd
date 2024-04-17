@@ -1,7 +1,6 @@
 # Results
 
 ```{r counts, include = FALSE}
-ORnames <- paste0("OR", unique(agc$OR))
 nCases <- tapply(agc$TotalCases, agc$OR, sum)
 nCasesTiva <- tapply(agc$TotalCasesTiva, agc$OR, sum)
 nCasesSev <- tapply(agc$TotalCasesSev, agc$OR, sum)
@@ -71,7 +70,8 @@ ORCO2eq <- tapply(agc, agc$OR, function(aa) {
 theme_gtsummary_compact(font_size = 8L)
 
 tbl_cases <- agc |>
-    mutate(OR = ifelse(OR == 21, "21 (ENT)", "25 (Neurosurgery)")) |>
+    mutate(OR = ifelse(OR == ORnames[1],
+        paste(ORnames[1], "(ENT)"), paste(ORnames[2], "(Neurosurgery)"))) |>
     select(
         OR,
         TotalCases,
