@@ -120,4 +120,193 @@ fit.weigth.loss <- lm(LostWeight ~ 0 + DaysStored, data = agc)
 flowvapor$Consumption <- .consumption(
     flowvapor$Flow, flowvapor$Vapor, flowvapor$Duration
 )
+flowvapor$TimeStamp <- ave(
+    flowvapor$TimeStamp, 
+    flowvapor$Case, 
+    FUN = \(x)as.numeric(difftime(x, x[1], units = "mins"))
+)
+```
+
+```{r counts, include = FALSE}
+nCases <- tapply(agc$TotalCases, agc$OR, sum)
+nCasesSev <- tapply(agc$TotalCasesSev, agc$OR, sum)
+```
+
+```{r co2eq, include = FALSE}
+SevoCO2eq = c(
+    waste = 140, # @Nielsen2024
+    manufacturing = 143.2928 # @Hu2021, supplement 1-s2.0-S0921344921000185-mmc2.xlsx, Table "CO2-Eq (Route-C):E37" 886.5143 and Table "CO2-Eq (Route-E):E38" 143.2928 - Route B
+    # 20.625
+    # Presentation Baxter LCA: Life Cycle Assessment of Anaesthetic Gas Capture in the Operating Room using ContraFluran Tom Costelloe, Michael Collins, Doyin Oladele and Simon Aumônier 25/01/2022
+    # source should be: "Life Cycle Greenhouse Gas Emissions of Anaesthetic Drugs", Sherman et al. Anesthesia & Analgesia. 114(5):1086-1090, May 2012; could not find direct number; maybe could be calculated with LCA software given the ingredients
+)
+
+CONTRAfluranCO2eq <- 66.6 # @Costelloe2022, Scenario UK, page 14
+
+AGSSkWh <- 0.1 # @Schuster2023
+kWhCO2eq <- 0.485 # @Schuster2023
+
+TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
+TotalWeightGain <- sum(agc$WeightGain)
+TotalRecoveredSev <- TotalWeightGain * 0.85 #NA # TODO, response ZeoSys needed
+CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
+AGC14EstimatedUsedWeightSev <- sum(flowvapor$Consumption)
+
+agc$ProportionalCaptureEfficiency <-
+    (agc$WeightGain / TotalWeightGain * TotalRecoveredSev) /
+    agc$TotalUsedWeightSev
+
+TotalDurationCases <- sum(agc$TotalDurationCases)
+
+TotalCO2eq <- c(
+    CONTRAfluran = unname(
+        # manufacturing
+        TotalUsedWeightSev * SevoCO2eq["manufacturing"] +
+        # waste
+        (TotalUsedWeightSev - TotalRecoveredSev) * SevoCO2eq["waste"] +
+        # CONTRAfluran production/transportion/desorption
+        (TotalWeightGain * CONTRAfluranCO2eq) -
+        # saving
+        TotalRecoveredSev * SevoCO2eq["manufacturing"]
+    ),
+    AGSS =
+        TotalUsedWeightSev * sum(SevoCO2eq) +
+        TotalDurationCases * AGSSkWh * kWhCO2eq
+)
+
+ORCO2eq <- tapply(agc, agc$OR, function(aa) {
+    UsedSev <- sum(aa$TotalUsedWeightSev)
+    RecoSev <- TotalRecoveredSev * sum(aa$WeightGain) / TotalWeightGain
+
+    # manufacturing
+    UsedSev * SevoCO2eq["manufacturing"] +
+    # waste
+    (UsedSev - RecoSev) * SevoCO2eq["waste"] +
+    # CONTRAfluran production/transportion/desorption
+    (sum(aa$WeightGain) * CONTRAfluranCO2eq) -
+    # saving
+    RecoSev * SevoCO2eq["manufacturing"]
+})
+```
+
+```{r table1-build, include = FALSE, message = FALSE}
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_cases <- agc |>
+    mutate(OR = ifelse(OR == ORnames[1],
+        paste(ORnames[1], "(ENT)"), paste(ORnames[2], "(Neurosurgery)"))) |>
+    select(
+        OR,
+        TotalCases,
+        TotalCasesSev,
+        TotalDurationCasesSev,
+        AvgDurationSev
+    ) |>
+    dplyr::mutate_at(vars(matches("Duration")), function(x)x / 60) |>
+    tbl_summary(
+        by = OR,
+        missing_text = "(Missing)",
+        type = list(
+            TotalCases ~ "continuous",
+            TotalCasesSev ~ "continuous",
+            TotalDurationCasesSev ~ "continuous",
+            AvgDurationSev ~ "continuous"
+        ),
+        label = list(
+            TotalCases ~ "Number of cases",
+            TotalCasesSev ~ "Number of inhaled anaesthesia cases",
+            TotalDurationCasesSev ~ "Total duration of inhaled anaesthesia [h]",
+            AvgDurationSev ~ "Average duration of inhaled anaesthesia [h]"
+        ),
+        digits = all_continuous() ~ 1
+    ) |>
+    add_p()
+
+tbl_weights <- agc |>
+    select(
+        OR,
+        InitialWeight,
+        FinalWeight,
+        WeightGain,
+        InVivoMassTransfer,
+        ProportionalCaptureEfficiency
+    ) |>
+    dplyr::mutate(
+        ProportionalCaptureEfficiency = ProportionalCaptureEfficiency * 100
+    ) |>
+    tbl_summary(
+        by = OR,
+        missing_text = "(Missing)",
+        type = list(
+            InitialWeight ~ "continuous",
+            FinalWeight ~ "continuous",
+            WeightGain ~ "continuous",
+            InVivoMassTransfer ~ "continuous",
+            ProportionalCaptureEfficiency ~ "continuous"
+        ),
+        label = list(
+            InitialWeight ~ "Initial weight [g]",
+            FinalWeight ~ "Final weight [g]",
+            WeightGain ~ "Weight gain [g]",
+            InVivoMassTransfer ~ "In vivo mass transfer [%]",
+            ProportionalCaptureEfficiency ~ "Proportional capture efficiency [%]"
+        ),
+        digits = all_continuous() ~ 1
+    ) |>
+    add_p()
+
+tbl_weights_overall <- add_overall(tbl_weights)
+
+tbl_sevo_consumption <- agc |>
+    select(
+        OR,
+        TotalUsedVolumeSev,
+        TotalUsedWeightSev,
+        UsedVolumePerHourSev,
+        UsedWeightPerHourSev
+    ) |>
+    tbl_summary(
+        by = OR,
+        missing_text = "(Missing)",
+        type = list(
+            TotalUsedVolumeSev ~ "continuous",
+            TotalUsedWeightSev ~ "continuous",
+            UsedVolumePerHourSev ~ "continuous",
+            UsedWeightPerHourSev ~ "continuous"
+        ),
+        label = list(
+            TotalUsedVolumeSev ~ "Total used sevoflurane volume [mL]",
+            TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
+            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour inhaled anaesthesia [mL/h]",
+            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour inhaled anaesthesia [g/h]"
+        ),
+        digits = all_continuous() ~ 1
+    ) |>
+    add_p()
+
+tbl1 <- tbl_stack(
+    tbls = list(
+        tbl_cases, tbl_sevo_consumption, tbl_weights
+    ),
+    group_header = c(
+        "(A) Case summary",
+        "(B) Sevoflurane consumption",
+        "(C) Anaesthetic gas canister characteristics"
+    )
+) |>
+## indent variable names and missing
+modify_table_styling(columns = "label", text_format = "indent") |>
+modify_table_styling(
+    rows = row_type %in% c("missing", "level"),
+    columns = "label",
+    text_format = "indent2"
+) |>
+modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
+modify_caption(
+    paste0(
+        "ENT: ear, nose and throat surgery; ",
+        "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
+        "Cases, duration etc. are given as per canister."
+    )
+)
 ```
