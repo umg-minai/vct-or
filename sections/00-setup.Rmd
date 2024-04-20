@@ -86,7 +86,8 @@ agc$InVivoMassTransfer <- agc$WeightGain / agc$TotalUsedWeightSev * 100
 agc$AvgDurationSev <- agc$TotalDurationCasesSev / agc$TotalCasesSev
 
 cases$Date <- ymd(cases$Date)
-cases <- cases[wday(cases$Date) %in% 2:6,] # keep only working days
+cases <- cases[wday(cases$Date) %in% 2:6,]  # keep only working days
+cases <- cases[cases$Duration > 5,]         # drop test/calibration
 cases$OR <- ifelse(cases$Device == "ASDD-0018", ORnames[1], ORnames[2])
 
 ORcases <- vapply(
