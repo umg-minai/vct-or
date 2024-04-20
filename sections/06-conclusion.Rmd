@@ -7,11 +7,11 @@ Using metabolic flow the proportional capture efficiencies were
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`
-in the two studied operating rooms.
+in the two studied ORs.
 However, focusing on capture efficiency is misleading and the carbon footprint
 should be assessed instead.
 The estimated carbon footprint for inhaled anaesthesia utilizing metabolic flow
-and applying vapor capture technology is still higher than for total intravenous
+and applying vapor capture technology is still around twice as high as for total intravenous
 anaesthesia.
 This highlights the most important action, reducing wastage upfront
 wherever possible, i.e. critical indication of inhaled anaesthesia and

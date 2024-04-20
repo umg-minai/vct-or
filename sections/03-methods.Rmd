@@ -61,7 +61,7 @@ Afterwards they sent us the information about the amount of recovered sevofluran
 ## Outcome
 
 The primary outcome was the amount of recovered sevoflurane.
-The secondary outcomes were the avoided carbon dioxide equivalents and the difference of both ORs.
+The secondary outcomes were the difference of both ORs and the avoided emissions in carbon dioxide equivalents (CO~2~e).
 
 ## Data processing and statistical analysis
 
