@@ -1,5 +1,11 @@
 # Methods
 
+## Ethics approval
+
+The study was approved by the ethics committee of the University Medicine Greifswald
+(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
+approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
+
 ## Setting
 
 In this prospective single-center observational study we collected
@@ -66,9 +72,3 @@ For statistical comparison the two-sided Wilcoxon rank-sum test was used.
 A *p*-value less than 0.05 was considered a statistically significant difference.
 Summary tables were generated using the *gtsummary* package [@Sjoberg2021; @R-gtsummary].
 All data and analysis can be found at https://github.com/umg-minai/vct-or [@vctordata].
-
-## Ethics approval
-
-The study was approved by the ethics committee of the University Medicine Greifswald
-(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
-approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
