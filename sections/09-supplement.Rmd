@@ -41,10 +41,12 @@ d[c(
                     "W~f~: final weight when exhausted, direct after deconnection",
                     "W~i~: initial weight",
                     "W~l~: weight lost after exhausted and before shipping",
-                    "^\\*^: the sevoflurane consumption of ",
+                    paste0(
+                        "^\\*^: the sevoflurane consumption of ",
                         sprintf("%.2f", AGC14EstimatedUsedWeightSev),
                         " g for the last four cases was estimated ",
                         "(\\@ref(estimation-of-sevoflurane-consumption))."
+                    )
                 ),
                 collapse = "; "
             )
@@ -73,7 +75,7 @@ The calculation was done as described in @Biro2015.
 
 ```{r sevoflurane-consumption-estimation-agc14-tables, echo = FALSE}
 knitr::kable(
-    col.names = c("Case", "Time", "Fresh gas flow [L/min]",
+    col.names = c("Case", "Time since vapor opened [min]", "Fresh gas flow [L/min]",
                   "Vapor [Vol%]", "Duration [min]",
                   "Sevoflurane consumption [g]"),
     digits = 2,
