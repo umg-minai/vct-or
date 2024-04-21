@@ -5,7 +5,7 @@ institute:
     - KAINS: Department of Anesthesiology and Intensive Care Medicine, University Hospital Greifswald, Ferdinand-Sauerbruch-Straße, D-17475 Greifswald, Germany.
 author:
     # Contributorship roles (e.g. CRediT, https://credit.niso.org/)
-    - 'Sebastian Gibb, MD':
+    - 'Sebastian Gibb':
         email: mail@sebastiangibb.de
         institute: [KAINS]
         orcid_id: 0000-0001-7406-4443
@@ -30,14 +30,14 @@ author:
             - investigation
             - formal analysis
             - writing -- review and editing
-    - 'Falk von Dincklage, MD':
+    - 'Falk von Dincklage':
         email: falk.vondincklage@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
         competing_interest: none
         role:
             - writing -- review and editing
-    - 'Stephan Knigge, MD':
+    - 'Stephan Knigge':
         email: stephan.knigge@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
@@ -56,6 +56,7 @@ ethics_committee:
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
+csl: pandoc/csl/anaesthesia.csl
 link-citations: yes
 linkcolor: blue
 output:
