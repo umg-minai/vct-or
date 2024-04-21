@@ -43,6 +43,8 @@ reduction of the capture efficiency from 82 % after one h to 73 % after five h
 anaesthesia with sevoflurane and a fresh gas flow of 0.5 L/min [@Dexter2023].
 Considering the large volume of fat tissue and the
 theoretical storing capacity this seems significantly underestimated.
+@Hinterberg2022 had also recognized much lower capture efficiency
+in longer than in shorter anaesthesia.
 Interestingly, @Mulier2024 had not seen any correlation between mass transfer
 and duration of anaesthesia.
 With only around 90 min their duration of anaesthesia lasted about half as long
