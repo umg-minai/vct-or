@@ -31,7 +31,7 @@ The first case was always inducted in the OR,
 the following cases sometimes in a special induction room where no AGC was installed.
 All cases were emerged from anaesthesia in the OR.
 
-Following our standard operating procedures a minimal or metabolic flow (< 0.5 L/min, mostly 0.3 L/min) was used during the steady-state phase in all cases.
+Following our standard operating procedures a minimal or metabolic flow (< 0.5 l.min^-1^, mostly 0.3 l.min^-1^) was used during the steady-state phase in all cases.
 
 We used the Draeger connect software (Draeger Medical Deutschland GmbH, Luebeck, Germany) to determine the number and duration of anaesthesia cases.
 

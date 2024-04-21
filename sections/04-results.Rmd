@@ -11,7 +11,7 @@ tbl1
 During the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` weeks study period we investigated a total of `r sum(nCases)` anaesthesia cases.
 Of these `r .pct(sum(nCasesSev) / sum(nCases), prec = ".0")` received volatile
 anaesthetics at a total duration of `r sprintf("%.0f", sum(agc$TotalDurationCasesSev) / 60)` h
-with an average sevofluran consumption of `r sprintf("%.1f", median(agc$UsedWeightPerHourSev))` g/h.
+with an average sevofluran consumption of `r sprintf("%.1f", median(agc$UsedWeightPerHourSev))` g.h^-1^.
 Comparing the two ORs, we found a large and significant difference in the total
 used sevoflurane, which is due to differences in the ratio of patients receiving
 volatile anaesthetics and the differences in the duration of anaesthesia (Table \@ref(tab:table1)A).

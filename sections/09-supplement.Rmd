@@ -27,7 +27,7 @@ d[c(
             paste0(
                 c(
                     "C~sev~: total used sevoflurane [g]",
-                    "C~avg~: average used sevoflurane [g/h]",
+                    "C~avg~: average used sevoflurane [g.h^-1^]",
                     "D: total duration [h]",
                     "D~sev~: total duration of sevoflurane cases [h]",
                     "D~avg~: average duration of sevoflurane cases [h]",
@@ -75,7 +75,7 @@ The calculation was done as described in @Biro2015.
 
 ```{r sevoflurane-consumption-estimation-agc14-tables, echo = FALSE}
 knitr::kable(
-    col.names = c("Case", "Time since vapor opened [min]", "Fresh gas flow [L/min]",
+    col.names = c("Case", "Time since vapor opened [min]", "Fresh gas flow [l.min^-1^]",
                   "Vapor [Vol%]", "Duration [min]",
                   "Sevoflurane consumption [g]"),
     digits = 2,

@@ -121,8 +121,8 @@ flowvapor$Consumption <- .consumption(
     flowvapor$Flow, flowvapor$Vapor, flowvapor$Duration
 )
 flowvapor$TimeStamp <- ave(
-    flowvapor$TimeStamp, 
-    flowvapor$Case, 
+    flowvapor$TimeStamp,
+    flowvapor$Case,
     FUN = \(x)as.numeric(difftime(x, x[1], units = "mins"))
 )
 ```
@@ -275,10 +275,10 @@ tbl_sevo_consumption <- agc |>
             UsedWeightPerHourSev ~ "continuous"
         ),
         label = list(
-            TotalUsedVolumeSev ~ "Total used sevoflurane volume [mL]",
+            TotalUsedVolumeSev ~ "Total used sevoflurane volume [ml]",
             TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
-            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour inhaled anaesthesia [mL/h]",
-            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour inhaled anaesthesia [g/h]"
+            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour inhaled anaesthesia [ml.h^-1^]",
+            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour inhaled anaesthesia [g.h^-1^]"
         ),
         digits = all_continuous() ~ 1
     ) |>

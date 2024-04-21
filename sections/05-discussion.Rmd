@@ -40,7 +40,7 @@ in the fat tissue and carried to the post anaesthesia care unit where its lost
 for capturing, resulting in a lower capture efficiency.
 In a previous simulation study this effect was relativley mild with a 9 %
 reduction of the capture efficiency from 82 % after one h to 73 % after five h
-anaesthesia with sevoflurane and a fresh gas flow of 0.5 L/min [@Dexter2023].
+anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023].
 Considering the large volume of fat tissue and the
 theoretical storing capacity this seems significantly underestimated.
 @Hinterberg2022 had also recognized much lower capture efficiency
@@ -85,17 +85,17 @@ intraoperatively, potentially leading to a higher
 [capture efficiency] despite a clearly wasteful technique'.
 They suggest to compare the carbon footprint instead.
 Following this, we estimate a worse carbon footprint of
-`r sprintf("%.2f", ORCO2eq[1] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[1]]) / 60 ) / 1000)` kg CO~2~e/h of inhaled anaesthesia for
+`r sprintf("%.2f", ORCO2eq[1] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[1]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia for
 `r ORnames[1]` in comparison to
-`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e/h of inhaled anaesthesia,
+`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia,
 regardless of the much lower proportional capture efficiency of the latter.
 Obviously, the regular inhaled induction of the first one or two cases in `r ORnames[1]` plays a major role but also the
 general wash-in/wash-out phase are more significant in the typically shorter duration of anaesthesia.
 
 Assuming a capture efficiency of 70 % @Hu2021 estimated a carbon footprint of
-around 1 kg/h, similar to the estimate of a total intravenous anaesthesia.
+around 1 kg.h^-1^, similar to the estimate of a total intravenous anaesthesia.
 However, our best estimate of
-`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e/h for an inhaled anaesthesia
+`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ for an inhaled anaesthesia
 is still almost twice as high.
 In contrast to the steady-state estimates of @Hu2021 our averages incorporate the wash-in/wash-out phases which,
 in addtion to the lower capture efficiency, partly explains the higher estimates.
@@ -140,7 +140,7 @@ could be recaptured more than once.
 By contrast a conservative estimation of wasting the sevoflurane by an AGSS yield
 `r sprintf("%.0f", TotalCO2eq["AGSS"] / 1000)` kgCO~2~e, assuming a best-case scenario where the
 system is only connected for the duration of the anaesthesia (ignoring the time
-needed to prepare the next case), with power consumption of `r sprintf("%.1f", AGSSkWh)` kWh and `r sprintf("%.3f", kWhCO2eq)` CO~2~e/kWh of the German power grid in 2021 [@Schuster2023].
+needed to prepare the next case), with power consumption of `r sprintf("%.1f", AGSSkWh)` kWh and `r sprintf("%.3f", kWhCO2eq)` CO~2~e.kWh^-1^ of the German power grid in 2021 [@Schuster2023].
 However, the impact of the power consumption for running the AGSS
 for `r sprintf("%.0f", TotalDurationCases / 60)` h,
 resulting in `r sprintf("%.1f", (TotalDurationCases / 60) * AGSSkWh * kWhCO2eq)` kg CO~2~e,
