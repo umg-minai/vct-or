@@ -8,7 +8,7 @@ tbl1
 
 ## Sevoflurane consumption and capture efficiency
 
-During the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` weeks study period we investigated a total of `r sum(nCases)` anaesthesia cases.
+During the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` week study period we investigated a total of `r sum(nCases)` anaesthesia cases.
 Of these `r .pct(sum(nCasesSev) / sum(nCases), prec = ".0")` received volatile
 anaesthetics at a total duration of `r sprintf("%.0f", sum(agc$TotalDurationCasesSev) / 60)` h
 with an average sevofluran consumption of `r sprintf("%.1f", median(agc$UsedWeightPerHourSev))` g.h^-1^.
@@ -21,14 +21,14 @@ and `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` could be recaptured
 (capture efficiency `r .pct(CaptureEfficiency, prec = ".0")`).
 
 While median weight and weight gain of the AGCs did not differ between the two
-ORs, we observed a large and significant difference of the
+ORs, we observed a large and significant difference in the
 in vivo mass transfer, which was at
 `r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
 and
 `r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`
 due to the significantly different sevoflurane consumption in both ORs (Table \@ref(tab:table1)B and C).
 Thus, assuming the same proportion of sevoflurane could be accounted for the relative
-weight gain of each AGC, the proportional capture efficiency, differed
+weight gain of each AGC, the proportional capture efficiency differed
 significantly between the two ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
 and

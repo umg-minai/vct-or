@@ -1,9 +1,9 @@
 # Conclusion
 
-The capture effiency depends on fresh gas flow and duration of anaesthesia, and
-was higher for sevoflurane captured by a passive charcoal absorbers (CONTRAfluran)
-until they reached the maximum saturation levels than previously reported.
-Using metabolic flow the proportional capture efficiencies were
+The capture efficiency depends on fresh gas flow and duration of anaesthesia, and
+was higher for sevoflurane captured by passive charcoal absorbers (CONTRAfluran)
+used until they reached the maximum saturation levels than previously reported.
+Using metabolic flow, the proportional capture efficiencies were
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`
