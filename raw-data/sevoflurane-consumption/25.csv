@@ -14,7 +14,7 @@ Id,Date,InitialWeight,FinalWeight,Comment
 5,2023-10-26 17:48:00,388.83,296.34,
 5,2023-10-30 07:32:00,296.36,164.34,
 5,2023-11-01 07:30:00,164.34,164.34,
-5,2023-11-02 10:40:00,164.34,52.7,was not documented but retrospectively nurse told she completely emptied the sevoflurane bottle and the vapor was (almost) filled to the maximum; adapt time from 10:45 to 10:40 to match time on AGC; AGC Change 14 -> 22
+5,2023-11-02 10:40:00,164.34,52.7,was not documented but retrospectively nurse told she completely emptied the sevoflurane bottle and the vaporiser was (almost) filled to the maximum; adapt time from 10:45 to 10:40 to match time on AGC; AGC Change 14 -> 22
 6,2023-11-03 08:30:00,421.23,421.23,
 6,2023-11-07 00:05:00,421.23,299.0,
 6,2023-11-08 07:15:00,299.03,299.03,
