@@ -49,7 +49,7 @@ This was visible by a red LED and an acoustic warning signal of the SENSOfluran 
 Subsequently, we refilled the vaporiser to its maximum and measured the weight
 difference of the sevoflurane bottle, again.
 
-The in vivo mass transfer of an AGC was determined by weighing the AGC before usage and after it was exhausted.
+The weight gain of an AGC was determined by weighing the AGC before usage and after it was exhausted.
 Each exhausted AGC was recapped and stored in a closed plastic zip lock bag.
 
 Before returning the AGCs to ZeoSys we weighed all AGCs again.
