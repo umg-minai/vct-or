@@ -1,5 +1,5 @@
 ```{r knitr_setup, include = FALSE}
-Sys.setlocale("LC_TIME", "C")
+Sys.setlocale("LC_ALL", "C")
 
 frf <- function(...)
     rprojroot::find_root_file(..., criterion = ".editorconfig", path = ".")

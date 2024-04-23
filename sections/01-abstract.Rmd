@@ -4,17 +4,17 @@
 Volatile anaesthetics are potent greenhouse gases.
 Active charcoal absorbers can be attached to the exhaust port of the anaesthesia
 machine to recapture the volatile anaesthetics reducing their negative climate impact.
-The capture efficiency of the passive CONTRAfluran absorbers is unknown
-for sevoflurane in a 'real-world' scenario.
+The capture efficiency of the CONTRAfluran absorbers for sevoflurane, without an
+anaesthetic gas scavenging system connected, is unknown in a 'real-world' scenario.
 
 **Methods**:
 In this prospective single-center observational study we collected
-`r nrow(agc)` consecutive CONTRAfluran anaesthetic gas canisters from two
+`r nrow(agc)` consecutive CONTRAfluran absorbers from two
 different operating rooms (ORs) after they were saturated to their maximum
 saturation levels.
 Additionally, we recorded the sevoflurane consumption by comparing the weight
-of the sevoflurane bottles after refilling the vapor.
-The primary outcome was the amount of recovered sevoflurane.
+of the sevoflurane bottles after refilling the vaporiser.
+The primary outcome was the amount of recaptured sevoflurane.
 The secondary outcomes were the difference in sevoflurane recovery between both ORs
 and the avoided emissions in carbon dioxide equivalents (CO~2~e).
 
@@ -36,7 +36,7 @@ saved around `r sprintf("%.0f", (TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]
 in both ORs compared to using the anaesthesia gas scavenging system.
 
 **Conclusions**:
-The capture efficiency depends on fresh gas flow and duration of anaesthesia.
+The capture efficiency depends on fresh gas flow used and duration of anaesthesia.
 If CONTRAfluran absorbers were used until saturated,
 almost half of the sevoflurane could be recaptured,
 reducing the carbon footprint by around a third.

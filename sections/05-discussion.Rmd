@@ -1,7 +1,7 @@
 # Discussion
 
 In this prospective single-center observational study we demonstrated that using
-passive absorbers for sevoflurane until they reached their maximum saturation
+active charcoal absorbers for sevoflurane until they reached their maximum saturation
 levels can yield a capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
 In our study cohort of `r sum(nCasesSev)` balanced anaesthesia cases this
 represents a total amount of `r sprintf("%.1f kg", TotalRecoveredSev / 1000)`
@@ -24,14 +24,14 @@ consumption per hour.
 However, large wastage of volatile anaesthetic yields a higher capture efficiency.
 
 Another major determinant for the lower capture efficiency in `r ORnames[2]`
-may the longer duration of anaesthesia.
-The slow compartments, e.g. fat, have a huge capacity to store a large amount of
+may be the longer duration of anaesthesia.
+The slow compartments of the body, e.g. fat, have a huge capacity to store a large amount of
 volatile anaesthetics.
 Due to the long time constant for sevoflurane
 it takes hours to saturate the slow compartments [@Hendrickx2022].
 However, even before saturation the absolute amount of volatile anaesthetic
 in the fat tissue is much larger than in the fast compartments (brain, muscle) and
-the blood.
+the blood [@Hendrickx2022].
 During the emergence process the fat tissue will release the volatile
 anaesthetic slowly as well, due to its small part of the total cardiac output and
 the low partial pressure.
@@ -42,7 +42,7 @@ In a previous simulation study this effect was relatively mild with a 9 %
 reduction of the capture efficiency from 82 % after one hour to 73 % after five hours
 anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023].
 Considering the large volume of fat tissue and the
-theoretical storing capacity this seems significantly underestimated.
+theoretical storage capacity this seems significantly underestimated.
 @Hinterberg2022 had also recognized much lower capture efficiency
 in longer than in shorter anaesthesia.
 Interestingly, @Mulier2024 had not seen any correlation between mass transfer
@@ -108,7 +108,7 @@ In our study `r .pct(TotalRecoveredSev / TotalWeightGain, prec = ".0")`
 were attributable to sevoflurane (desorption efficiency).
 We believe, the complete saturation of our AGCs explains the higher proportion in
 comparison to the 70 % previously reported [@Hinterberg2022].
-Maybe a connected AGSS caused a dryer AGC which could be a reason for the very high
+Maybe a connected AGSS caused a dryer AGC, which could be a reason for the very high
 desorption efficiency of 95.5 % sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
 
 Although we stored all AGCs in a zip lock bag, we suprisingly found a
@@ -133,13 +133,24 @@ anaesthetics for canister production, transport, desorption, and disposal
 @Hu2021 estimated `r sprintf("%.1f", SevoCO2eq["manufacturing"])` CO~2~e for
 manufacturing sevoflurane in a best-case scenario.
 Using these data and assuming sevoflurane reuse, we produced `r sprintf("%.0f", TotalCO2eq["CONTRAfluran"] / 1000)`
-kgCO~2~e in total (total used sevoflurane x [CO~2~e manufacturing + CO~2~e waste] - recovered sevoflurane x CO~2~e manufacturing + captured sevoflurane x CO~2~e CONTRAfluran).
+kgCO~2~e in total
+(total used sevoflurane x [CO~2~ manufacturing + CO~2~ waste] +
+ in vivo mass transfer x CO~2~ CONTRAfluran -
+ recaptured sevoflurane x [CO~2~ manufacturing + CO~2~ waste]:
+ `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` x
+ [`r sprintf("%.1f", SevoCO2eq["manufacturing"])` +
+  `r sprintf("%.1f", SevoCO2eq["waste"])`] +
+ `r sprintf("%.1f kg", TotalWeightGain / 1000)` x
+ `r sprintf("%.1f", CONTRAfluranCO2eq)` -
+ `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` x
+ [`r sprintf("%.1f", SevoCO2eq["manufacturing"])` +
+  `r sprintf("%.1f", SevoCO2eq["waste"])`]).
 This calculation ignores the fact, that in theory the same sevoflurane molecule
 could be recaptured more than once.
 
 By contrast, a conservative estimation of wasting the sevoflurane by an AGSS yield
 `r sprintf("%.0f", TotalCO2eq["AGSS"] / 1000)` kgCO~2~e, assuming a best-case scenario where the
-system is only connected for the duration of the anaesthesia (ignoring the time
+AGSS is only connected for the duration of the anaesthesia (ignoring the time
 needed to prepare the next case), with power consumption of `r sprintf("%.1f", AGSSkWh)` kWh and `r sprintf("%.3f", kWhCO2eq)` CO~2~e.kWh^-1^ of the German power grid in 2021 [@Schuster2023].
 However, the impact of the power consumption for running the AGSS
 for `r sprintf("%.0f", TotalDurationCases / 60)` h,
@@ -182,13 +193,13 @@ we studied a day-to-day use,
 that is why our results can be compared easily to other settings.
 
 The gold standard to determine consumption of volatile anaesthetic is weighing
-the vapor before and after the observation period, typically a single
+the vaporiser before and after the observation period, typically a single
 anaesthesia case.
 Unfortunately, a scale that was precise enough to measure more than 9 kg with
 a precision of a few grams was not available.
 However, our approach, weighing the sevoflurane bottles, has small advantages
 in our scenario.
-According to the manual for the vapor, the Draeger D-Vapor 3000 loses small
+According to the manual of the vaporiser, the Draeger D-Vapor 3000 loses small
 amounts of volatile anaesthetics (< 0.5 ml in 24 hours).
 While these loss is small and maybe negligible
 it can't be measured by weighing the vapor before and after each case.

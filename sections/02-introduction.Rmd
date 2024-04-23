@@ -1,6 +1,6 @@
 # Introduction
 
-The anthropogenic climate crisis is the largest threat to global health [@Daalen2022].
+The anthropogenic climate crisis is one of the largest threat to global health [@Daalen2022].
 However, the health care sector itself is responsible for 5-10 % greenhouse gas emissions [@Hu2021].
 Almost half of these emissions are caused by volatile anaesthetics used in anaesthesia and intensive care [@Hu2021].
 
@@ -14,6 +14,6 @@ Therefore, it can be assumed that a higher efficiency could be obtained, when AG
 This might be one reason why @Gandhi2023 reported a significantly higher capture efficiency of 43-51 % using SageTech Medical's Volatile Capture Device (SageTech Medical, Paignton, UK) for sevoflurane, even though one would expect that the capture efficiency for sevoflurane would be lower in comparison to desflurane, due to the higher blood-gas coefficients and metabolism rate of sevoflurane.
 @Mulier2024 weighed the AGC before, during and after an anaesthesia for
 laparoscopic surgery and determined an in vivo mass transfer of 45 %.
-But as the system used by @Gandhi2023 included an additional scavenger system to capture the volatile anaesthetic and @Mulier2024 didn't report the results of the desorption process, it remains unknown how efficient passive vapor capture system for sevoflurane can be, when used to higher saturation levels.
-Therefore, we conducted this study to investigate the efficiency of passive vapor capture systems for sevoflurane, when used to higher saturation levels.
-For that purpose we used passive absorbers (CONTRAfluran) for sevoflurane until they reached their maximum saturation levels and investigated the efficiency of the overall recapture process.
+But as the system used by @Gandhi2023 included an additional anaesthetic gas scavenging system (AGSS) to capture the volatile anaesthetic and @Mulier2024 didn't report the results of the desorption process, it remains unknown how efficient vapor capture systems for sevoflurane, without an AGSS connected, can be, when used to maximum saturation levels.
+That is why, we conducted this study to investigate the efficiency of passive vapor capture systems for sevoflurane, when used to higher saturation levels,
+and the entire recapture process.
