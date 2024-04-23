@@ -188,6 +188,7 @@ setcolorder(agc, c(
     "TotalUsedWeightSev", "TotalCases", "TotalCasesTiva", "TotalCasesSev",
     "TotalDurationCases", "TotalDurationCasesTiva", "TotalDurationCasesSev"
 ))
+setorder(agc, AgcId)
 
 setnames(agc, colnames(agc), sub("^Agc", "", colnames(agc)))
 fwrite(agc, frf("data", "agc.csv"), row.names = FALSE)
