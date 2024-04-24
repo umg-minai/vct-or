@@ -19,7 +19,7 @@ The datasets generated and/or analysed during the current study are available in
 
 ```{r competing-interests, echo = FALSE, results = "asis"}
 .drop_author_title <- function(x)gsub(",.*$", "", x)
-.initials <- function(x)(gsub("\\W*\\b(\\w)\\w*", "\\1", x))
+.initials <- function(x)gsub("\\W*\\b(\\w)\\w*", "\\1", x)
 authors <- unlist(rmarkdown::metadata$author, recursive = FALSE)
 
 cois <- vapply(authors, "[[", "competing_interest", FUN.VALUE = NA_character_)
