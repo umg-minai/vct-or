@@ -60,7 +60,7 @@ is very similar to the 43-51 % previously reported for the anaesthesia gas
 scavenging system (AGSS)-dependent
 SageTech Medical's Volatile Capture Device
 (SageTech Medical, Paignton, UK; @Gandhi2023) or the 45 % in vivo mass transfer
-for CONTRAfluran during laparscopic surgery [@Mulier2024].
+for CONTRAfluran during laparscopic surgery [@Mulier2024a].
 @Hinterberg2022 reported a much lower capture efficiency of just 25 % for
 desflurane.
 They used a new AGC for every case, which produced underfilled AGCs
@@ -118,8 +118,13 @@ A previous study reported a constant weight over time [@Hinterberg2022].
 Because of the strong non-covalent interaction between the volatile anaesthetic and
 the activated charcoal, and the hydrophobic character of the latter,
 we assume a drying or evaporation process of the captured water could explain the weight loss.
+However, we recognized some rare exhausting alarms by SENSOfluran during
+minimal-flow total intravenous anaesthesia, which may be due spontaneous desorption.
+Weight loss during high-flow total intravenous anaesthesia was already reported
+[@Mulier2024].
+So spontaneous desorption, even without any flow, may be another explanation.
 
-This weight loss and the difference in desorption efficiency illustrate
+These weight loss and the difference in desorption efficiency illustrate
 that it is not possible to draw any conclusions about the overall
 capture efficiency of AGCs from in vivo mass transfer alone.
 
