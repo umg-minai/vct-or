@@ -15,6 +15,6 @@ This might be one reason why Gandhi et al. reported a significantly higher captu
 Mulier et al. weighed the AGC before, during and after anaesthesia for
 laparoscopic surgery and determined an in vivo mass transfer of 45 %
 [@Mulier2024].
-But as the system used by Gandhi et al. included an additional anaesthetic gas scavenging system (AGSS) to capture the volatile anaesthetic and Mulier et al. didn't report the results of the desorption process, it remains unknown how efficient vapor capture systems for sevoflurane, without an AGSS connected, can be, when used to maximum saturation levels [@Gandhi2023; @Mulier2024].
+But as the system used by Gandhi et al. included an additional anaesthetic gas scavenging system (AGSS) to capture the volatile anaesthetic and Mulier et al. did not report the results of the desorption process, it remains unknown how efficient vapor capture systems for sevoflurane, without an AGSS connected, can be, when used to maximum saturation levels [@Gandhi2023; @Mulier2024].
 That is why, we conducted this study to investigate the efficiency of passive vapor capture systems for sevoflurane, when used to higher saturation levels,
 and the entire recapture process.
