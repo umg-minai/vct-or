@@ -1,7 +1,7 @@
 # Conclusion
 
 The capture efficiency of active charcoal absorbers (CONTRAfluran)
-depends on fresh gas flow used and duration of anaesthesia.
+may depends on fresh gas flow used and duration of anaesthesia.
 It was higher than previously reported, when the absorbers were used until
 they reached their maximum saturation levels.
 Using metabolic flow, the proportional capture efficiencies were
@@ -9,11 +9,8 @@ Using metabolic flow, the proportional capture efficiencies were
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`
 in the two studied ORs.
-However, focusing on capture efficiency is misleading and the carbon footprint
-should be assessed instead.
-The estimated carbon footprint for inhaled anaesthesia utilizing metabolic flow
-and applying vapor capture technology is still around twice as high as for total intravenous
-anaesthesia.
-This highlights the most important action, reducing wastage upfront
-wherever possible, i.e. critical indication of inhaled anaesthesia and
-using metabolic flow.
+However, focusing on capture efficiency is misleading.
+Further research and independent life cycle analyses are needed
+to understand the factors of different capture efficiencies and
+to determine the carbon footprint of balanced anaesthesia with vapor capture
+technology.

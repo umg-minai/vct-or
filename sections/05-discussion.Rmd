@@ -2,7 +2,7 @@
 
 In this prospective single-center observational study we demonstrated that using
 active charcoal absorbers for sevoflurane until they reached their maximum saturation
-levels can yield a capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
+levels can yield a total capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
 In our study cohort of `r sum(nCasesSev)` balanced anaesthesia cases this
 represents a total amount of `r sprintf("%.1f kg", TotalRecoveredSev / 1000)`
 that can be recovered from a total of `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)`
@@ -14,28 +14,28 @@ in both ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`.
-Despite the different disciplines and procedures, the main differences are the
-inhaled induction and the duration of anaesthesia.
+Despite the different disciplines and procedures, obvious differences
+are the inhaled induction and the duration of anaesthesia.
 During an inhaled induction, even if done with a fresh gas flow
 in the range of the minute ventilation of the respective child, a large amount
 of sevoflurane is wasted and cannot be compensated by a following metabolic
 flow anaesthesia as could be seen in the large difference in average sevoflurane
 consumption per hour.
-However, large wastage of volatile anaesthetic yields a higher capture efficiency.
+However, large wastage of VA yields a higher capture efficiency.
 
 Another major determinant for the lower capture efficiency in `r ORnames[2]`
 may be the longer duration of anaesthesia.
 The slow compartments of the body, e.g. fat, have a huge capacity to store a large amount of
-volatile anaesthetics.
+VAs.
 Due to the long time constant for sevoflurane
 it takes hours to saturate the slow compartments [@Hendrickx2022].
-However, even before saturation the absolute amount of volatile anaesthetic
+However, even before saturation the absolute amount of VA
 in the fat tissue is much larger than in the fast compartments (brain, muscle) and
 the blood [@Hendrickx2022].
 During the emergence process the fat tissue will release the volatile
 anaesthetic slowly as well, due to its small part of the total cardiac output and
 the low partial pressure.
-The longer the anaesthesia lasts, the more volatile anaesthetic will be stored
+The longer the anaesthesia lasts, the more VA will be stored
 in the fat tissue and carried to the post anaesthesia care unit where it is
 unable to be captured, resulting in a lower capture efficiency.
 In a previous simulation study this effect was relatively mild with a 9 %
@@ -78,28 +78,6 @@ the capture efficiency as described and simulated before
 However, the focus on capture efficiency as a target is misleading as a higher fresh gas
 flow yield a higher capture efficiency due to an increased proportion of
 anaesthetic wasted and entering the AGC [@Shelton2022; @Gandhi2024].
-As Shelton et al. pointed out: 'if fresh gas flow were
-10 times greater than necessary, 90 % of the administered
-agent would pass out of the circuit and into the volatile capture device
-intraoperatively, potentially leading to a higher
-[capture efficiency] despite a clearly wasteful technique'.
-They suggest comparing the carbon footprint instead.
-Following this, we estimate a worse carbon footprint of
-`r sprintf("%.2f", ORCO2eq[1] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[1]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia for
-`r ORnames[1]` in comparison to
-`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia,
-regardless of the much lower proportional capture efficiency of the latter.
-Obviously, the regular inhaled induction of the first one or two cases in `r ORnames[1]` plays a major role but also the
-general wash-in/wash-out phases are more significant in the typically shorter duration of anaesthesia.
-
-Assuming a capture efficiency of 70 % Hu et al. estimated a carbon footprint of
-around 1 kg.h^-1^, similar to the estimate of a total intravenous anaesthesia
-[@Hu2021].
-However, our best estimate of
-`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ for an inhaled anaesthesia
-is still almost twice as high.
-In contrast to the steady-state estimates of Hu et al. our averages incorporate the wash-in/wash-out phases which,
-in addition to the lower capture efficiency, partly explains the higher estimates [@Hu2021].
 
 Beside the volatile agent the AGC contains a varying proportion of
 water, acetone, and, in the case of sevoflurane, compound A-E.
@@ -116,7 +94,7 @@ Although we stored all AGCs in a zip lock bag, we suprisingly found a
 linear decrease in weight of around
 `r round(fit.weigth.loss$coefficients * 1000)` mg per day during storage (Figure \@ref(fig:plot-weight-lost)).
 A previous study reported a constant weight over time [@Hinterberg2022].
-Because of the strong non-covalent interaction between the volatile anaesthetic and
+Because of the strong non-covalent interaction between the VA and
 the activated charcoal, and the hydrophobic character of the latter,
 we assume a drying or evaporation process of the captured water could explain the weight loss.
 However, we recognized some rare exhausting alarms by SENSOfluran during
@@ -135,10 +113,10 @@ Assuming a global warming potential of `r SevoCO2eq["waste"]` for sevoflurane ov
 `r sprintf("%.1f", TotalRecoveredSev / 1000 * SevoCO2eq["waste"])` kg CO~2~e of sevoflurane into the atmosphere [@Nielsen2024].
 A life cycle analysis conducted on behalf of Baxter estimated `r CONTRAfluranCO2eq` kg CO~2~e per 1 kg of captured volatile
 anaesthetics for canister production, transport, desorption, and disposal
-[@Costelloe2022].
+(presentation is available by Baxter on request).
 Hu et al. estimated `r sprintf("%.1f", SevoCO2eq["manufacturing"])` CO~2~e for
 manufacturing sevoflurane in a best-case scenario [@Hu2021].
-Using these data and assuming sevoflurane reuse, we produced `r sprintf("%.0f", TotalCO2eq["CONTRAfluran"] / 1000)`
+Using these non-independent data and assuming sevoflurane reuse, we produced approximately `r sprintf("%.0f", TotalCO2eq["CONTRAfluran"] / 1000)`
 kgCO~2~e in total
 (total used sevoflurane x [CO~2~ manufacturing + CO~2~ waste] +
  in vivo mass transfer x CO~2~ CONTRAfluran -
@@ -163,6 +141,23 @@ for `r sprintf("%.0f", TotalDurationCases / 60)` h,
 resulting in `r sprintf("%.1f", (TotalDurationCases / 60) * AGSSkWh * kWhCO2eq)` kg CO~2~e,
 is negligible in this calculation.
 
+Comparing the proportional carbon footprint of both ORs, we estimate a higher footprint of
+`r sprintf("%.2f", ORCO2eq[1] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[1]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia for
+`r ORnames[1]` in comparison to
+`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia,
+regardless of the much lower proportional capture efficiency of the latter.
+Obviously, the regular inhaled induction of the first one or two cases in `r ORnames[1]` plays a major role but also the
+general wash-in/wash-out phases are more significant in the typically shorter duration of anaesthesia.
+
+Assuming a capture efficiency of 70 % Hu et al. estimated a carbon footprint of
+around 1 kg.h^-1^, similar to the estimate of a total intravenous anaesthesia
+[@Hu2021].
+However, our best estimate of
+`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ for an inhaled anaesthesia
+is still almost twice as high.
+In contrast to the steady-state estimates of Hu et al. our averages incorporate the wash-in/wash-out phases which,
+in addition to the lower capture efficiency, partly explains the higher estimates [@Hu2021].
+
 In summary we saved around `r sprintf("%.0f", (TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]) / 1000)` kg CO~2~e, reducing the carbon footprint by `r .pct((TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]) / TotalCO2eq["AGSS"], prec = ".0")`, in these two ORs over the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` weeks study period.
 
 ```{r costs, include = FALSE}
@@ -180,18 +175,11 @@ A more realistic example with an AGSS connected for 10 h per working day in both
 The primary limitation of our study is that we included just two
 ORs with a different number of patients and a variety of surgical and
 anaesthesia procedures.
-Due to the large number of patients per AGC
-we weren't able to analyse patient related associations in a meaningful way.
+Due to the large number of patients per AGC and the pragmatic design
+we weren't able to analyse patient related associations, fresh gas flows, and
+others procedure related factors in a meaningful way.
 Therefore, our findings should be regarded as exploratory,
 indicating a further need for research.
-
-Some anaesthesia cases of `r ORnames[2]` were inducted in the separate induction room.
-This may overestimate the proportional capture efficiency
-for the AGCs in this OR because an external, unmeasured amount of
-sevoflurane was introduced.
-However, induction in the induction room was not done on a regular basis and
-due to the short duration and
-the need to fill the circuit in the OR its effect should be small.
 
 In contrast to previous studies that use a new AGC for every case or
 use the AGC just for select procedures to infer associations between capture
@@ -199,7 +187,14 @@ efficiency and patient characteristics,
 we studied a day-to-day use,
 that is why our results can be compared easily to other settings.
 
-The gold standard to determine consumption of volatile anaesthetic is weighing
+Seven of `r round(nCases[ORnames[2]])` cases of `r ORnames[2]` were inducted in the separate induction room.
+This may overestimate the proportional capture efficiency
+for the AGCs in this OR because an external, unmeasured amount of
+sevoflurane was introduced.
+However, due to the small number of external inductions, the short duration and
+the need to fill the circuit in the OR its effect should be negligible.
+
+The gold standard to determine consumption of VA is weighing
 the vaporiser before and after the observation period, typically a single
 anaesthesia case.
 Unfortunately, a scale that was precise enough to measure more than 9 kg with
@@ -207,18 +202,18 @@ a precision of a few grams was not available.
 However, our approach, weighing the sevoflurane bottles, has small advantages
 in our scenario.
 According to the manual of the vaporiser, the Draeger D-Vapor 3000 loses small
-amounts of volatile anaesthetics (< 0.5 ml in 24 hours).
+amounts of VAs (< 0.5 ml in 24 hours; equals < 31 mg/h).
 While this loss is small and maybe negligible
 it can't be measured by weighing the vapor before and after each case.
 Ignoring such loss would slightly overestimate the capture efficiency.
 By weighing the bottles, we can easily measure all, possible hidden, loss of
-volatile anaesthetics and determine the capture efficiency more accurately.
+VAs and determine the capture efficiency more accurately.
 
 After removal of the last exhausted AGC, CH0100012088, in `r ORnames[2]`
 the vaporiser was not refilled, and the weight difference of the sevoflurane bottle
 not recorded.
 That is why we calculate the sevoflurane consumption data for the four last
-anaesthesia cases as described by Biro et al. 
+anaesthesia cases as described by Biro et al.
 (`r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)`; Supplemental Section \@ref(estimation-of-sevoflurane-consumption)) [@Biro2015].
 They described an overestimation of the sevoflurane consumption by 6.2 %.
 For our AGC CH0100012088 this would result in an error of

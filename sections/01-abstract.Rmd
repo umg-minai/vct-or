@@ -8,18 +8,20 @@ The capture efficiency of the CONTRAfluran absorbers for sevoflurane, without an
 anaesthetic gas scavenging system connected, is unknown in a 'real-world' scenario.
 
 **Methods**:
-In this prospective single-center observational study we collected
+In this prospective single-center exploratory observational study we collected
 `r nrow(agc)` consecutive CONTRAfluran absorbers from two
 different operating rooms (ORs) after they were saturated to their maximum
 saturation levels.
 Additionally, we recorded the sevoflurane consumption by comparing the weight
-of the sevoflurane bottles after refilling the vaporiser.
+of the sevoflurane bottles after refilling the vaporisers.
 The primary outcome was the amount of recaptured sevoflurane.
-The secondary outcomes were the difference in sevoflurane recovery between both ORs
-and the avoided emissions in carbon dioxide equivalents (CO~2~e).
+The secondary outcomes were the difference between in vivo mass transfer and
+recapture rate reported by ZeoSys, the difference in sevoflurane recovery
+between both ORs and the weight loss of the absorbers during storage.
 
 **Results**:
-During our study of `r sum(nCasesSev)` balanced anaesthesia cases
+We observed `r sum(nCasesSev)` balanced anaesthesia cases.
+In total
 `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` sevoflurane was used and
 `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` could be recovered
 yielding a capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
@@ -27,19 +29,19 @@ We saw a significant difference in the proportional capture efficiencies
 in both ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
 and
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]` due to inhaled induction in the former and longer duration of anaesthesia in the latter.
-Using CONTRAfluran we avoided releasing
-`r sprintf("%.1f", TotalRecoveredSev / 1000 * SevoCO2eq["waste"])` kg CO~2~e
-of sevoflurane into the atmosphere.
-Assuming sevoflurane reuse this would have
-saved around `r sprintf("%.0f", (TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]) / 1000)` kg CO~2~e, reducing the carbon footprint by `r .pct((TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]) / TotalCO2eq["AGSS"], prec = ".0")`
-in both ORs compared to using the anaesthesia gas scavenging system.
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]` may due to inhaled induction in the former and longer duration of anaesthesia in the latter.
+During storage we saw a weight loss over time of around
+`r round(fit.weigth.loss$coefficients * 1000)` mg per day per absorber.
 
 **Conclusions**:
-The capture efficiency depends on fresh gas flow used and duration of anaesthesia.
+The capture efficiency may depends on fresh gas flow used and
+duration of anaesthesia.
 If CONTRAfluran absorbers were used until saturated,
-almost half of the sevoflurane could be recaptured,
-reducing the carbon footprint by around a third.
+almost half of the sevoflurane could be recaptured.
+But further research and independent life cycle analyses are needed
+to understand the factors of different capture efficiencies and
+to determine the carbon footprint of balanced anaesthesia with vapor capture
+technology.
 
 **Keywords**:
 balanced anaesthesia, sevoflurane, vapor capture technology, carbon footprint
