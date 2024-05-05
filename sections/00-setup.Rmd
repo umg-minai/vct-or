@@ -55,6 +55,16 @@ options(english.UK = FALSE)
     )
 }
 
+.medLU <- function(x, prec=".1") {
+    q <- quantile(
+        x, probs = c(0.5, 0.25, 0.75), na.rm = TRUE, conf.int = FALSE
+    )
+    sprintf(
+        paste0("%", prec, "f (%", prec, "f, %", prec, "f)"),
+        q[1], q[2], q[3]
+    )
+}
+
 #' return numbers as words
 .as.word <- function(x)
     ifelse(x > 12, as.character(x), as.character(as.english(as.numeric(x))))
