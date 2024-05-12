@@ -194,6 +194,9 @@ sevoflurane was introduced.
 However, due to the small number of external inductions, the short duration and
 the need to fill the circuit in the OR its effect should be negligible.
 
+We didn't record the intraoperative change of the carbon dioxid absorber.
+But the influence should also be negligible due to the infrequent changes.
+
 The gold standard to determine consumption of VA is weighing
 the vaporiser before and after the observation period, typically a single
 anaesthesia case.
