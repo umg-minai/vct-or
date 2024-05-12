@@ -107,69 +107,6 @@ These weight loss and the difference in desorption efficiency illustrate
 that it is not possible to draw any conclusions about the overall
 capture efficiency of AGCs from in vivo mass transfer alone.
 
-## Environmental and financial implications
-
-Assuming a global warming potential of `r SevoCO2eq["waste"]` for sevoflurane over a 100-year time period, we avoided the release of
-`r sprintf("%.1f", TotalRecoveredSev / 1000 * SevoCO2eq["waste"])` kg CO~2~e of sevoflurane into the atmosphere [@Nielsen2024].
-A life cycle analysis conducted on behalf of Baxter estimated `r CONTRAfluranCO2eq` kg CO~2~e per 1 kg of captured volatile
-anaesthetics for canister production, transport, desorption, and disposal
-(presentation is available by Baxter on request).
-Hu et al. estimated `r sprintf("%.1f", SevoCO2eq["manufacturing"])` CO~2~e for
-manufacturing sevoflurane in a best-case scenario [@Hu2021].
-Using these non-independent data and assuming sevoflurane reuse, we produced approximately `r sprintf("%.0f", TotalCO2eq["CONTRAfluran"] / 1000)`
-kgCO~2~e in total
-(total used sevoflurane x [CO~2~ manufacturing + CO~2~ waste] +
- in vivo mass transfer x CO~2~ CONTRAfluran -
- recaptured sevoflurane x [CO~2~ manufacturing + CO~2~ waste]:
- `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` x
- [`r sprintf("%.1f", SevoCO2eq["manufacturing"])` +
-  `r sprintf("%.1f", SevoCO2eq["waste"])`] +
- `r sprintf("%.1f kg", TotalWeightGain / 1000)` x
- `r sprintf("%.1f", CONTRAfluranCO2eq)` -
- `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` x
- [`r sprintf("%.1f", SevoCO2eq["manufacturing"])` +
-  `r sprintf("%.1f", SevoCO2eq["waste"])`]).
-This calculation ignores the fact, that in theory the same sevoflurane molecule
-could be recaptured more than once.
-
-By contrast, a conservative estimation of wasting the sevoflurane by an AGSS yield
-`r sprintf("%.0f", TotalCO2eq["AGSS"] / 1000)` kgCO~2~e, assuming a best-case scenario where the
-AGSS is only connected for the duration of the anaesthesia (ignoring the time
-needed to prepare the next case), with power consumption of `r sprintf("%.1f", AGSSkWh)` kWh and `r sprintf("%.3f", kWhCO2eq)` CO~2~e.kWh^-1^ of the German power grid in 2021 [@Schuster2023].
-However, the impact of the power consumption for running the AGSS
-for `r sprintf("%.0f", TotalDurationCases / 60)` h,
-resulting in `r sprintf("%.1f", (TotalDurationCases / 60) * AGSSkWh * kWhCO2eq)` kg CO~2~e,
-is negligible in this calculation.
-
-Comparing the proportional carbon footprint of both ORs, we estimate a higher footprint of
-`r sprintf("%.2f", ORCO2eq[1] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[1]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia for
-`r ORnames[1]` in comparison to
-`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ of inhaled anaesthesia,
-regardless of the much lower proportional capture efficiency of the latter.
-Obviously, the regular inhaled induction of the first one or two cases in `r ORnames[1]` plays a major role but also the
-general wash-in/wash-out phases are more significant in the typically shorter duration of anaesthesia.
-
-Assuming a capture efficiency of 70 % Hu et al. estimated a carbon footprint of
-around 1 kg.h^-1^, similar to the estimate of a total intravenous anaesthesia
-[@Hu2021].
-However, our best estimate of
-`r sprintf("%.2f", ORCO2eq[2] / (sum(agc$TotalDurationCasesSev[agc$OR == ORnames[2]]) / 60 ) / 1000)` kg CO~2~e.h^-1^ for an inhaled anaesthesia
-is still almost twice as high.
-In contrast to the steady-state estimates of Hu et al. our averages incorporate the wash-in/wash-out phases which,
-in addition to the lower capture efficiency, partly explains the higher estimates [@Hu2021].
-
-In summary we saved around `r sprintf("%.0f", (TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]) / 1000)` kg CO~2~e, reducing the carbon footprint by `r .pct((TotalCO2eq["AGSS"] - TotalCO2eq["CONTRAfluran"]) / TotalCO2eq["AGSS"], prec = ".0")`, in these two ORs over the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` weeks study period.
-
-```{r costs, include = FALSE}
-CONTRAfluranAGCcosts <- 35
-```
-
-A CONTRAfluran AGC costs around `r sprintf("%.0f", CONTRAfluranAGCcosts)` EUR, yielding `r sprintf("%.0f", nrow(agc) * CONTRAfluranAGCcosts)` EUR costs during our study period.
-The power consumption of our AGSS was unknown.
-Assuming the previously reported range of 0.1 to 1.6 kWh and a current price of
-0.3 EUR per kWh we saved `r paste0(round((TotalDurationCases / 60) * c(0.1, 1.6) * 0.3), collapse = " to ")` EUR by avoiding the AGSS during anaesthesia time (ignoring changing times)[@Schuster2023].
-A more realistic example with an AGSS connected for 10 h per working day in both ORs yield a cost saving of `r paste0(round(difftime(max(periods$End), min(periods$Start), units = "weeks") * 5 * 10 * 2 * c(0.1, 1.6) * 0.3), collapse = " to ")` EUR.
-
 ## Limitations
 
 The primary limitation of our study is that we included just two
