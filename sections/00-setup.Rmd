@@ -90,8 +90,6 @@ flowvapor <- read.csv(frf("data", "flow-vapor-settings.csv"))
 ```{r prepare, include = FALSE}
 agc$OR <- ifelse(agc$OR == 21, ORnames[1], ORnames[2])
 agc$WeightGain <- agc$FinalWeight - agc$InitialWeight
-agc$TotalUsedVolumeSev <- agc$TotalUsedWeightSev / sevodensity
-agc$UsedVolumePerHourSev <- agc$TotalUsedVolumeSev / (agc$TotalDurationCasesSev / 60)
 agc$UsedWeightPerHourSev <- agc$TotalUsedWeightSev / (agc$TotalDurationCasesSev / 60)
 agc$InVivoMassTransfer <- agc$WeightGain / agc$TotalUsedWeightSev * 100
 
@@ -228,7 +226,7 @@ tbl_cases <- agc |>
             AvgDurationSev ~ "continuous"
         ),
         label = list(
-            TotalCases ~ "Number of cases",
+            TotalCases ~ "Total number of cases",
             TotalCasesSev ~ "Number of inhaled anaesthesia cases",
             TotalDurationCasesSev ~ "Total duration of inhaled anaesthesia [h]",
             AvgDurationSev ~ "Average duration of inhaled anaesthesia [min]"
@@ -240,8 +238,6 @@ tbl_cases <- agc |>
 tbl_weights <- agc |>
     select(
         OR,
-        InitialWeight,
-        FinalWeight,
         WeightGain,
         InVivoMassTransfer,
         ProportionalCapturedWeightSev,
@@ -254,16 +250,12 @@ tbl_weights <- agc |>
         by = OR,
         missing_text = "(Missing)",
         type = list(
-            InitialWeight ~ "continuous",
-            FinalWeight ~ "continuous",
             WeightGain ~ "continuous",
             InVivoMassTransfer ~ "continuous",
             ProportionalCapturedWeightSev ~ "continuous",
             ProportionalCaptureEfficiency ~ "continuous"
         ),
         label = list(
-            InitialWeight ~ "Initial weight [g]",
-            FinalWeight ~ "Final weight [g]",
             WeightGain ~ "Weight gain [g]",
             InVivoMassTransfer ~ "In vivo mass transfer [%]",
             ProportionalCapturedWeightSev ~ "Proportional captured sevoflurane [g]",
@@ -278,24 +270,18 @@ tbl_weights_overall <- add_overall(tbl_weights)
 tbl_sevo_consumption <- agc |>
     select(
         OR,
-        TotalUsedVolumeSev,
         TotalUsedWeightSev,
-        UsedVolumePerHourSev,
         UsedWeightPerHourSev
     ) |>
     tbl_summary(
         by = OR,
         missing_text = "(Missing)",
         type = list(
-            TotalUsedVolumeSev ~ "continuous",
             TotalUsedWeightSev ~ "continuous",
-            UsedVolumePerHourSev ~ "continuous",
             UsedWeightPerHourSev ~ "continuous"
         ),
         label = list(
-            TotalUsedVolumeSev ~ "Total used sevoflurane volume [ml]",
             TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
-            UsedVolumePerHourSev ~ "Average used sevoflurane volume per hour inhaled anaesthesia [ml.h^-1^]",
             UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour inhaled anaesthesia [g.h^-1^]"
         ),
         digits = all_continuous() ~ 1
@@ -324,9 +310,7 @@ modify_caption(
     paste0(
         "ENT: ear, nose and throat surgery; ",
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
-        "Cases, duration etc. are given as per canister. ",
-        "The sevoflurane volume was calculated by dividing the ",
-        "weight measurments by its density of ", sevodensity, "."
+        "Cases, duration etc. are given as per canister."
     )
 )
 ```

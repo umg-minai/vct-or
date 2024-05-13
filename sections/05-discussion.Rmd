@@ -96,7 +96,7 @@ linear decrease in weight of around
 A previous study reported a constant weight over time [@Hinterberg2022].
 Because of the strong non-covalent interaction between the VA and
 the activated charcoal, and the hydrophobic character of the latter,
-we assume a drying or evaporation process of the captured water could explain the weight loss.
+we assume a drying or evapouration process of the captured water could explain the weight loss.
 However, we recognized some rare exhausting alarms by SENSOfluran during
 minimal-flow total intravenous anaesthesia, which may be due spontaneous desorption.
 Weight loss during high-flow total intravenous anaesthesia was already reported
@@ -135,22 +135,22 @@ We didn't record the intraoperative change of the carbon dioxid absorber.
 But the influence should also be negligible due to the infrequent changes.
 
 The gold standard to determine consumption of VA is weighing
-the vaporiser before and after the observation period, typically a single
+the vapouriser before and after the observation period, typically a single
 anaesthesia case.
 Unfortunately, a scale that was precise enough to measure more than 9 kg with
 a precision of a few grams was not available.
 However, our approach, weighing the sevoflurane bottles, has small advantages
 in our scenario.
-According to the manual of the vaporiser, the Draeger D-Vapor 3000 loses small
+According to the manual of the vapouriser, the Draeger D-Vapor 3000 loses small
 amounts of VAs (< 0.5 ml in 24 hours; equals < 31 mg/h).
 While this loss is small and maybe negligible
-it can't be measured by weighing the vapor before and after each case.
+it can't be measured by weighing the vapour before and after each case.
 Ignoring such loss would slightly overestimate the capture efficiency.
 By weighing the bottles, we can easily measure all, possible hidden, loss of
 VAs and determine the capture efficiency more accurately.
 
 After removal of the last exhausted AGC, CH0100012088, in `r ORnames[2]`
-the vaporiser was not refilled, and the weight difference of the sevoflurane bottle
+the vapouriser was not refilled, and the weight difference of the sevoflurane bottle
 not recorded.
 That is why we calculate the sevoflurane consumption data for the four last
 anaesthesia cases as described by Biro et al.

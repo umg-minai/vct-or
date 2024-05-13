@@ -12,5 +12,5 @@ in the two studied ORs.
 However, focusing on capture efficiency is misleading.
 Further research and independent life cycle analyses are needed
 to understand the factors of different capture efficiencies and
-to determine the carbon footprint of balanced anaesthesia with vapor capture
+to determine the carbon footprint of balanced anaesthesia with vapour capture
 technology.

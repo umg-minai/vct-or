@@ -1,23 +1,27 @@
 # Summary
 
 **Background**:
-Volatile anaesthetics are potent greenhouse gases.
-Active charcoal absorbers can be attached to the exhaust port of the anaesthesia
-machine to recapture the volatile anaesthetics reducing their negative climate impact.
-The capture efficiency of the CONTRAfluran absorbers for sevoflurane, without an
-anaesthetic gas scavenging system connected, is unknown in a 'real-world' scenario.
+Volatile anaesthetics are potent greenhouse gases, but can be captured using
+active charcoal absorbers on the exhaust port of anaesthesia machines to reduce
+their negative climate impact.
+Previous studies investigating the capture efficiency of absorbers have been
+performed mostly under circumstances that differ from everyday clinical routine.
+Therefore, we here investigated the
+capture efficiency of the CONTRAfluran absorbers for sevoflurane
+in a 'real-world' scenario.
 
 **Methods**:
-In this prospective single-center exploratory observational study we collected
+In this prospective single-center study we collected
 `r nrow(agc)` consecutive CONTRAfluran absorbers from two
 different operating rooms (ORs) after they were saturated to their maximum
 saturation levels.
-Additionally, we recorded the sevoflurane consumption by comparing the weight
-of the sevoflurane bottles after refilling the vaporisers.
-The primary outcome was the amount of recaptured sevoflurane.
-The secondary outcomes were the difference between in vivo mass transfer and
-recapture rate reported by ZeoSys, the difference in sevoflurane recovery
-between both ORs and the weight loss of the absorbers during storage.
+After storage and transport, sevoflurane was recaptured from the absorbers by
+the absorber manufacturer ZeoSys.
+To calculate the capture efficiency we divided the amount of recaptured
+sevoflurane by the total sevoflurane consumption during the use of the
+absorbers, whihc was obtained by
+comparing the weight
+of the sevoflurane bottles before versus after refilling the vapourisers.
 
 **Results**:
 We observed `r sum(nCasesSev)` balanced anaesthesia cases.
@@ -25,23 +29,18 @@ In total
 `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` sevoflurane was used and
 `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` could be recovered
 yielding a capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
-We saw a significant difference in the proportional capture efficiencies
-in both ORs, with
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
-and
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]` may due to inhaled induction in the former and longer duration of anaesthesia in the latter.
+The capture efficiencies differed significantly between the ORs, with
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` in the OR with shorter anaesthesia durations and frquent inhaled induction
+versus
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  in the OR with longer anaesthesia duration.
 During storage we saw a weight loss over time of around
 `r round(fit.weigth.loss$coefficients * 1000)` mg per day per absorber.
 
 **Conclusions**:
-The capture efficiency may depends on fresh gas flow used and
-duration of anaesthesia.
-If CONTRAfluran absorbers were used until saturated,
-almost half of the sevoflurane could be recaptured.
-But further research and independent life cycle analyses are needed
-to understand the factors of different capture efficiencies and
-to determine the carbon footprint of balanced anaesthesia with vapor capture
-technology.
+If CONTRAfluran absorbers are used until they are fully saturated,
+almost half of the sevoflurane can be recaptured, but
+the capture efficiency depends on fresh gas flow used and duration of
+anaesthesia.
 
 **Keywords**:
-balanced anaesthesia, sevoflurane, vapor capture technology, carbon footprint
+balanced anaesthesia, sevoflurane, vapour capture technology

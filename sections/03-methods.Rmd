@@ -29,7 +29,7 @@ The first case was always inducted in the OR,
 the following cases rarely in a special induction room where no AGC was installed.
 All cases emerged from anaesthesia in the OR.
 
-The anaesthesia was performed at the discretion of the
+All anaesthesia cases were performed at the discretion of the
 anaesthesiologist in charge in clinical routine
 according to our local standard operating procedures.
 Following these, a minimal or metabolic flow (< 0.5 l.min^-1^, mostly 0.3 l.min^-1^) was used during the steady-state phase in all cases.
@@ -41,21 +41,22 @@ We used the Draeger connect software (Draeger Medical Deutschland GmbH, Luebeck,
 
 ## Consumption and weight measurement
 
-Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vaporisers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
+Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vapourisers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
 The AGC were connected to the exhaust port of the anaesthesia machines, that work in a passive mode, without an AGSS connected.
-We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vaporiser and used the difference in weight to record the sevoflurane consumption.
-The vaporisers were filled to the maximum before we attached the first CONTRAfluran AGC (ZeoSys medical, Luckenwalde, Germany) and start our recordings.
-During the study period the two vaporisers were filled completely and the sevoflurane bottle weight difference measured by the study team, which was not involved in the anaesthesia, almost every day.
+We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vapouriser and used the difference in weight to record the sevoflurane consumption.
+The vapourisers were filled to the maximum before we attached the first CONTRAfluran AGC (ZeoSys medical, Luckenwalde, Germany) and start our recordings.
+During the study period the two vapourisers were filled completely and the sevoflurane bottle weight difference measured by the study team, which was not involved in the anaesthesia, almost every day.
 
-In case a new bottle of sevoflurane was opened, it was initially attached to a non-study vaporiser to lose any excess pressure, subsequently it was weighed before the study vaporiser was filled.
+In case a new bottle of sevoflurane was opened, it was initially attached to a non-study vapouriser to lose any excess pressure, subsequently it was weighed before the study vapouriser was filled.
 
 Each AGC was only changed after it had been exhausted.
 This was visible by a red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany).
-Subsequently, we refilled the vaporiser to its maximum and measured the weight
+Subsequently, we refilled the vapouriser to its maximum and measured the weight
 difference of the sevoflurane bottle, again.
 The weight difference was counted as consumption for the just exhausted AGC.
 
-The weight gain of an AGC was determined by weighing the AGC before usage and after it was exhausted to determine in vivo mass transfer (captured weight to consumed weight).
+The weight gain of an AGC was determined by weighing the AGC before usage and after it was exhausted to determine in vivo mass transfer (ratio of absorber
+weight gain to consumed weight of sevoflurane).
 Each exhausted AGC was recapped and stored in a closed plastic zip lock bag.
 
 ZeoSys needs 20 AGCs for a single desorption process.
@@ -64,7 +65,7 @@ exhausted.
 Before returning the AGCs to ZeoSys we weighed all AGCs again,
 to determine a potential weight loss.
 
-All weigth measurements were done with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight=2500 g; d=0.01 g).
+All weight measurements were done with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight=2500 g; d=0.01 g).
 
 ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons before starting the desorption and recovery process.
 Afterwards they sent us the information about the total amount of recovered sevoflurane of all 20 AGCs.
@@ -72,7 +73,7 @@ Afterwards they sent us the information about the total amount of recovered sevo
 ## Outcome
 
 The primary outcome was the amount of recovered sevoflurane reported by ZeoSys.
-The secondary outcomes were the difference between in vivo mass transfer and the reacpture rate reported by ZeoSys, the difference in sevoflurane recovery between both ORs
+The secondary outcomes were the difference between in vivo mass transfer and the recapture rate reported by ZeoSys, the difference in sevoflurane recovery between both ORs
 and the weight loss of the AGC during storage.
 
 ## Data processing and statistical analysis
