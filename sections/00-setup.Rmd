@@ -257,8 +257,8 @@ tbl_weights <- agc |>
         ),
         label = list(
             WeightGain ~ "Weight gain [g]",
-            InVivoMassTransfer ~ "In vivo mass transfer [%]",
-            ProportionalCapturedWeightSev ~ "Proportional captured sevoflurane [g]",
+            InVivoMassTransfer ~ "*In vivo* mass transfer [%]",
+            ProportionalCapturedWeightSev ~ "Proportional sevoflurane captured [g]",
             ProportionalCaptureEfficiency ~ "Proportional capture efficiency [%]"
         ),
         digits = all_continuous() ~ 1
@@ -281,8 +281,8 @@ tbl_sevo_consumption <- agc |>
             UsedWeightPerHourSev ~ "continuous"
         ),
         label = list(
-            TotalUsedWeightSev ~ "Total used sevoflurane weight [g]",
-            UsedWeightPerHourSev ~ "Average used sevoflurane weight per hour inhaled anaesthesia [g.h^-1^]"
+            TotalUsedWeightSev ~ "Total sevoflurane weight used [g]",
+            UsedWeightPerHourSev ~ "Average sevoflurane weight used per hour inhaled anaesthesia [g.h^-1^]"
         ),
         digits = all_continuous() ~ 1
     ) |>
@@ -310,7 +310,7 @@ modify_caption(
     paste0(
         "ENT: ear, nose and throat surgery; ",
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
-        "Cases, duration etc. are given as per canister."
+        "Cases, duration, etc. are given as per canister."
     )
 )
 ```

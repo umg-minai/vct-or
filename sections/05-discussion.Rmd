@@ -1,66 +1,62 @@
 # Discussion
 
-In this prospective single-center observational study we demonstrated that using
+We demonstrated in this prospective single-center observational study that using
 active charcoal absorbers for sevoflurane until they reached their maximum saturation
 levels can yield a total capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
-In our study cohort of `r sum(nCasesSev)` balanced anaesthesia cases this
-represents a total amount of `r sprintf("%.1f kg", TotalRecoveredSev / 1000)`
+This represents a total amount of `r sprintf("%.1f kg", TotalRecoveredSev / 1000)`
 that can be recovered from a total of `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)`
-used sevoflurane
+sevoflurane used in our study cohort of `r sum(nCasesSev)` balanced anaesthesia cases.
 
 Interestingly, we saw a large and
 significant difference in the proportional capture efficiencies
-in both ORs, with
+in the two ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`.
-Despite the different disciplines and procedures, obvious differences
-are the inhaled induction and the duration of anaesthesia.
+Despite the different disciplines and procedures,
+the inhaled induction and the duration of anaesthesia are observious differences.
 During an inhaled induction, even if done with a fresh gas flow
 in the range of the minute ventilation of the respective child, a large amount
 of sevoflurane is wasted and cannot be compensated by a following metabolic
-flow anaesthesia as could be seen in the large difference in average sevoflurane
+flow anaesthesia, as could be seen in the large difference in the average sevoflurane
 consumption per hour.
-However, large wastage of VA yields a higher capture efficiency.
+However, a large wastage of VA yields a higher capture efficiency.
 
 Another major determinant for the lower capture efficiency in `r ORnames[2]`
 may be the longer duration of anaesthesia.
-The slow compartments of the body, e.g. fat, have a huge capacity to store a large amount of
-VAs.
-Due to the long time constant for sevoflurane
-it takes hours to saturate the slow compartments [@Hendrickx2022].
-However, even before saturation the absolute amount of VA
-in the fat tissue is much larger than in the fast compartments (brain, muscle) and
-the blood [@Hendrickx2022].
-During the emergence process the fat tissue will release the volatile
-anaesthetic slowly as well, due to its small part of the total cardiac output and
-the low partial pressure.
+The slow compartments of the body, for example fat, have a huge capacity to store a large amount of
+VA.
+It takes hours to saturate the slow compartments
+due to the long time constant for sevoflurane [@Hendrickx2022].
+However, the absolute amount of VA
+in the fat tissue, even before saturation, is much larger than in the
+fast compartments (e.g. brain, muscle) and the blood [@Hendrickx2022].
+The fat tissue will also release the VA slowly during the emergence process,
+due to its small part in the total cardiac output and the low partial pressure.
 The longer the anaesthesia lasts, the more VA will be stored
-in the fat tissue and carried to the post anaesthesia care unit where it is
+in the fat tissue and carried to the post anaesthesia care unit, where it is
 unable to be captured, resulting in a lower capture efficiency.
-In a previous simulation study this effect was relatively mild with a 9 %
+This effect was relatively mild in a previous simulation study with a 9 %
 reduction of the capture efficiency from 82 % after one hour to 73 % after five hours
 anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023].
 Considering the large volume of fat tissue and the
-theoretical storage capacity this seems significantly underestimated.
-Hinterberg et al. had also recognized much lower capture efficiency
-in longer than in shorter anaesthesia [@Hinterberg2022].
-Interestingly, Mulier et al. had not seen any correlation between mass transfer
-and duration of anaesthesia [@Mulier2024].
-With only around 90 min their duration of anaesthesia lasted about half as long
+theoretical storage capacity, this seems significantly underestimated.
+Hinterberg et al. had also recognised a much lower capture efficiency
+in longer rather than shorter anaesthesia [@Hinterberg2022].
+Interestingly, Mulier et al. had not seen any correlation between the *in vivo*
+mass transfer and duration of anaesthesia [@Mulier2024].
+Their duration of anaesthesia, at around only 90 min, lasted about half as long
 as ours and may be too short for a relevant accumulation
-of sevoflurane in the fat tissue, in comparison to the consumption
-during induction.
+of sevoflurane in the fat tissue compared to the consumption during induction.
 This could be in line with the results of
-the simulation study where the largest drop in capture efficiency for
+the simulation study, where the largest drop in capture efficiency for
 minimal-flow anaesthesia was found between one and two hours [@Dexter2023].
 
 Our overall capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`
-is very similar to the 43-51 % previously reported for the anaesthesia gas
-scavenging system (AGSS)-dependent
+is very similar to the 43-51 % previously reported for the AGSS-dependent
 SageTech Medical's Volatile Capture Device
-(SageTech Medical, Paignton, UK; @Gandhi2023) or the 45 % in vivo mass transfer
-for CONTRAfluran during laparscopic surgery [@Mulier2024a].
+(SageTech Medical, Paignton, UK; @Gandhi2023) or the 45 % *in vivo* mass transfer
+for CONTRAfluran^TM^ during laparoscopic surgery [@Mulier2024a].
 Hinterberg et al. reported a much lower capture efficiency of just 25 % for
 desflurane [@Hinterberg2022].
 They used a new AGC for every case, which produced underfilled AGCs
@@ -70,93 +66,94 @@ insufficiencies in the desorption and recapture process [@Kalmar2023].
 By contrast, our study represents a 'real-world' usage of the AGCs until they
 were saturated.
 
-Despite the difference in the overall capture efficiency our results
+Despite the difference in the overall capture efficiency, our results
 in the different ORs confirm
-that longer duration of minimal-flow anaesthesia reduces
-the capture efficiency as described and simulated before
+that a longer duration of minimal-flow anaesthesia reduces
+the capture efficiency, as described and simulated previously
 [@Hinterberg2022; @Dexter2023].
-However, the focus on capture efficiency as a target is misleading as a higher fresh gas
-flow yield a higher capture efficiency due to an increased proportion of
+However, the focus on the capture efficiency as a target is misleading as a higher fresh gas
+flow yields a higher capture efficiency due to an increased proportion of
 anaesthetic wasted and entering the AGC [@Shelton2022; @Gandhi2024].
 
-Beside the volatile agent the AGC contains a varying proportion of
-water, acetone, and, in the case of sevoflurane, compound A-E.
+Beside the volatile agent, the AGC contains a varying proportion of
+water, acetone and, in the case of sevoflurane, compound A-E.
 The absorption of the volatile agent in the AGC is based on strong non-covalent
 interactions displacing water and the other components.
-In our study `r .pct(TotalRecoveredSev / TotalWeightGain, prec = ".0")`
-were attributable to sevoflurane (desorption efficiency).
-We believe, the complete saturation of our AGCs explains the higher proportion in
-comparison to the 70 % previously reported [@Hinterberg2022].
-Maybe a connected AGSS caused a dryer AGC, which could be a reason for the very high
+In our study, `r .pct(TotalRecoveredSev / TotalWeightGain, prec = ".0")`
+was attributable to sevoflurane (desorption efficiency).
+We believe that the complete saturation of our AGCs explains the higher proportion
+compared to the 70 % reported previously [@Hinterberg2022].
+Perhaps a connected AGSS caused a dryer AGC, which could be a reason for the very high
 desorption efficiency of 95.5 % sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
 
-Although we stored all AGCs in a zip lock bag, we suprisingly found a
+Although we stored all AGCs in a zip lock bag, we surprisingly found a
 linear decrease in weight of around
 `r round(fit.weigth.loss$coefficients * 1000)` mg per day during storage (Figure \@ref(fig:plot-weight-lost)).
 A previous study reported a constant weight over time [@Hinterberg2022].
 Because of the strong non-covalent interaction between the VA and
 the activated charcoal, and the hydrophobic character of the latter,
-we assume a drying or evapouration process of the captured water could explain the weight loss.
-However, we recognized some rare exhausting alarms by SENSOfluran during
-minimal-flow total intravenous anaesthesia, which may be due spontaneous desorption.
+we assume that a drying or evaporation process of the captured water could explain the weight loss.
+However, we recognised some rare exhausting alarms by SENSOfluran during
+minimal-flow total intravenous anaesthesia, which may be due to spontaneous desorption.
 Weight loss during high-flow total intravenous anaesthesia was already reported
 [@Mulier2024].
-So spontaneous desorption, even without any flow, may be another explanation.
+Thus spontaneous desorption, even without any flow, may be another explanation.
 
-These weight loss and the difference in desorption efficiency illustrate
+The weight loss and the difference in desorption efficiency illustrate
 that it is not possible to draw any conclusions about the overall
-capture efficiency of AGCs from in vivo mass transfer alone.
+capture efficiency of AGCs from the (*in vivo*) mass transfer alone.
 
 ## Limitations
 
-The primary limitation of our study is that we included just two
+The primary limitation of our study is that we included only two
 ORs with a different number of patients and a variety of surgical and
 anaesthesia procedures.
-Due to the large number of patients per AGC and the pragmatic design
-we weren't able to analyse patient related associations, fresh gas flows, and
-others procedure related factors in a meaningful way.
+Due to the large number of patients per AGC and the pragmatic design,
+we were not able to analyse patient-related associations, fresh gas flows and
+other procedure-related factors in a meaningful way.
 Therefore, our findings should be regarded as exploratory,
 indicating a further need for research.
 
-In contrast to previous studies that use a new AGC for every case or
-use the AGC just for select procedures to infer associations between capture
+In contrast to previous studies that used a new AGC for every case or
+utilised the AGC only for select procedures to infer associations between capture
 efficiency and patient characteristics,
 we studied a day-to-day use,
-that is why our results can be compared easily to other settings.
+which is why our results can be compared easily to other settings.
 
 Seven of `r round(nCases[ORnames[2]])` cases of `r ORnames[2]` were inducted in the separate induction room.
 This may overestimate the proportional capture efficiency
-for the AGCs in this OR because an external, unmeasured amount of
+of the AGCs in this OR because an external, unmeasured amount of
 sevoflurane was introduced.
 However, due to the small number of external inductions, the short duration and
-the need to fill the circuit in the OR its effect should be negligible.
+the need to fill the circuit in the OR, its effect should be negligible.
 
-We didn't record the intraoperative change of the carbon dioxid absorber.
-But the influence should also be negligible due to the infrequent changes.
+We did not record the intraoperative change of the carbon dioxide absorber.
+However, the influence should also be negligible due to the infrequent changes.
 
-The gold standard to determine consumption of VA is weighing
-the vapouriser before and after the observation period, typically a single
+The gold standard to determine the consumption of VA is weighing
+the vaporizer before and after the observation period, typically a single
 anaesthesia case.
 Unfortunately, a scale that was precise enough to measure more than 9 kg with
 a precision of a few grams was not available.
 However, our approach, weighing the sevoflurane bottles, has small advantages
 in our scenario.
-According to the manual of the vapouriser, the Draeger D-Vapor 3000 loses small
-amounts of VAs (< 0.5 ml in 24 hours; equals < 31 mg/h).
-While this loss is small and maybe negligible
-it can't be measured by weighing the vapour before and after each case.
-Ignoring such loss would slightly overestimate the capture efficiency.
-By weighing the bottles, we can easily measure all, possible hidden, loss of
-VAs and determine the capture efficiency more accurately.
+According to the manual of the vaporizer, the Draeger D-Vapor 3000 loses small
+amounts of VAs (< 0.5 ml in 24 h; equals < 31 mg/h).
+While this loss is small and perhaps negligible,
+it can not be measured by weighing the vaporizer before and after each case.
+Ignoring such a loss would slightly overestimate the capture efficiency.
+We can easily measure all, possibly hidden, losses of
+VAs and determine the capture efficiency more accurately by weighing the bottles.
 
-After removal of the last exhausted AGC, CH0100012088, in `r ORnames[2]`
-the vapouriser was not refilled, and the weight difference of the sevoflurane bottle
+After the removal of the last exhausted AGC, CH0100012088, in `r ORnames[2]`
+the vaporizer was not refilled and the weight difference of the sevoflurane bottle
 not recorded.
 That is why we calculate the sevoflurane consumption data for the four last
 anaesthesia cases as described by Biro et al.
 (`r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)`; Supplemental Section \@ref(estimation-of-sevoflurane-consumption)) [@Biro2015].
 They described an overestimation of the sevoflurane consumption by 6.2 %.
-For our AGC CH0100012088 this would result in an error of
+This would result in an error of
 `r .pct((AGC14EstimatedUsedWeightSev * 0.062) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
-and would just slightly underestimate the in vivo mass transfer and proportional
+for our AGC CH0100012088
+and just slightly underestimate the *in vivo* mass transfer and proportional
 capture efficiency.

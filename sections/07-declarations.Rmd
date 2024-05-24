@@ -18,6 +18,8 @@ The datasets generated and/or analysed during the current study are available in
 ## Competing interests
 
 ```{r competing-interests, echo = FALSE, results = "asis"}
+.enum <- function(x)
+    paste0(paste0(head(x, -1L), collapse = ", "), " and ", tail(x, 1))
 .drop_author_title <- function(x)gsub(",.*$", "", x)
 .initials <- function(x)gsub("\\W*\\b(\\w)\\w*", "\\1", x)
 authors <- unlist(rmarkdown::metadata$author, recursive = FALSE)
@@ -61,7 +63,7 @@ actbs <- character(length(l))
 for (i in seq_along(l)) {
     nm <- nms[i]
     txt <- l[[i]]
-    actbs[i] <- paste0(nm, ": ", .cli_text("{txt}"), collapse = "; ")
+    actbs[i] <- paste0(nm, ": ", .enum(txt), collapse = "; ")
 }
 cat(
     paste0(actbs, collapse = "; "),
@@ -71,9 +73,9 @@ cat(
 )
 ```
 
-## Acknowledgement
+## Acknowledgements
 
 We thank Marco Reinke and Steffen Suermann from Draeger Medical Deutschland GmbH for exporting the Draeger connect data, the Draeger Perseus' logbooks and for helpful discussions about sevoflurane consumption,
 Christian Ewers, managing director of ZeoSys medical, for reporting the amount of recovered sevoflurane and information about the desorption process.
-Additionally, we like to thank Linda Grüßer and Stephanie Snyder-Ramos for
+Additionally, we would like to thank Linda Grüßer and Stephanie Snyder-Ramos for
 proofreading the manuscript.

@@ -8,12 +8,11 @@ approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
 
 ## Setting
 
-In this prospective single-center exploratory observational study we collected
-in total `r nrow(agc)` consecutive CONTRAfluran AGCs in two different ORs.
+We collected a total of `r nrow(agc)` consecutive CONTRAfluran^TM^ AGCs in two different ORs in this prospective single-centre exploratory observational study.
 
-In the first OR (referred to as `r ORnames[1]`),
-we mostly took care of patients for ear, nose and throat surgery.
-Generally, the first and second case each day were children
+We mostly took care of patients for ear, nose and throat surgery
+in the first OR (referred to as `r ORnames[1]`).
+The first and second case each day were generally children,
 where we did inhaled inductions with a fresh gas flow in the range of
 the minute ventilation of the respective child.
 The following cases were mostly adults.
@@ -21,9 +20,9 @@ We mostly used supraglottic airways.
 All cases, in median `r .as.word(round(ORcases[1]))` cases per day,
 were inducted and emerged from anaesthesia in the OR.
 
-In the second OR (referred to as `r ORnames[2]`),
-we mostly took care of patients for neurosurgical spine surgery.
-Here, the median number of cases is `r .as.word(round(ORcases[2]))` per day
+We mostly took care of patients for neurosurgical spine surgery
+in the second OR (referred to as `r ORnames[2]`).
+Here, the median number of cases was `r .as.word(round(ORcases[2]))` per day
 and the patients were mostly adults who were intubated.
 The first case was always inducted in the OR,
 the following cases rarely in a special induction room where no AGC was installed.
@@ -32,48 +31,48 @@ All cases emerged from anaesthesia in the OR.
 All anaesthesia cases were performed at the discretion of the
 anaesthesiologist in charge in clinical routine
 according to our local standard operating procedures.
-Following these, a minimal or metabolic flow (< 0.5 l.min^-1^, mostly 0.3 l.min^-1^) was used during the steady-state phase in all cases.
-Because of the exploratory, pragmatic and anonymous character of the study
-we didn't record any patient data, the type of anaesthesia,
-the used induction strategy nor the used airway.
+Following these, a minimal or metabolic flow (< 0.5 l.min^-1^, mostly 0.3 l.min^-1^) was used during the steady state phase in all cases.
+We did recorded neither the patient data, the type of anaesthesia,
+the induction strategy nor the airway used because of the exploratory, pragmatic
+and anonymous character of the study.
 
 We used the Draeger connect software (Draeger Medical Deutschland GmbH, Luebeck, Germany) to determine the number, duration and type of anaesthesia cases.
 
 ## Consumption and weight measurement
 
-Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vapourisers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
-The AGC were connected to the exhaust port of the anaesthesia machines, that work in a passive mode, without an AGSS connected.
-We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vapouriser and used the difference in weight to record the sevoflurane consumption.
-The vapourisers were filled to the maximum before we attached the first CONTRAfluran AGC (ZeoSys medical, Luckenwalde, Germany) and start our recordings.
-During the study period the two vapourisers were filled completely and the sevoflurane bottle weight difference measured by the study team, which was not involved in the anaesthesia, almost every day.
+Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vaporizers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
+The AGCs were connected to the exhaust port of the anaesthesia machines, which work in a passive mode, without an AGSS connected.
+We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vaporizer and used the difference in weight to record the sevoflurane consumption.
+The vaporizers were filled to the maximum before we attached the first CONTRAfluran^TM^ AGC (ZeoSys medical, Luckenwalde, Germany) and started our recordings.
+During the study period, almost every day the two vaporizers were filled completely and the sevoflurane bottle weight difference measured by the study team, which was not involved in the anaesthesia.
 
-In case a new bottle of sevoflurane was opened, it was initially attached to a non-study vapouriser to lose any excess pressure, subsequently it was weighed before the study vapouriser was filled.
+In the case where a new bottle of sevoflurane was opened, it was initially attached to a non-study vaporizer to lose any excess pressure, and was weighed before the study vaporizer was filled.
 
 Each AGC was only changed after it had been exhausted.
-This was visible by a red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany).
-Subsequently, we refilled the vapouriser to its maximum and measured the weight
+This was made visible by a red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany).
+Subsequently, we refilled the vaporizer to its maximum and measured the weight
 difference of the sevoflurane bottle, again.
 The weight difference was counted as consumption for the just exhausted AGC.
 
-The weight gain of an AGC was determined by weighing the AGC before usage and after it was exhausted to determine in vivo mass transfer (ratio of absorber
+The weight gain of an AGC was determined by weighing the AGC before usage and after it had been exhausted to determine the *in vivo* mass transfer (ratio of absorber
 weight gain to consumed weight of sevoflurane).
-Each exhausted AGC was recapped and stored in a closed plastic zip lock bag.
+Each exhausted AGC was recapped and stored in a closed plastic zip-lock bag.
 
 ZeoSys needs 20 AGCs for a single desorption process.
 We stored all consecutive AGCs at room temperature until the 20th AGC was
 exhausted.
-Before returning the AGCs to ZeoSys we weighed all AGCs again,
-to determine a potential weight loss.
+Before returning the AGCs to ZeoSys, we weighed all AGCs again
+to determine any potential weight loss.
 
-All weight measurements were done with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight=2500 g; d=0.01 g).
+All weight measurements were done with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight = 2500 g; d = 0.01 g).
 
 ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons before starting the desorption and recovery process.
-Afterwards they sent us the information about the total amount of recovered sevoflurane of all 20 AGCs.
+Afterwards, they sent us the information about the total amount of sevoflurane recovered from all 20 AGCs.
 
 ## Outcome
 
 The primary outcome was the amount of recovered sevoflurane reported by ZeoSys.
-The secondary outcomes were the difference between in vivo mass transfer and the recapture rate reported by ZeoSys, the difference in sevoflurane recovery between both ORs
+The secondary outcomes were the difference between the *in vivo* mass transfer and the recapture rate reported by ZeoSys, the difference in the sevoflurane recovery between both ORs
 and the weight loss of the AGC during storage.
 
 ## Data processing and statistical analysis
@@ -81,7 +80,7 @@ and the weight loss of the AGC during storage.
 All data processing and statistical analyses were performed using R version
 `r paste0(sessionInfo()$R.version[c("major", "minor")], collapse = ".")`
 [@R-base].
-For statistical comparison the two-sided Wilcoxon rank-sum test was used.
-A *p*-value less than 0.05 was considered a statistically significant difference.
-Summary tables were generated using the *gtsummary* package [@Sjoberg2021; @R-gtsummary].
+The two-sided Wilcoxon rank-sum test was used for statistical comparison.
+A *p*-value less than 0.05 was considered to be statistically significant.
+Summary tables were generated using the *gtsummary* package [@Sjoberg2021].
 All data and analysis can be found at https://github.com/umg-minai/vct-or [@vctordata].

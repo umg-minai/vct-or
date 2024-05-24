@@ -26,8 +26,8 @@ d[c(
             "Details of anaesthetic gas canisters. ",
             paste0(
                 c(
-                    "C~sev~: total used sevoflurane [g]",
-                    "C~avg~: average used sevoflurane [g.h^-1^]",
+                    "C~sev~: total sevoflurane used [g]",
+                    "C~avg~: average sevoflurane used [g.h^-1^]",
                     "D: total duration [h]",
                     "D~sev~: total duration of sevoflurane cases [h]",
                     "D~avg~: average duration of sevoflurane cases [h]",
@@ -38,7 +38,7 @@ d[c(
                     "OR: operation room",
                     "S: days stored after exhausted before shipping",
                     "W~d~: weight gain",
-                    "W~f~: final weight when exhausted, direct after deconnection",
+                    "W~f~: final weight when exhausted, directly after disconnection",
                     "W~i~: initial weight",
                     "W~l~: weight lost after exhausted and before shipping",
                     paste0(
@@ -57,8 +57,8 @@ d[c(
 ## Weight lost during storage
 
 After the AGCs were exhausted we stored them before shipping to ZeoSys.
-Before shipping we weighed them again and recognized a nearly linear weight loss even
-though every AGC was stored in a zip lock bag.
+We weighed them again before shipping and recognised
+a nearly linear weight loss even though every AGC was stored in a zip-lock bag.
 
 
 ```{r, summary-weight-lost, echo = FALSE}
@@ -67,16 +67,17 @@ summary(fit.weigth.loss)
 
 ## Estimation of sevoflurane consumption
 
-After changing the last AGC *CH0100012088* in OR25 the vapor was not refilled.
-Therefore we retrospectively calculate the sevoflurane consumption for the
-last four anaesthesia cases using the user log entry provided by the Draeger
+After changing the last AGC *CH0100012088* in OR25, the vaporizer was not refilled.
+Therefore, we retrospectively calculated the sevoflurane consumption for the
+last four anaesthesia cases utilising the user log entry provided by the Draeger
 Perseus anaesthesia machine.
 The calculation was done as described in @Biro2015.
 
 ```{r sevoflurane-consumption-estimation-agc14-tables, echo = FALSE}
 knitr::kable(
-    col.names = c("Case", "Time since vapor opened [min]", "Fresh gas flow [l.min^-1^]",
-                  "Vapor [Vol%]", "Duration [min]",
+    col.names = c("Case", "Time since vaporizer opened [min]",
+                  "Fresh gas flow [l.min^-1^]",
+                  "Vaporizer setting [Vol%]", "Duration [min]",
                   "Sevoflurane consumption [g]"),
     digits = 2,
     flowvapor,
