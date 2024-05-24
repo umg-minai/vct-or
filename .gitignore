@@ -3,8 +3,9 @@ distribute/
 ethik/
 misc/
 output/
-reviewer
+reviews/
 submission/
 letter-to-the-editor.md
 notes.md
+reviewer
 *.jpeg
