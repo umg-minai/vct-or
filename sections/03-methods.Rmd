@@ -41,7 +41,7 @@ We used the Draeger connect software (Draeger Medical Deutschland GmbH, Luebeck,
 ## Consumption and weight measurement
 
 Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vaporizers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
-The AGCs were connected to the exhaust port of the anaesthesia machines, which work in a passive mode, without an AGSS connected.
+The AGCs were permanently connected to the exhaust port of the anaesthesia machines, which work in a passive mode, without an AGSS connected.
 We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vaporizer and used the difference in weight to record the sevoflurane consumption.
 The vaporizers were filled to the maximum before we attached the first CONTRAfluran^TM^ AGC (ZeoSys medical, Luckenwalde, Germany) and started our recordings.
 During the study period, almost every day the two vaporizers were filled completely and the sevoflurane bottle weight difference measured by the study team, which was not involved in the anaesthesia.
