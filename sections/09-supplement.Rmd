@@ -7,7 +7,8 @@ d <- agc;
 d$Id[d$Id == "CH0100012088"] <-  "CH0100012088^\\*^"
 d[c(
     "Id", "OR", "InitialWeight", "FinalWeight", "WeightGain",
-    "LostWeight", "DaysStored",
+    "LostWeight", "LostWeight2",
+    "DaysStored", "DaysStored2",
     "TotalCases", "TotalCasesSev",
     "TotalDurationCases", "TotalDurationCasesSev", "AvgDurationSev",
     "TotalUsedWeightSev", "UsedWeightPerHourSev",
@@ -16,7 +17,7 @@ d[c(
         digits = 1,
         col.names = c(
             "Id", "OR",
-            "W~i~", "W~f~", "W~d~", "W~l~", "S",
+            "W~i~", "W~f~", "W~d~", "W~l~", "W~z~", "S", "Z",
             "N", "N~sev~",
             "D", "D~sev~", "D~avg~",
             "C~sev~", "C~avg~",
@@ -37,10 +38,12 @@ d[c(
                     "N~sev~: total number of sevoflurane cases",
                     "OR: operation room",
                     "S: days stored after exhausted before shipping",
+                    "Z: days stored before desorption",
                     "W~d~: weight gain",
                     "W~f~: final weight when exhausted, directly after disconnection",
                     "W~i~: initial weight",
                     "W~l~: weight lost after exhausted and before shipping",
+                    "W~z~: weight lost just before desorption",
                     paste0(
                         "^\\*^: the sevoflurane consumption of ",
                         sprintf("%.2f", AGC14EstimatedUsedWeightSev),
@@ -52,17 +55,6 @@ d[c(
             )
         )
     )
-```
-
-## Weight lost during storage
-
-After the AGCs were exhausted we stored them before shipping to ZeoSys.
-We weighed them again before shipping and recognised
-a nearly linear weight loss even though every AGC was stored in a zip-lock bag.
-
-
-```{r, summary-weight-lost, echo = FALSE}
-summary(fit.weigth.loss)
 ```
 
 ## Estimation of sevoflurane consumption

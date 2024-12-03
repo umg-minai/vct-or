@@ -66,7 +66,9 @@ to determine any potential weight loss.
 
 All weight measurements were done with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight = 2500 g; d = 0.01 g).
 
-ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons before starting the desorption and recovery process.
+ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons.
+Before starting the desorption and recovery process they weighed all AGCs
+(Sartorius Cubis II MCA5201S-2S00-0; Sartorius AG, Göttingen; Germany; maximum weight = 5200 g; d = 0.1 g).
 Afterwards, they sent us the information about the total amount of sevoflurane recovered from all 20 AGCs.
 
 ## Outcome

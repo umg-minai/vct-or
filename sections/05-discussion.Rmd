@@ -86,13 +86,13 @@ compared to the 70 % reported previously [@Hinterberg2022].
 Perhaps a connected AGSS caused a dryer AGC, which could be a reason for the very high
 desorption efficiency of 95.5 % sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
 
-Although we stored all AGCs in a zip lock bag, we surprisingly found a
-linear decrease in weight of around
-`r round(fit.weigth.loss$coefficients * 1000)` mg per day during storage (Figure \@ref(fig:plot-weight-lost)).
+Although we stored all AGCs in a zip lock bag, we found a
+decrease in weight of around `r .pct(RatioWeightLoss)`
+during storage (Figure \@ref(fig:plot-weight-lost)).
 A previous study reported a constant weight over time [@Hinterberg2022].
 Because of the strong non-covalent interaction between the VA and
 the activated charcoal, and the hydrophobic character of the latter,
-we assume that a drying or evaporation process of the captured water could explain the weight loss.
+we assume that a drying or evaporation process of the captured water could partially explain the weight loss.
 However, we recognised some rare exhausting alarms by SENSOfluran during
 minimal-flow total intravenous anaesthesia, which may be due to spontaneous desorption.
 Weight loss during high-flow total intravenous anaesthesia was already reported
@@ -100,7 +100,8 @@ Weight loss during high-flow total intravenous anaesthesia was already reported
 Thus spontaneous desorption, even without any flow, as already observed by
 Wenzel et al. may be another explanation [@Wenzel2024].
 
-The weight loss and the difference in desorption efficiency illustrate
+The weight loss, the unknown contribution of water and metabolic products,
+and the difference in desorption efficiency illustrate
 that it is not possible to draw any conclusions about the overall
 capture efficiency of AGCs from the (*in vivo*) mass transfer alone.
 

@@ -39,18 +39,22 @@ The details of each AGC can be found in Supplemental Table \@ref(tab:tableagc).
 
 ## Weight loss
 
-The `r paste0(nrow(agc), " AGCs were stored for ", .medLU(agc$DaysStored), " days")`.
-in median (lower and upper quartile).
-Before sending all AGCs to ZeoSys, we weighed them again and found an almost
-linear decrease in weight over time of around `r round(fit.weigth.loss$coefficients * 1000)` mg per day
-(Figure \@ref(fig:plot-weight-lost) and Supplemental Section \@ref(weight-lost-during-storage))).
+The `r paste0(nrow(agc), " AGCs were stored for ", .medLU(agc$DaysStored), " days")`
+in median (lower and upper quartile) in our hospital and additional
+`r round(difftime(ymd("20241202"), ymd("20240409"), units = "days"))` days at
+ZeoSys before the desorption process.
+During the whole storage period we observed a loss of
+`r .medLU(agc$LostWeight2)` gram in median (lower and upper quartile) for each
+AGC and of `r TotalWeightLoss` gram in total.
+This corresponds to `r .pct(RatioWeightLoss)`.
+(Figure \@ref(fig:plot-weight-lost)).
 
-```{r plot-weight-lost, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 8, echo = FALSE, fig.cap = "Weight loss of the anaesthetic gas canisters during storage. The dots represent the weight loss of each individual anaesthetic gas canister for the days after exhaustion. The dashed line is the linear fit."}
+```{r plot-weight-lost, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 8, echo = FALSE, fig.cap = "Weight loss of the anaesthetic gas canisters during storage. The dots represent the weight loss of each individual anaesthetic gas canister for the days after exhaustion before shipping and desorption. The gray lines connect the same anaesthetic gas canisters measured at the two different time points."}
 old.par <- par(no.readonly = TRUE)
 on.exit(par(old.par))
 
-xlim <- range(agc$DaysStored)
-ylim <- range(agc$LostWeight)
+xlim <- range(weights$DaysStored)
+ylim <- c(0, 20)
 
 col.fit <- "#0f0f0f"
 
@@ -59,15 +63,40 @@ plot(
     xlim = xlim, ylim = ylim,
     axes = FALSE, xlab = "", ylab = ""
 )
-points(agc$DaysStored, agc$LostWeight, col = viridisLite::cividis(1), pch = 20)
-abline(fit.weigth.loss, lty = "dashed", lwd = 2, col = col.fit)
-text(
-    x = max(agc$DaysStored), y = max(agc$LostWeight),
-    labels =
-        bquote(R^2*"="*.(round(summary(fit.weigth.loss)$r.squared, 3))),
-    adj = c(1.5, -0.2), col = col.fit, cex = 1.2
-
+segments(
+    weights$DaysStored[1:20], weights$LostWeight[1:20],
+    weights$DaysStored[21:40], weights$LostWeight[21:40],
+    col = "#20202020", lwd = 0.5
 )
+points(
+    weights$DaysStored, weights$LostWeight, col = viridisLite::cividis(1),
+    pch = 19
+)
+text(
+    c(
+        max(weights$DaysStored[1:20]) / 2,
+        min(weights$DaysStored[21:40]) +
+        (max(weights$DaysStored[21:40]) - min(weights$DaysStored[21:40])) / 2
+    ),
+    19.5,
+    labels = toupper(
+        paste("before", c("shipping", "desorption"))
+    ),
+    col = "#808080",
+    cex = 0.8
+)
+#xx <- seq(0, max(weights$DaysStored), length.out = 100)
+#lines(
+#    xx, predict(fit.weight.loss, newdata = data.frame(DaysStored = xx)),
+#    lty = "dashed", lwd = 2, col = col.fit
+#)
+#text(
+#    x = max(weights$DaysStored), y = max(weights$LostWeight),
+#    labels =
+#        bquote(R^2*"="*.(round(summary(fit.weight.loss)$r.squared, 3))),
+#    adj = c(1.5, -0.2), col = col.fit, cex = 1.2
+#
+#)
 title(main = "WEIGHT LOSS OF THE ANAESTHETIC GAS CANISTERS DURING STORAGE", col.main = "#808080", adj = 0L)
 title(xlab = "DAYS STORED", adj = 0L, col.lab = "#808080")
 title(ylab = "WEIGHT LOST [g]", adj = 1L, col.lab = "#808080")

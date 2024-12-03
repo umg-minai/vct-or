@@ -33,9 +33,7 @@ The capture efficiencies differed significantly between the ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` in the OR with shorter anaesthesia durations and frequently inhaled induction
 versus
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  in the OR with longer anaesthesia duration.
-We saw a weight loss over time of around
-`r round(fit.weigth.loss$coefficients * 1000)` mg per day per absorber during
-storage.
+We saw a `r .pct(RatioWeightLoss)` weight loss over time during storage.
 
 **Conclusions**:
 If CONTRAfluran^TM^ absorbers are used until they are fully saturated,

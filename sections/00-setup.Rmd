@@ -111,7 +111,12 @@ periods[c("Start", "End")] <- lapply(periods[c("Start", "End")], as.POSIXct)
 ```
 
 ```{r fit-weight-loss, include = FALSE}
-fit.weigth.loss <- lm(LostWeight ~ 0 + DaysStored, data = agc)
+weights <- data.frame(
+    LostWeight = c(agc$LostWeight, agc$LostWeight2),
+    DaysStored = c(agc$DaysStored, agc$DaysStored2)
+)
+fit.weight.loss <-
+    lm(LostWeight ~ 0 + DaysStored + I(DaysStored^2), data = weights)
 ```
 
 ```{r sevoflurane-consumption-estimation-agc14, include = FALSE}
@@ -159,6 +164,8 @@ kWhCO2eq <- 0.485 # @Schuster2023
 
 TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
 TotalWeightGain <- sum(agc$WeightGain)
+TotalWeightLoss <- sum(agc$LostWeight2)
+RatioWeightLoss <- TotalWeightLoss / TotalWeightGain
 TotalRecoveredSev <- NA # TODO, response ZeoSys needed
 CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
 AGC14EstimatedUsedWeightSev <- sum(flowvapor$Consumption)
