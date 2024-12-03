@@ -118,6 +118,7 @@ Information about the CONTRAfluran anaesthetic gas canister.
 - InitialWeight: weight of the AGC before use.
 - FinalWeight: weight of the AGC after use (red LED on SENSOfluran unit).
 - FinalWeight2: weight of the AGC after storage in our hospital just before it was sent to ZeoSys.
+- FinalWeight3: weight of the AGC after storage in ZeoSys, just before desorption.
 - OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
 - Start: date and time when the AGC was installed.
 - End: date and time when the AGC was removed.
