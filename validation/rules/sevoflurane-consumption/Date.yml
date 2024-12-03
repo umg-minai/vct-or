@@ -9,11 +9,11 @@ rules:
   label: 'date len'
   description: |
     Date has to be a 19 chr long.
-- expr: in_range(Date, min = '2023-10-09 06:40:00', max = '2024-04-01 00:00:00', format = '%Y-%m-%d %H:%M:%S')
+- expr: in_range(Date, min = '2023-10-09 06:40:00', max = '2024-04-05 00:00:00', format = '%Y-%m-%d %H:%M:%S')
   name: 'RDT3'
   label: 'date range'
   description: |
-    Date has to between 2023-10-09 and 2024-04-01.
+    Date has to between 2023-10-09 and 2024-04-05.
 - expr: c(0, head(as.POSIXct(Date), -1)) <= as.POSIXct(Date)
   name: 'RDT4'
   label: 'date eq/inc'

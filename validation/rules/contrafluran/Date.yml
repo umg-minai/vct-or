@@ -9,11 +9,11 @@ rules:
   label: 'start date len'
   description: |
     Start date has to be a 19 chr long.
-- expr: in_range(Start, min = '2023-10-09 06:40:00', max = '2024-04-01 00:00:00', format = '%Y-%m-%d %H:%M:%S')
+- expr: in_range(Start, min = '2023-10-09 06:40:00', max = '2024-03-22 00:00:00', format = '%Y-%m-%d %H:%M:%S')
   name: 'RSD3'
   label: 'start date range'
   description: |
-    Start date has to between 2023-10-09 and 2024-04-01.
+    Start date has to between 2023-10-09 and 2024-03-22.
 - expr: is.character(End)
   name: 'RED1'
   label: 'end date chr'
@@ -24,11 +24,11 @@ rules:
   label: 'end date len'
   description: |
     End date has to be a 19 chr long.
-- expr: in_range(End, min = '2023-10-09 06:40:00', max = '2024-04-01 00:00:00', format = '%Y-%m-%d %H:%M:%S')
+- expr: in_range(End, min = '2023-10-09 06:40:00', max = '2024-04-05 00:00:00', format = '%Y-%m-%d %H:%M:%S')
   name: 'RED3'
   label: 'end date range'
   description: |
-    End date has to between 2023-10-09 and 2024-04-01.
+    End date has to between 2023-10-09 and 2024-04-05.
 - expr: as.POSIXct(Start) < as.POSIXct(End)
   name: 'RDD1'
   label: 'start < end date'
