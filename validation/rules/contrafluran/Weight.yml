@@ -19,9 +19,29 @@ rules:
   label: 'final weight range'
   description: |
     FinalWeight has to be between 1380 and 1489 g.
-- expr: max_by(FinalWeight, Id) - min_by(InitialWeight, Id) > 250 * 1.52 * 0.98
+- expr: in_range(max_by(FinalWeight2, Id), min = 1360, max = 1485)
   name: 'RFW3'
+  label: 'final weight range'
+  description: |
+    FinalWeight2 has to be between 1380 and 1485 g.
+- expr: in_range(max_by(FinalWeight3, Id), min = 1370, max = 1474)
+  name: 'RFW4'
+  label: 'final weight range'
+  description: |
+    FinalWeight3 has to be between 1370 and 1474 g.
+- expr: max_by(FinalWeight, Id) - min_by(InitialWeight, Id) > 250 * 1.52 * 0.98
+  name: 'RFW5'
   label: 'weight gain'
   description: |
     FinalWeight has to be at least 375 g larger than InitialWeight
     (a bottle sevoflurane 250 ml, density 1.52, with error tolerance of 2%).
+- expr: FinalWeight >= FinalWeight2
+  name: 'RFW6'
+  label: 'weight loss during storage'
+  description: |
+    FinalWeight2 has to be smaller due to weight loss during storage
+- expr: FinalWeight2 > FinalWeight3
+  name: 'RFW7'
+  label: 'weight loss during storage'
+  description: |
+    FinalWeight3 has to be smaller due to weight loss during storage.
