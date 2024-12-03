@@ -24,14 +24,15 @@ However, a large wastage of VA yields a higher capture efficiency.
 
 Another major determinant for the lower capture efficiency in `r ORnames[2]`
 may be the longer duration of anaesthesia.
-The slow compartments of the body, for example fat, have a huge capacity to store a large amount of
-VA.
+The slow compartments of the body, for example muscles and fat,
+have a huge capacity to store a large amount of VA.
 It takes hours to saturate the slow compartments
 due to the long time constant for sevoflurane [@Hendrickx2022].
 However, the absolute amount of VA
-in the fat tissue, even before saturation, is much larger than in the
-fast compartments (e.g. brain, muscle) and the blood [@Hendrickx2022].
-The fat tissue will also release the VA slowly during the emergence process,
+in the muscles and fat tissue, even before saturation, is much larger than in
+the fast compartments (e.g. brain, heart) and the blood [@Hendrickx2022].
+The fat tissue will also release the VA slowly during
+the emergence process,
 due to its small part in the total cardiac output and the low partial pressure.
 The longer the anaesthesia lasts, the more VA will be stored
 in the fat tissue and carried to the post anaesthesia care unit, where it is
@@ -40,7 +41,9 @@ This effect was relatively mild in a previous simulation study with a 9 %
 reduction of the capture efficiency from 82 % after one hour to 73 % after five hours
 anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023].
 Considering the large volume of fat tissue and the
-theoretical storage capacity, this seems significantly underestimated.
+theoretical storage capacity, this seems significantly underestimated and could
+partially explained by the wasteful high fresh gas flow during the
+induction period over 15 minutes.
 Hinterberg et al. had also recognised a much lower capture efficiency
 in longer rather than shorter anaesthesia [@Hinterberg2022].
 Interestingly, Mulier et al. had not seen any correlation between the *in vivo*
