@@ -97,7 +97,8 @@ However, we recognised some rare exhausting alarms by SENSOfluran during
 minimal-flow total intravenous anaesthesia, which may be due to spontaneous desorption.
 Weight loss during high-flow total intravenous anaesthesia was already reported
 [@Kalmar2024a].
-Thus spontaneous desorption, even without any flow, may be another explanation.
+Thus spontaneous desorption, even without any flow, as already observed by
+Wenzel et al. may be another explanation [@Wenzel2024].
 
 The weight loss and the difference in desorption efficiency illustrate
 that it is not possible to draw any conclusions about the overall
