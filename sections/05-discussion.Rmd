@@ -56,7 +56,7 @@ Our overall capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`
 is very similar to the 43-51 % previously reported for the AGSS-dependent
 SageTech Medical's Volatile Capture Device
 (SageTech Medical, Paignton, UK; @Gandhi2023) or the 45 % *in vivo* mass transfer
-for CONTRAfluran^TM^ during laparoscopic surgery [@Mulier2024a].
+for CONTRAfluran^TM^ during laparoscopic surgery [@Mulier2024].
 Hinterberg et al. reported a much lower capture efficiency of just 25 % for
 desflurane [@Hinterberg2022].
 They used a new AGC for every case, which produced underfilled AGCs
@@ -96,7 +96,7 @@ we assume that a drying or evaporation process of the captured water could expla
 However, we recognised some rare exhausting alarms by SENSOfluran during
 minimal-flow total intravenous anaesthesia, which may be due to spontaneous desorption.
 Weight loss during high-flow total intravenous anaesthesia was already reported
-[@Mulier2024].
+[@Kalmar2024a].
 Thus spontaneous desorption, even without any flow, may be another explanation.
 
 The weight loss and the difference in desorption efficiency illustrate
