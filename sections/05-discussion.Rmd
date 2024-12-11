@@ -56,16 +56,15 @@ the simulation study, where the largest drop in capture efficiency for
 minimal-flow anaesthesia was found between one and two hours [@Dexter2023].
 
 Our overall capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`
-is very similar to the 43-51 % previously reported for the AGSS-dependent
-SageTech Medical's Volatile Capture Device
+is very similar to the 25 % for desflurane [@Hinterberg2022] and the 43-51 %
+previously reported for the
+AGSS-dependent SageTech Medical's Volatile Capture Device
 (SageTech Medical, Paignton, UK; @Gandhi2023) or the 45 % *in vivo* mass transfer
 for CONTRAfluran^TM^ during laparoscopic surgery [@Mulier2024].
-Hinterberg et al. reported a much lower capture efficiency of just 25 % for
-desflurane [@Hinterberg2022].
-They used a new AGC for every case, which produced underfilled AGCs
+Hinterberg et al. used a new AGC for every case, which produced underfilled AGCs
 with less than 15 % of their capacity,
 possibly yielding a relative higher contribution of water to the weight gain and
-insufficiencies in the desorption and recapture process [@Kalmar2023].
+insufficiencies in the desorption and recapture process [@Hinterberg2022;@Kalmar2023].
 By contrast, our study represents a 'real-world' usage of the AGCs until they
 were saturated.
 
@@ -82,15 +81,14 @@ Beside the volatile agent, the AGC contains a varying proportion of
 water, acetone and, in the case of sevoflurane, compound A-E.
 The absorption of the volatile agent in the AGC is based on strong non-covalent
 interactions displacing water and the other components.
-In our study, `r .pct(TotalRecoveredSev / TotalWeightGain, prec = ".0")`
-was attributable to sevoflurane (desorption efficiency).
-We believe that the complete saturation of our AGCs explains the higher proportion
-compared to the 70 % reported previously [@Hinterberg2022].
+In our study, `r .pct(RatioSevoWeight, prec = ".1")`
+was attributable to sevoflurane.
+This is in line with the 70 % reported previously for CONTRAfluran^TM^ [@Hinterberg2022].
 Perhaps a connected AGSS caused a dryer AGC, which could be a reason for the very high
 desorption efficiency of 95.5 % sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
 
 Although we stored all AGCs in a zip lock bag, we found a
-decrease in weight of around `r .pct(RatioWeightLoss)`
+decrease in weight of around `r .pct(RatioWeightLoss, prec = ".0")`
 during storage (Figure \@ref(fig:plot-weight-lost)).
 A previous study reported a constant weight over time [@Hinterberg2022].
 Because of the strong non-covalent interaction between the VA and
@@ -162,3 +160,10 @@ This would result in an error of
 for our AGC CH0100012088
 and just slightly underestimate the *in vivo* mass transfer and proportional
 capture efficiency.
+
+ZeoSys needs at least 20 AGCs for a single desorption process.
+However, a regular desorption process requires 80 AGCs.
+During the desorption process a specific amount of supernatant is removed.
+Therefore, our desorption efficiency and, thus, our capture efficiency is
+slightly lower due to a slightly less efficient desorption process in comparsion
+to a regular 80 AGCs-desorption process.

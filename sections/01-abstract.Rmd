@@ -33,11 +33,11 @@ The capture efficiencies differed significantly between the ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` in the OR with shorter anaesthesia durations and frequently inhaled induction
 versus
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  in the OR with longer anaesthesia duration.
-We saw a `r .pct(RatioWeightLoss)` weight loss over time during storage.
+We saw a `r .pct(RatioWeightLoss, prec = ".0")` weight loss over time during storage.
 
 **Conclusions**:
 If CONTRAfluran^TM^ absorbers are used until they are fully saturated,
-almost half of the sevoflurane can be recaptured, but
+almost one-third of the sevoflurane can be recaptured, but
 the capture efficiency depends on the fresh gas flow used and duration of
 anaesthesia.
 

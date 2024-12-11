@@ -49,7 +49,7 @@ During the study period, almost every day the two vaporizers were filled complet
 In the case where a new bottle of sevoflurane was opened, it was initially attached to a non-study vaporizer to lose any excess pressure, and was weighed before the study vaporizer was filled.
 
 Each AGC was only changed after it had been exhausted.
-This was made visible by a red LED and an acoustic warning signal of the SENSOfluran sensor unit (ZeoSys medical, Luckenwalde, Germany).
+This was made visible by a red LED and an acoustic warning signal of the SENSOfluran^TM^ sensor unit (ZeoSys medical, Luckenwalde, Germany).
 Subsequently, we refilled the vaporizer to its maximum and measured the weight
 difference of the sevoflurane bottle, again.
 The weight difference was counted as consumption for the just exhausted AGC.
@@ -58,7 +58,7 @@ The weight gain of an AGC was determined by weighing the AGC before usage and af
 weight gain to consumed weight of sevoflurane).
 Each exhausted AGC was recapped and stored in a closed plastic zip-lock bag.
 
-ZeoSys needs 20 AGCs for a single desorption process.
+ZeoSys needs at least 20 AGCs for a single desorption process.
 We stored all consecutive AGCs at room temperature until the 20th AGC was
 exhausted.
 Before returning the AGCs to ZeoSys, we weighed all AGCs again

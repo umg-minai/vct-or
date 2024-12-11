@@ -16,6 +16,8 @@ at a total duration of `r sprintf("%.0f", sum(agc$TotalDurationCasesSev) / 60)` 
 A total of `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` sevoflurane was used
 and `r sprintf("%.1f kg", TotalRecoveredSev / 1000)` could be recaptured
 (capture efficiency `r .pct(CaptureEfficiency, prec = ".0")`).
+Sevoflurane attributed `r .pct(RatioSevoWeight, prec = ".1")` of CONTRAfluran's weight gain.
+The remaining `r .pct(1 - RatioWeightLoss, prec = ".1")` were water (and only traces of metabolic products like acetone, Compound A-E, etc.).
 
 Comparing the two ORs, we found a large and significant difference in the total
 sevoflurane used, which is partly due to differences in the ratio of patients receiving
