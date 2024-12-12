@@ -59,7 +59,8 @@ d[c(
 
 ## Estimation of sevoflurane consumption
 
-After changing the last AGC *CH0100012088* in OR25, the vaporizer was not refilled.
+After changing the last anaesthetic gas canister *CH0100012088* in `r ORnames[2]`,
+the vaporizer was not refilled.
 Therefore, we retrospectively calculated the sevoflurane consumption for the
 last four anaesthesia cases utilising the user log entry provided by the Draeger
 Perseus anaesthesia machine.
@@ -75,7 +76,7 @@ knitr::kable(
     flowvapor,
     caption = paste0(
         "Overview of settings and consumption of the last four cases for ",
-        "AGC *CH0100012088*."
+        "anaesthetic gas canister *CH0100012088*."
     )
 )
 
@@ -88,7 +89,7 @@ knitr::kable(
     ),
     caption = paste0(
         "Sevofluran consumption of the last four cases for ",
-        "AGC *CH0100009273*."
+        "anaesthetic gas canister *CH0100009273*."
     )
 )
 ```
