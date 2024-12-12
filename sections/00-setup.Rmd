@@ -167,7 +167,9 @@ TotalWeightGain <- sum(agc$WeightGain)
 TotalWeightLoss <- sum(agc$LostWeight2)
 RatioWeightLoss <- TotalWeightLoss / TotalWeightGain
 TotalRecoveredSev <- 4875.2 # reported by ZeoSys
-RatioSevo <- 0.602 # reported by ZeoSys
+#RatioSevo <- 0.602 # reported by ZeoSys, assumed 1015 g for an empty canister;
+#but we know the mass of the empty canisters, recalculation
+RatioSevo <- TotalRecoveredSev / (TotalWeightGain - TotalWeightLoss)
 CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
 AGC14EstimatedUsedWeightSev <- sum(flowvapor$Consumption)
 
