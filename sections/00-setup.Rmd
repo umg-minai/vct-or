@@ -316,9 +316,9 @@ modify_table_styling(
 modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
 modify_caption(
     paste0(
-        "ENT: ear, nose and throat surgery; ",
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
-        "Cases, duration, etc. are given as per canister."
+        "Cases, duration, etc. are given as per canister.",
+        "ENT: ear, nose and throat surgery."
     )
 )
 ```
