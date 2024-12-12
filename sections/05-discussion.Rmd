@@ -14,13 +14,11 @@ in the two ORs, with
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`.
 Despite the different disciplines and procedures,
-the inhaled induction and the duration of anaesthesia are observious differences.
+the inhaled induction and the duration of anaesthesia are relevant differences.
 During an inhaled induction, even if done with a fresh gas flow
 in the range of the minute ventilation of the respective child, a large amount
-of sevoflurane is wasted and cannot be compensated by a following metabolic
-flow anaesthesia, as could be seen in the large difference in the average sevoflurane
-consumption per hour.
-However, a large wastage of VA yields a higher capture efficiency.
+of sevoflurane passes the patients without uptake, thus increasing the amount
+that can be captured by the AGC and yielding higher capture efficiency.
 
 Another major determinant for the lower capture efficiency in `r ORnames[2]`
 may be the longer duration of anaesthesia.
@@ -43,7 +41,8 @@ anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023]
 Considering the large volume of fat tissue and the
 theoretical storage capacity, this seems significantly underestimated and could
 partially explained by the wasteful high fresh gas flow during the
-induction period over 15 minutes.
+induction period over 15 minutes and the high dosage of up to 1.5 minial
+alveolar concentration.
 Hinterberg et al. had also recognised a much lower capture efficiency
 in longer rather than shorter anaesthesia [@Hinterberg2022].
 Interestingly, Mulier et al. had not seen any correlation between the *in vivo*
@@ -81,7 +80,7 @@ Beside the volatile agent, the AGC contains a varying proportion of
 water, acetone and, in the case of sevoflurane, compound A-E.
 The absorption of the volatile agent in the AGC is based on strong non-covalent
 interactions displacing water and the other components.
-In our study, `r .pct(RatioSevoWeight, prec = ".1")`
+In our study, `r .pct(RatioSevo, prec = ".1")`
 was attributable to sevoflurane.
 This is in line with the 70 % reported previously for CONTRAfluran^TM^ [@Hinterberg2022].
 Perhaps a connected AGSS caused a dryer AGC, which could be a reason for the very high

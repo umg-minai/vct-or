@@ -10,18 +10,18 @@ approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
 
 We collected a total of `r nrow(agc)` consecutive CONTRAfluran^TM^ AGCs in two different ORs in this prospective single-centre exploratory observational study.
 
-We mostly took care of patients for ear, nose and throat surgery
-in the first OR (referred to as `r ORnames[1]`).
+The first OR (referred to as `r ORnames[1]`), was dedicated to
+ear, nose and throat surgery.
+Here, a median number of `r .as.word(round(ORcases[1]))` cases per day
+were treated, mostly with supraglottic airways.
+All cases were inducted and emerged from anesthesia in the OR.
 The first and second case each day were generally children,
 where we did inhaled inductions with a fresh gas flow in the range of
 the minute ventilation of the respective child.
 The following cases were mostly adults.
-We mostly used supraglottic airways.
-All cases, in median `r .as.word(round(ORcases[1]))` cases per day,
-were inducted and emerged from anaesthesia in the OR.
 
-We mostly took care of patients for neurosurgical spine surgery
-in the second OR (referred to as `r ORnames[2]`).
+The second OR (referred to as `r ORnames[2]`) was dedicated to
+neurosurgical spine surgery.
 Here, the median number of cases was `r .as.word(round(ORcases[2]))` per day
 and the patients were mostly adults who were intubated.
 The first case was always inducted in the OR,
@@ -29,7 +29,7 @@ the following cases rarely in a special induction room where no AGC was installe
 All cases emerged from anaesthesia in the OR.
 
 All anaesthesia cases were performed at the discretion of the
-anaesthesiologist in charge in clinical routine
+anaesthesiologists in charge in clinical routine
 according to our local standard operating procedures.
 Following these, a minimal or metabolic flow (< 0.5 l.min^-1^, mostly 0.3 l.min^-1^) was used during the steady state phase in all cases.
 We did recorded neither the patient data, the type of anaesthesia,

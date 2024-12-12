@@ -26,9 +26,7 @@ author:
         correspondence: false
         competing_interest: none
         role:
-            - data curation
             - investigation
-            - formal analysis
             - writing -- review and editing
     - 'Falk von Dincklage':
         email: falk.vondincklage@med.uni-greifswald.de
@@ -44,7 +42,6 @@ author:
         competing_interest: none
         role:
             - Conceptualization
-            - data curation
             - investigation
             - methodology
             - writing -- review and editing

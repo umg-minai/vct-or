@@ -16,7 +16,7 @@ In this prospective single-centre study, we collected
 different operating rooms (ORs) after they were saturated to their maximum
 saturation levels.
 After storage and transport, the sevoflurane was recaptured from the absorbers by
-the absorber manufacturer ZeoSys.
+the absorber manufacturer.
 To calculate the capture efficiency, we divided the amount of recaptured
 sevoflurane by the total sevoflurane consumption during the use of the
 absorbers, which was obtained by
@@ -38,7 +38,7 @@ We saw a `r .pct(RatioWeightLoss, prec = ".0")` weight loss over time during sto
 **Conclusions**:
 If CONTRAfluran^TM^ absorbers are used until they are fully saturated,
 almost one-third of the sevoflurane can be recaptured, but
-the capture efficiency depends on the fresh gas flow used and duration of
+the capture efficiency depends highly on the fresh gas flow used and duration of
 anaesthesia.
 
 **Keywords**:

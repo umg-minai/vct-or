@@ -165,9 +165,9 @@ kWhCO2eq <- 0.485 # @Schuster2023
 TotalUsedWeightSev <- sum(agc$TotalUsedWeightSev)
 TotalWeightGain <- sum(agc$WeightGain)
 TotalWeightLoss <- sum(agc$LostWeight2)
-TotalRecoveredSev <- 4875.2 # reported by ZeoSys
 RatioWeightLoss <- TotalWeightLoss / TotalWeightGain
-RatioSevoWeight <- TotalRecoveredSev / (TotalWeightGain - TotalWeightLoss)
+TotalRecoveredSev <- 4875.2 # reported by ZeoSys
+RatioSevo <- 0.602 # reported by ZeoSys
 CaptureEfficiency <- TotalRecoveredSev / TotalUsedWeightSev
 AGC14EstimatedUsedWeightSev <- sum(flowvapor$Consumption)
 
