@@ -26,16 +26,16 @@ VAs and the variations in the duration of anaesthesia (Table \@ref(tab:table1)A 
 While the median weight gain of the AGCs did not differ between the two
 ORs, we observed a large and significant difference in the
 *in vivo* mass transfer, which was at
-`r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
+`r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_1", pattern = "{median}&nbsp;%")` for `r ORnames[1]`
 and
-`r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`
+`r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_2", pattern = "{median}&nbsp;%")`  for `r ORnames[2]`
 due to the significantly different sevoflurane consumption in the two ORs (Table \@ref(tab:table1)B and C).
 Thus, assuming the same proportion of sevoflurane could be accounted for the relative
 weight gain of each AGC, the proportional capture efficiency differed
 significantly between the two ORs, with
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` for `r ORnames[1]`
 and
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]` (Table \@ref(tab:table1)C).
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`  for `r ORnames[2]` (Table \@ref(tab:table1)C).
 
 The details of each AGC can be found in Supplemental Table \@ref(tab:tableagc).
 

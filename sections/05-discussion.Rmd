@@ -10,9 +10,9 @@ sevoflurane used in our study cohort of `r sum(nCasesSev)` balanced anaesthesia 
 Interestingly, we saw a large and
 significant difference in the proportional capture efficiencies
 in the two ORs, with
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")` for `r ORnames[1]`
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` for `r ORnames[1]`
 and
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`  for `r ORnames[2]`.
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`  for `r ORnames[2]`.
 Despite the different disciplines and procedures,
 the inhaled induction and the duration of anaesthesia are relevant differences.
 During an inhaled induction, even if done with a fresh gas flow
@@ -35,8 +35,8 @@ due to its small part in the total cardiac output and the low partial pressure.
 The longer the anaesthesia lasts, the more VA will be stored
 in the fat tissue and carried to the post anaesthesia care unit, where it is
 unable to be captured, resulting in a lower capture efficiency.
-This effect was relatively mild in a previous simulation study with a 9 %
-reduction of the capture efficiency from 82 % after one hour to 73 % after five hours
+This effect was relatively mild in a previous simulation study with a 9&nbsp;%
+reduction of the capture efficiency from 82&nbsp;% after one hour to 73&nbsp;% after five hours
 anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023].
 Considering the large volume of fat tissue and the
 theoretical storage capacity, this seems significantly underestimated and could
@@ -55,13 +55,13 @@ the simulation study, where the largest drop in capture efficiency for
 minimal-flow anaesthesia was found between one and two hours [@Dexter2023].
 
 Our overall capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`
-is very similar to the 25 % for desflurane [@Hinterberg2022] and the 43-51 %
+is very similar to the 25&nbsp;% for desflurane [@Hinterberg2022] and the 43-51&nbsp;%
 previously reported for the
 AGSS-dependent SageTech Medical's Volatile Capture Device
-(SageTech Medical, Paignton, UK; @Gandhi2023) or the 45 % *in vivo* mass transfer
+(SageTech Medical, Paignton, UK; @Gandhi2023) or the 45&nbsp;% *in vivo* mass transfer
 for CONTRAfluran^TM^ during laparoscopic surgery [@Mulier2024].
 Hinterberg et al. used a new AGC for every case, which produced underfilled AGCs
-with less than 15 % of their capacity,
+with less than 15&nbsp;% of their capacity,
 possibly yielding a relative higher contribution of water to the weight gain and
 insufficiencies in the desorption and recapture process [@Hinterberg2022;@Kalmar2023].
 By contrast, our study represents a 'real-world' usage of the AGCs until they
@@ -82,9 +82,9 @@ The absorption of the volatile agent in the AGC is based on strong non-covalent
 interactions displacing water and the other components.
 In our study, `r .pct(RatioSevo, prec = ".1")`
 was attributable to sevoflurane.
-This is in line with the 70 % reported previously for CONTRAfluran^TM^ [@Hinterberg2022].
+This is in line with the 70&nbsp;% reported previously for CONTRAfluran^TM^ [@Hinterberg2022].
 Perhaps a connected AGSS caused a dryer AGC, which could be a reason for the very high
-desorption efficiency of 95.5 % sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
+desorption efficiency of 95.5&nbsp;% sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
 
 Although we stored all AGCs in a zip lock bag, we found a
 decrease in weight of around `r .pct(RatioWeightLoss, prec = ".0")`
@@ -153,7 +153,7 @@ not recorded.
 That is why we calculate the sevoflurane consumption data for the four last
 anaesthesia cases as described by Biro et al.
 (`r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)`; Supplemental Section \@ref(estimation-of-sevoflurane-consumption)) [@Biro2015].
-They described an overestimation of the sevoflurane consumption by 6.2 %.
+They described an overestimation of the sevoflurane consumption by 6.2&nbsp;%.
 This would result in an error of
 `r .pct((AGC14EstimatedUsedWeightSev * 0.062) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
 for our AGC CH0100012088

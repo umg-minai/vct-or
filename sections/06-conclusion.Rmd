@@ -5,9 +5,9 @@ depends on the fresh gas flow used and duration of anaesthesia.
 It was higher than previously reported, when the absorbers were used until
 they reached their maximum saturation levels.
 Using metabolic flow, the proportional capture efficiencies were
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median} %")`
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")`
 and
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median} %")`
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`
 , respectively, in the two ORs studied.
 However, focusing on capture efficiency is misleading.
 Further research and independent life cycle analyses are needed

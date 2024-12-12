@@ -50,7 +50,7 @@ options(english.UK = FALSE)
 
 .pct <- function(x, prec = ".1", symbol = rep_len(TRUE, length(x))) {
     sprintf(
-        paste0("%", prec, "f", ifelse(symbol, " %%", "")),
+        paste0("%", prec, "f", ifelse(symbol, "&nbsp;%%", "")),
         x * 100
     )
 }
@@ -60,7 +60,7 @@ options(english.UK = FALSE)
         x, probs = c(0.5, 0.25, 0.75), na.rm = TRUE, conf.int = FALSE
     )
     sprintf(
-        paste0("%", prec, "f (%", prec, "f, %", prec, "f)"),
+        paste0("%", prec, "f (%", prec, "f,&nbsp;%", prec, "f)"),
         q[1], q[2], q[3]
     )
 }
