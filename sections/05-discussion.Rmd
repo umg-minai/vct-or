@@ -3,8 +3,8 @@
 We demonstrated in this prospective single-center observational study that using
 active charcoal absorbers for sevoflurane until they reached their maximum saturation
 levels can yield a total capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
-This represents a total amount of `r sprintf("%.1f kg", TotalRecoveredSev / 1000)`
-that can be recovered from a total of `r sprintf("%.1f kg", TotalUsedWeightSev / 1000)`
+This represents a total amount of `r sprintf("%.1f&nbsp;kg", TotalRecoveredSev / 1000)`
+that can be recovered from a total of `r sprintf("%.1f&nbsp;kg", TotalUsedWeightSev / 1000)`
 sevoflurane used in our study cohort of `r sum(nCasesSev)` balanced anaesthesia cases.
 
 Interestingly, we saw a large and
@@ -37,7 +37,7 @@ in the fat tissue and carried to the post anaesthesia care unit, where it is
 unable to be captured, resulting in a lower capture efficiency.
 This effect was relatively mild in a previous simulation study with a 9&nbsp;%
 reduction of the capture efficiency from 82&nbsp;% after one hour to 73&nbsp;% after five hours
-anaesthesia with sevoflurane and a fresh gas flow of 0.5 l.min^-1^ [@Dexter2023].
+anaesthesia with sevoflurane and a fresh gas flow of 0.5&nbsp;l.min^-1^ [@Dexter2023].
 Considering the large volume of fat tissue and the
 theoretical storage capacity, this seems significantly underestimated and could
 partially explained by the wasteful high fresh gas flow during the
@@ -135,12 +135,12 @@ However, the influence should also be negligible due to the infrequent changes.
 The gold standard to determine the consumption of VA is weighing
 the vaporizer before and after the observation period, typically a single
 anaesthesia case.
-Unfortunately, a scale that was precise enough to measure more than 9 kg with
+Unfortunately, a scale that was precise enough to measure more than 9&nbsp;kg with
 a precision of a few grams was not available.
 However, our approach, weighing the sevoflurane bottles, has small advantages
 in our scenario.
 According to the manual of the vaporizer, the Draeger D-Vapor 3000 loses small
-amounts of VAs (< 0.5 ml in 24 h; equals < 31 mg/h).
+amounts of VAs (< 0.5&nbsp;ml in 24&nbsp;h; equals < 31&nbsp;mg/h).
 While this loss is small and perhaps negligible,
 it can not be measured by weighing the vaporizer before and after each case.
 Ignoring such a loss would slightly overestimate the capture efficiency.

@@ -31,7 +31,7 @@ All cases emerged from anaesthesia in the OR.
 All anaesthesia cases were performed at the discretion of the
 anaesthesiologists in charge in clinical routine
 according to our local standard operating procedures.
-Following these, a minimal or metabolic flow (< 0.5 l.min^-1^, mostly 0.3 l.min^-1^) was used during the steady state phase in all cases.
+Following these, a minimal or metabolic flow (< 0.5&nbsp;l.min^-1^, mostly 0.3&nbsp;l.min^-1^) was used during the steady state phase in all cases.
 We did recorded neither the patient data, the type of anaesthesia,
 the induction strategy nor the airway used because of the exploratory, pragmatic
 and anonymous character of the study.

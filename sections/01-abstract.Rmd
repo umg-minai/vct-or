@@ -26,8 +26,8 @@ of the sevoflurane bottles before versus after refilling the vaporizers.
 **Results**:
 We observed `r sum(nCasesSev)` balanced anaesthesia cases.
 A total of
-`r sprintf("%.1f kg", TotalUsedWeightSev / 1000)` sevoflurane was used and
-`r sprintf("%.1f kg", TotalRecoveredSev / 1000)` could be recovered,
+`r sprintf("%.1f&nbsp;kg", TotalUsedWeightSev / 1000)` sevoflurane was used and
+`r sprintf("%.1f&nbsp;kg", TotalRecoveredSev / 1000)` could be recovered,
 yielding a capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
 The capture efficiencies differed significantly between the ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` in the OR with shorter anaesthesia durations and frequently inhaled induction
