@@ -1,6 +1,6 @@
 ---
 title: >
-    Capture efficiency of CONTRAfluran absorbers for sevoflurane in a real-world scenario
+    Capture efficiency of CONTRAfluran^TM^ absorbers for sevoflurane in a real-world scenario
 institute:
     - KAINS: Department of Anesthesiology and Intensive Care Medicine, University Hospital Greifswald, Ferdinand-Sauerbruch-Straße, D-17475 Greifswald, Germany.
 author:
