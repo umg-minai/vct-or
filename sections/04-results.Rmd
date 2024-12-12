@@ -48,7 +48,7 @@ ZeoSys before the desorption process.
 During the whole storage period we observed a loss of
 `r .medLU(agc$LostWeight2)` gram in median (lower and upper quartile) for each
 AGC and of `r TotalWeightLoss` gram in total.
-This corresponds to `r .pct(RatioWeightLoss)`.
+This corresponds to `r .pct(RatioWeightLoss)`
 (Figure \@ref(fig:plot-weight-lost)).
 
 ```{r plot-weight-lost, dev = ifelse_is_docx("tiff", "png"), fig.width = 12, fig.height = 8, echo = FALSE, fig.cap = "Weight loss of the anaesthetic gas canisters during storage. The dots represent the weight loss of each individual anaesthetic gas canister for the days after exhaustion before shipping and desorption. The gray lines connect the same anaesthetic gas canisters measured at the two different time points."}
