@@ -64,7 +64,7 @@ Hinterberg et al. used a new AGC for every case, which produced underfilled AGCs
 with less than 15&nbsp;% of their capacity,
 possibly yielding a relative higher contribution of water to the weight gain and
 insufficiencies in the desorption and recapture process [@Hinterberg2022;@Kalmar2023].
-By contrast, our study represents a 'real-world' usage of the AGCs until they
+By contrast, our study represents a routine anaesthesia practice usage of the AGCs until they
 were saturated.
 
 Despite the difference in the overall capture efficiency, our results
