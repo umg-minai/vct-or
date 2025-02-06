@@ -1,5 +1,7 @@
 # Discussion
 
+## Capture efficiency
+
 We demonstrated in this prospective single-center observational study that using
 active charcoal based AGCs for sevoflurane until they reached their maximum saturation
 levels can yield a total capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
@@ -54,6 +56,8 @@ This could be in line with the results of
 the simulation study, where the largest drop in capture efficiency for
 minimal-flow anaesthesia was found between one and two hours [@Dexter2023].
 
+## Comparison to other studies
+
 Our overall capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`
 is very similar to the 25&nbsp;% for desflurane [@Hinterberg2022] and the 43-51&nbsp;%
 previously reported for the
@@ -85,6 +89,8 @@ was attributable to sevoflurane.
 This is in line with the 70&nbsp;% reported previously for CONTRAfluran^TM^ [@Hinterberg2022].
 Perhaps a connected AGSS caused a dryer AGC, which could be a reason for the very high
 desorption efficiency of 95.5&nbsp;% sevoflurane for SageTech's AGSS-dependent volatile capture device [@Gandhi2023].
+
+## Weight loss
 
 Although we stored all AGCs in a zip lock bag, we found a
 decrease in weight of around `r .pct(RatioWeightLoss, prec = ".0")`
