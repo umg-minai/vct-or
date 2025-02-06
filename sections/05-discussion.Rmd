@@ -1,7 +1,7 @@
 # Discussion
 
 We demonstrated in this prospective single-center observational study that using
-active charcoal absorbers for sevoflurane until they reached their maximum saturation
+active charcoal based AGCs for sevoflurane until they reached their maximum saturation
 levels can yield a total capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
 This represents a total amount of `r sprintf("%.1f&nbsp;kg", TotalRecoveredSev / 1000)`
 that can be recovered from a total of `r sprintf("%.1f&nbsp;kg", TotalUsedWeightSev / 1000)`
