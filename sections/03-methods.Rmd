@@ -14,7 +14,7 @@ The first OR (referred to as `r ORnames[1]`), was dedicated to
 ear, nose and throat surgery.
 Here, a median number of `r .as.word(round(ORcases[1]))` cases per day
 were treated, mostly with supraglottic airways.
-All cases were inducted and emerged from anesthesia in the OR.
+All cases were inducted and emerged from anaesthesia in the OR.
 The first and second case each day were generally children,
 where we did inhaled inductions with a fresh gas flow in the range of
 the minute ventilation of the respective child.
