@@ -41,5 +41,7 @@ almost one-third of the sevoflurane can be recaptured, but
 the capture efficiency depends highly on the fresh gas flow used and duration of
 anaesthesia.
 
+<!--
 **Keywords**:
 balanced anaesthesia, sevoflurane, vapour capture technology
+-->
