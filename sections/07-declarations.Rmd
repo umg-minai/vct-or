@@ -3,7 +3,8 @@
 ## Ethical approval
 
 Research involving human subjects complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the ethics committee of the University Medicine Greifswald
-(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
+(Chairperson: Prof. Dr. M. Dörr;
+reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
 approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
 
 ## Consent for publication
@@ -15,6 +16,7 @@ Not applicable.
 The datasets generated and/or analysed during the current study are available in the zenodo repository,
 `r bib <- bibtex::read.bib(frf("bibliography", "bibliography.bib")); bib[["vctordata"]]$url` @vctordata.
 
+<!--
 ## Competing interests
 
 ```{r competing-interests, echo = FALSE, results = "asis"}
@@ -42,6 +44,7 @@ if (all(is_none)) {
 ## Funding
 
 None.
+-->
 
 ## Author Contributions
 
@@ -73,7 +76,13 @@ cat(
 
 ## Acknowledgements
 
-We thank Marco Reinke and Steffen Suermann from Draeger Medical Deutschland GmbH for exporting the Draeger connect data, the Draeger Perseus' logbooks and for helpful discussions about sevoflurane consumption,
+**Assistance with the study:** We thank Marco Reinke and Steffen Suermann from Draeger Medical Deutschland GmbH for exporting the Draeger connect data, the Draeger Perseus' logbooks and for helpful discussions about sevoflurane consumption,
 Christian Ewers, managing director of ZeoSys medical, for reporting the amount of recovered sevoflurane and information about the desorption process.
 Additionally, we would like to thank Linda Grüßer and Stephanie Snyder-Ramos for
 proofreading the manuscript.
+
+**Financial support and sponsorship**: None.
+
+**Conflicts of interest**: None.
+
+**Presentation:** Prelimary data were presented as part of a talk at the national meeting Norddeutsche Anästhesietage, 13-14 December 2024, Hamburg.
