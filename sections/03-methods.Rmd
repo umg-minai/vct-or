@@ -3,7 +3,8 @@
 ## Ethics approval
 
 The study was approved by the ethics committee of the University Medicine Greifswald
-(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
+(Chairperson: Prof. Dr. M. Dörr;
+reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
 approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
 
 ## Setting
