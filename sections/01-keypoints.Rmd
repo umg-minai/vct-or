@@ -1,5 +1,7 @@
+<!--
 # Key points
 
 - **Question:** How much sevoflurane can be capture by activated charcoal absorbers, CONTRAfluran^TM^, in a routine anaesthesia practice?
 - **Findings:** In routine anaesthesia practice, depending on the fresh gas flow and anaesthesia duration, 21 to 48 % of the sevoflurane used could be recovered using CONTRAfluran^TM^.
 - **Meaning:** Using minimal or metabolic fresh gas flows is essential for an environmentally friendly anaesthesia, even with activated charcoal absorbers.
+-->
