@@ -53,7 +53,7 @@ ethics_committee:
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
-csl: pandoc/csl/european-journal-of-anaesthesiology.csl
+csl: pandoc/csl/journal-of-anesthesia.csl
 link-citations: yes
 linkcolor: blue
 output:
