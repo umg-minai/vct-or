@@ -56,6 +56,11 @@ Manuscript date: $(shell date +"%Y-%m-%d %H:%M"); Version: <a href="https://gith
 	git commit -m "chore: update index.html"
 	git checkout main
 
+.PHONEY:
+shell:
+	${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
+		shell --manifest=guix/manifest.scm
+
 ## pinning guix channels to latest commits
 guix-pin-channels: guix/channels.pinned.scm
 
