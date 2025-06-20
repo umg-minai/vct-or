@@ -75,7 +75,7 @@ Before returning the AGCs to ZeoSys, we weighed all AGCs again
 to determine any potential weight loss.
 
 All weight measurements were done with a precision scale
-(Kern PCB 2500-2; Kern\&Sohn GmbH, Balingen-Frommern; Germany; maximum weight&bnsp;=&bnsp;2500&bnsp;g;&bnsp;d&bnsp;=&bnsp;0.01&bnsp;g)
+(Kern PCB 2500-2; Kern\&Sohn GmbH, Balingen-Frommern; Germany; maximum weight&nbsp;=&nbsp;2500&nbsp;g;&nbsp;d&nbsp;=&nbsp;0.01&nbsp;g)
 
 ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons.
 Before starting the desorption and recovery process they weighed all AGCs

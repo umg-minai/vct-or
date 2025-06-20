@@ -165,17 +165,17 @@ different ORs.
 To assess the agreement between these two methods, we weighed the sevoflurane
 bottles
 (with a Kern PCB 2500-2 scale; Kern\&Sohn GmbH, Balingen-Frommern;
-Germany; maximum weight&bnsp;=&bnsp;2500&bnsp;g;&bnsp;d&bnsp;=&bnsp;0.01&bnsp;g)
+Germany; maximum weight&nbsp;=&nbsp;2500&nbsp;g;&nbsp;d&nbsp;=&nbsp;0.01&nbsp;g)
 and the vaporizer
 (with a Kern PNJ 12000-M1 scale; Kern&Sohn GmbH, Balingen-Frommern; Germany;
-maximum weight&bnsp;=&bnsp;12000&bnsp;g;&bnsp;d&bnsp;=&bnsp;0.1&bnsp;g)
+maximum weight&nbsp;=&nbsp;12000&nbsp;g;&nbsp;d&nbsp;=&nbsp;0.1&nbsp;g)
 before and after filling of the vaporizer and compared the differences as
 described by Bland and Altmann [@Bland1986].
 We did `r nrow(scales)` comparisons (`r 4 * nrow(scales)` weight measurements
 in total) and found a high agreement with a negligible mean difference of
-`r sprintf("%.2f&bnsp;g (95 %% CI: %.2f, %.2f&bnsp;g)", scalesMeanDiff, scalesCIMeanDiff[1L], scalesCIMeanDiff[2L])`.
-The 95&bnsp;% limits of agreement are
-`r sprintf("%.2f to %.2f&bnsp;g", scalesLADiff[1L], scalesLADiff[2L])`
+`r sprintf("%.2f&nbsp;g (95 %% CI: %.2f, %.2f&nbsp;g)", scalesMeanDiff, scalesCIMeanDiff[1L], scalesCIMeanDiff[2L])`.
+The 95&nbsp;% limits of agreement are
+`r sprintf("%.2f to %.2f&nbsp;g", scalesLADiff[1L], scalesLADiff[2L])`
 (Supplemental Fig. S\@ref(fig:plot-bland-altmann)).
 To reduce repeated measurement errors the weighing was done on a daily basis
 instead after every case and only by two trained investigators (NM and SK).
