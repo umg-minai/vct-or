@@ -231,6 +231,25 @@ ORCO2eq <- tapply(agc, agc$OR, function(aa) {
 ```
 
 ```{r table1-build, include = FALSE, message = FALSE}
+wilcox_effect_size <- function(data, variable, by, ...) {
+    wt <- wilcox.test(
+        data[[variable]] ~ as.factor(data[[by]]),
+        alternative = "two.sided",
+        conf.int = TRUE,
+        ...
+    )
+    z <- qnorm(wt$p.value / 2) # two-sided
+    data.frame(
+        p.value = wt$p.value,
+        effect_size = style_sigfig(abs(z / sqrt(nrow(data)))),
+        difference =
+            paste0(style_sigfig(wt$estimate), " (",
+                   style_sigfig(wt$conf.int[1L]), ", ",
+                   style_sigfig(wt$conf.int[2L]), ")"),
+        row.names = variable
+    )
+}
+
 theme_gtsummary_compact(font_size = 8L)
 
 tbl_cases <- agc |>
@@ -261,7 +280,22 @@ tbl_cases <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_p()
+    add_stat(
+        fns = everything() ~ wilcox_effect_size
+    ) |>
+    #add_difference() |>
+    modify_header(
+        p.value = "**p-value**",
+        effect_size = "**Effect size**",
+        difference = "**Difference (95 % CI)**",
+    ) |>
+    modify_footnote(
+        list(all_stat_cols() ~
+                "Values given as: median (lower quartile, upper quartile)",
+             c("p.value", "effect_size", "difference") ~
+                 "Wilcoxon rank sum (exact) test"
+        )
+    )
 
 tbl_weights <- agc |>
     select(
@@ -291,7 +325,16 @@ tbl_weights <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_p()
+    add_stat(
+        fns = everything() ~ wilcox_effect_size
+    ) |>
+    #add_difference() |>
+    modify_header(
+        p.value = "**p-value**",
+        effect_size = "**Effect size**",
+        difference = "**Difference (95 % CI)**",
+    )
+
 
 tbl_weights_overall <- add_overall(tbl_weights)
 
@@ -310,11 +353,20 @@ tbl_sevo_consumption <- agc |>
         ),
         label = list(
             TotalUsedWeightSev ~ "Total sevoflurane weight used [g]",
-            UsedWeightPerHourSev ~ "Average sevoflurane weight used per hour inhaled anaesthesia [g.h^-1^]"
+            UsedWeightPerHourSev ~ "Average sevoflurane weight used per hour inhaled anaesthesia [g·h^-1^]"
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_p()
+    add_stat(
+        fns = everything() ~ wilcox_effect_size
+    ) |>
+    #add_difference() |>
+    modify_header(
+        p.value = "**p-value**",
+        effect_size = "**Effect size**",
+        difference = "**Difference (95 % CI)**",
+    )
+
 
 tbl1 <- tbl_stack(
     tbls = list(
@@ -338,7 +390,10 @@ modify_caption(
     paste0(
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
         "Cases, duration, etc. are given as per canister. ",
-        "ENT: ear, nose and throat surgery."
+        "Values are median (lower and upper quartile); ",
+        "p-values, effect sizes, differences and 95 % confidence intervals ",
+        "are calculated using the Wilcoxon rank sum (exact) test. ",
+        "CI: confidence intervals; ENT: ear, nose and throat surgery."
     )
 )
 ```
