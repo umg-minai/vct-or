@@ -1,3 +1,4 @@
+<!--
 # Implication Statement
 
 In this prospective observational single-center study we investigated the
@@ -5,3 +6,4 @@ capture efficiency of the active charcoal absorbers CONTRAfluran^TM^
 for sevoflurane for the first time in routine anaesthesia practice
 for six months and over 700 balanced anaesthesia cases.
 We found a capture efficiency of 34 % for 20 fully saturated absorbers.
+-->
