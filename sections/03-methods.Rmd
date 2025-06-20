@@ -7,6 +7,17 @@ The study was approved by the ethics committee of the University Medicine Greifs
 reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
 approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`).
 
+## Definitions
+
+We apply the taxonomy recently introduced by Gandhi et al. [@Gandhi2024].
+Briefly, the capture efficiency refers to the entire recapture process and
+includes the mass of VA that was used in comparison to the mass that was
+eventually recovered from the AGC and could be reused.
+Proportional capture efficiency is the calculated efficiency for each
+individual AGC.
+The *in vivo* mass transfer describes the increase in mass of the
+AGC in proportion to the mass of the VA used in a clinical setting.
+
 ## Setting
 
 We collected a total of `r nrow(agc)` consecutive CONTRAfluran^TM^ AGCs in two different ORs in this prospective single-centre exploratory observational study.
@@ -32,7 +43,7 @@ All cases emerged from anaesthesia in the OR.
 All anaesthesia cases were performed at the discretion of the
 anaesthesiologists in charge in clinical routine
 according to our local standard operating procedures.
-Following these, a minimal or metabolic flow (< 0.5&nbsp;l.min^-1^, mostly 0.3&nbsp;l.min^-1^) was used during the steady state phase in all cases.
+Following these, a minimal or metabolic flow (< 0.5&nbsp;l·min^-1^, mostly 0.3&nbsp;l·min^-1^) was used during the steady state phase in all cases.
 We did recorded neither the patient data, the type of anaesthesia,
 the induction strategy nor the airway used because of the exploratory, pragmatic
 and anonymous character of the study.
@@ -45,7 +56,7 @@ Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia m
 The AGCs were permanently connected to the exhaust port of the anaesthesia machines, which work in a passive mode, without an AGSS connected.
 We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vaporizer and used the difference in weight to record the sevoflurane consumption.
 The vaporizers were filled to the maximum before we attached the first CONTRAfluran^TM^ AGC (ZeoSys medical, Luckenwalde, Germany) and started our recordings.
-During the study period, almost every day the two vaporizers were filled completely and the sevoflurane bottle weight difference measured by the study team, which was not involved in the anaesthesia.
+During the study period, almost every day the two vaporizers were filled completely and the sevoflurane bottle weight difference measured by the study team (NM and SK), which was not involved in the anaesthesia.
 
 In the case where a new bottle of sevoflurane was opened, it was initially attached to a non-study vaporizer to lose any excess pressure, and was weighed before the study vaporizer was filled.
 
@@ -60,17 +71,22 @@ weight gain to consumed weight of sevoflurane).
 Each exhausted AGC was recapped and stored in a closed plastic zip-lock bag.
 
 ZeoSys needs at least 20 AGCs for a single desorption process.
-We stored all consecutive AGCs at room temperature until the 20th AGC was
-exhausted.
 Before returning the AGCs to ZeoSys, we weighed all AGCs again
 to determine any potential weight loss.
 
-All weight measurements were done with a precision scale (Kern PCB 2500-2; Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight = 2500 g; d = 0.01 g).
+All weight measurements were done with a precision scale
+(Kern PCB 2500-2; Kern\&Sohn GmbH, Balingen-Frommern; Germany; maximum weight&bnsp;=&bnsp;2500&bnsp;g;&bnsp;d&bnsp;=&bnsp;0.01&bnsp;g)
 
 ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons.
 Before starting the desorption and recovery process they weighed all AGCs
 (Sartorius Cubis II MCA5201S-2S00-0; Sartorius AG, Göttingen; Germany; maximum weight = 5200 g; d = 0.1 g).
 Afterwards, they sent us the information about the total amount of sevoflurane recovered from all 20 AGCs.
+
+The capture efficiency was then determined by calculating the
+total amount of sevoflurane recovered relative to the amount used [@Gandhi2024].
+We compare the total amount of sevoflurane recovered to the individual weight of
+each AGC, divided by the total weight of all AGCs, to get the proportional
+capture efficiency.
 
 ## Outcome
 

@@ -28,7 +28,7 @@ d[c(
             paste0(
                 c(
                     "C~sev~: total sevoflurane used [g]",
-                    "C~avg~: average sevoflurane used [g.h^-1^]",
+                    "C~avg~: average sevoflurane used [g·h^-1^]",
                     "D: total duration [h]",
                     "D~sev~: total duration of sevoflurane cases [h]",
                     "D~avg~: average duration of sevoflurane cases [h]",
@@ -126,12 +126,22 @@ the vaporizer was not refilled.
 Therefore, we retrospectively calculated the sevoflurane consumption for the
 last four anaesthesia cases utilising the user log entry provided by the Draeger
 Perseus anaesthesia machine.
-The calculation was done as described in @Biro2015.
+The calculation was done as described in Biro et al. with the following formula
+[@Biro2015].
+
+$$
+agent\ consumption\ [g] = \frac{fresh\ gas\ flow\ [mL·min^{-1}] * vapor\ setting\ [Vol \%] *
+anaesthesia\ duration\ [min]}{saturated\ gas\ volume\ [mL] * 100\ [Vol \%]} *
+density\ [g·mL^{-1}]
+$$
+
+We used 184 mL as *saturated gas volume* [@Biro2015] and a density of
+`r sevodensity` g·mL^-1^ for sevoflurane [@Hu2021].
 
 ```{r sevoflurane-consumption-estimation-agc14-tables, echo = FALSE}
 knitr::kable(
     col.names = c("Case", "Time since vaporizer opened [min]",
-                  "Fresh gas flow [l.min^-1^]",
+                  "Fresh gas flow [l·min^-1^]",
                   "Vaporizer setting [Vol%]", "Duration [min]",
                   "Sevoflurane consumption [g]"),
     digits = 2,
@@ -155,6 +165,7 @@ knitr::kable(
     )
 )
 ```
+
 
 ## R session information
 

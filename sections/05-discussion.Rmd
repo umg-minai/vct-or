@@ -98,7 +98,9 @@ desorption efficiency of 95.5&nbsp;% sevoflurane for SageTech's AGSS-dependent v
 Although we stored all AGCs in a zip lock bag, we found a
 decrease in weight of around `r .pct(RatioWeightLoss, prec = ".0")`
 during storage (Figure \@ref(fig:plot-weight-lost)).
-A previous study reported a constant weight over time [@Hinterberg2022].
+In contrast a previous study reported a constant weight over time [@Hinterberg2022].
+We could not ascertain whether this was due to water evaporation or
+spontaneous VA desorption.
 Because of the strong non-covalent interaction between the VA and
 the activated charcoal, and the hydrophobic character of the latter,
 we assume that a drying or evaporation process of the captured water could partially explain the weight loss.
@@ -108,6 +110,9 @@ Weight loss during high-flow total intravenous anaesthesia was already reported
 [@Kalmar2024a].
 Thus spontaneous desorption, even without any flow, as already observed by
 Wenzel et al. may be another explanation [@Wenzel2024].
+In subsequent studies, the proportion of water evaporation and spontaneous
+VA desorption could be investigated by placing the saturated AGC in an
+airtight chamber and analysing the air inside the chamber by gas chromatography.
 
 The weight loss, the unknown contribution of water and metabolic products,
 and the difference in desorption efficiency illustrate
@@ -119,11 +124,12 @@ capture efficiency of AGCs from the (*in vivo*) mass transfer alone.
 The primary limitation of our study is that we included only two
 ORs with a different number of patients and a variety of surgical and
 anaesthesia procedures.
-Due to the large number of patients per AGC and the pragmatic design,
-we were not able to analyse patient-related associations, fresh gas flows and
-other procedure-related factors in a meaningful way.
-Therefore, our findings should be regarded as exploratory,
-indicating a further need for research.
+Due to the large number of patients per AGC, the long observation period and
+the pragmatic design, we were not able to analyse
+patient- or procedure-related factors like fresh gas flow,
+minute ventilation, MAC value, airway devices.
+Therefore, our findings in these two ORs cannot be generalised and
+should be regarded as exploratory, indicating a further need for research.
 
 In contrast to previous studies that used a new AGC for every case or
 utilised the AGC only for select procedures to infer associations between capture
@@ -184,8 +190,10 @@ the vaporizer was not refilled and the weight difference of the sevoflurane bott
 not recorded.
 That is why we calculate the sevoflurane consumption data for the four last
 anaesthesia cases as described by Biro et al.
-(`r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)`; Supplemental Section \@ref(estimation-of-sevoflurane-consumption)) [@Biro2015].
-They described an overestimation of the sevoflurane consumption by 6.2&nbsp;%.
+(`r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)`; Supplemental Section S\@ref(estimation-of-sevoflurane-consumption)) [@Biro2015].
+Briefly, the fresh gas flow was multiplied with the vaporizer setting and the
+anaesthesia duration divided by the saturated gas volume.
+Biro et al. described an overestimation of the sevoflurane consumption by 6.2&nbsp;%.
 This would result in an error of
 `r .pct((AGC14EstimatedUsedWeightSev * 0.062) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
 for our AGC CH0100012088
@@ -193,6 +201,10 @@ and just slightly underestimate the *in vivo* mass transfer and proportional
 capture efficiency.
 
 ZeoSys needs at least 20 AGCs for a single desorption process.
+Therefore, we chose to collect the minimum number of 20 consecutive AGCs.
+A larger number of AGCs would have meant significantly more effort
+(collecting `r nrow(agc)` AGCs in two ORs already took over 6 months and
+almost 1000 patients) without a relevant higher information value.
 However, a regular desorption process requires 80 AGCs.
 During the desorption process a specific amount of supernatant is removed.
 Therefore, our desorption efficiency and, thus, our capture efficiency is

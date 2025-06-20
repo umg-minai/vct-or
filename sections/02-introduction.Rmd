@@ -4,7 +4,8 @@ The anthropogenic climate crisis is the largest threat to global health [@Daalen
 However, the health-care sector itself is responsible for 5-10&nbsp;% of greenhouse gas emissions [@Hu2021].
 A relevant part of these emissions are caused by volatile anaesthetics (VAs) used in anaesthesia and intensive care [@MacNeill2017;@Hu2021].
 
-Active charcoal absorbers can be attached to the exhaust port of the anaesthesia machines to decrease these emssions and capture VAs.
+Active charcoal absorbers can be attached to the exhaust port of the
+anaesthesia machines to capture VAs and might decrease their emissions.
 Using absorbers that allow the recapture of the VAs has the
 additional benefit of being able to reuse the substances.
 

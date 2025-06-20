@@ -1,9 +1,9 @@
 # Abstract
 
 **Purpose**:
-Volatile anaesthetics are potent greenhouse gases, but can be captured using
-active charcoal absorbers on the exhaust port of anaesthesia machines to reduce
-their negative climate impact.
+Volatile anaesthetics are potent greenhouse gases.
+Recapturing using active charcoal absorbers on the exhaust port of
+anaesthesia machines might reduce their negative climate impact.
 Previous studies investigating the capture efficiency of absorbers have been
 performed mostly under circumstances that differ from everyday clinical routine.
 Therefore, we here investigated the
@@ -38,8 +38,8 @@ We saw a `r .pct(RatioWeightLoss, prec = ".0")` weight loss over time during sto
 **Conclusions**:
 If CONTRAfluran^TM^ absorbers are used until they are fully saturated,
 almost one-third of the sevoflurane can be recaptured, but
-the capture efficiency depends highly on the fresh gas flow used and duration of
-anaesthesia.
+the capture efficiency might depend on various patient- and procedure-related
+factors, including the fresh gas flow used and the duration of anaesthesia.
 
 <!--
 **Keywords**:
