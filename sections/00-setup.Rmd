@@ -85,6 +85,7 @@ agc <- read.csv(frf("data", "agc.csv"))
 cases <- read.csv(frf("data", "cases.csv"))
 periods <- read.csv(frf("data", "periods.csv"))
 flowvapor <- read.csv(frf("data", "flow-vapor-settings.csv"))
+scales <- read.csv(frf("data", "scale-comparison.csv"))
 ```
 
 ```{r prepare, include = FALSE}
@@ -141,6 +142,23 @@ flowvapor$TimeStamp <- ave(
     flowvapor$Case,
     FUN = \(x)as.numeric(difftime(x, x[1], units = "mins"))
 )
+```
+
+```{r scale-comparison, include = FALSE}
+scales$DiffWeightVaporizer <-
+    scales$FinalWeightVaporizer - scales$InitialWeightVaporizer
+scales$DiffWeightBottle <-
+    scales$InitialWeightBottle - scales$FinalWeightBottle
+
+scales$Avg <- (scales$DiffWeightVaporizer + scales$DiffWeightBottle) / 2
+scales$Diff <- scales$DiffWeightVaporizer - scales$DiffWeightBottle
+
+scalesMeanDiff <- mean(scales$Diff)
+scalesSDDiff <- sd(scales$Diff)
+scalesSEDiff <- scalesSDDiff / sqrt(nrow(scales))
+scalesLADiff <- scalesMeanDiff + c(- 1.96, 1.96) * scalesSDDiff
+scalesCIMeanDiff <- scalesMeanDiff + qt(0.975, nrow(scales) - 1L) * c(-1, 1) *
+    scalesSEDiff
 ```
 
 ```{r counts, include = FALSE}

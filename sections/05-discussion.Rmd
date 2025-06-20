@@ -152,17 +152,32 @@ However, the influence should also be negligible due to the infrequent changes.
 The gold standard to determine the consumption of VA is weighing
 the vaporizer before and after the observation period, typically a single
 anaesthesia case.
-Unfortunately, a scale that was precise enough to measure more than 9&nbsp;kg with
-a precision of a few grams was not available.
-However, our approach, weighing the sevoflurane bottles, has small advantages
-in our scenario.
-According to the manual of the vaporizer, the Draeger D-Vapor 3000 loses small
-amounts of VAs (< 0.5&nbsp;ml in 24&nbsp;h; equals < 31&nbsp;mg/h).
-While this loss is small and perhaps negligible,
-it can not be measured by weighing the vaporizer before and after each case.
-Ignoring such a loss would slightly overestimate the capture efficiency.
-We can easily measure all, possibly hidden, losses of
-VAs and determine the capture efficiency more accurately by weighing the bottles.
+We decided to weigh the sevoflurane bottles instead to not interrupt the
+anaesthesia process by removing/installing the vaporizer during our
+measurements and to avoid transporting the vaporizers or the scale into
+different ORs.
+To assess the agreement between these two methods, we weighed the sevoflurane
+bottles
+(with a Kern PCB 2500-2 scale; Kern\&Sohn GmbH, Balingen-Frommern;
+Germany; maximum weight&bnsp;=&bnsp;2500&bnsp;g;&bnsp;d&bnsp;=&bnsp;0.01&bnsp;g)
+and the vaporizer
+(with a Kern PNJ 12000-M1 scale; Kern&Sohn GmbH, Balingen-Frommern; Germany;
+maximum weight&bnsp;=&bnsp;12000&bnsp;g;&bnsp;d&bnsp;=&bnsp;0.1&bnsp;g)
+before and after filling of the vaporizer and compared the differences as
+described by Bland and Altmann [@Bland1986].
+We did `r nrow(scales)` comparisons (`r 4 * nrow(scales)` weight measurements
+in total) and found a high agreement with a negligible mean difference of
+`r sprintf("%.2f&bnsp;g (95 %% CI: %.2f, %.2f&bnsp;g)", scalesMeanDiff, scalesCIMeanDiff[1L], scalesCIMeanDiff[2L])`.
+The 95&bnsp;% limits of agreement are
+`r sprintf("%.2f to %.2f&bnsp;g", scalesLADiff[1L], scalesLADiff[2L])`
+(Supplemental Fig. S\@ref(fig:plot-bland-altmann)).
+To reduce repeated measurement errors the weighing was done on a daily basis
+instead after every case and only by two trained investigators (NM and SK).
+Beside not interrupting the anaesthesia cases our approach,
+weighing the sevoflurane bottles, has small advantages,
+because we measure all, possibly hidden, losses of VAs
+(e.g. spilled sevoflurane, losses of the vaporizer) and
+the accurarcy is enhanced by using the smaller more precise scale.
 
 After the removal of the last exhausted AGC, CH0100012088, in `r ORnames[2]`
 the vaporizer was not refilled and the weight difference of the sevoflurane bottle

@@ -57,6 +57,68 @@ d[c(
     )
 ```
 
+
+## Comparing sevoflurane consumption measurements
+
+We weighed the sevoflurane
+(SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles
+before and after filling of the Draeger D-Vapor 3000
+(Draeger Medicine Deutschland GmbH, Luebeck, Germany)
+vaporizer and record the difference.
+Subsequently we determine the difference using the gold standard -
+weighing the vaporizer before and after filling.
+The bottles and the vaporizers were weighed with a Kern PCB 2500-2 scale
+(Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight = 2500 g; d = 0.01 g)
+and a Kern PNJ 12000-M1 scale
+(Kern&Sohn GmbH, Balingen-Frommern; Germany; maximum weight = 12000 g; d = 0.1 g),
+respectively.
+
+We did `r nrow(scales)` comparisons (`r 4 * nrow(scales)` weight measurements
+in total) and found a mean difference of
+`r sprintf("%.2f g (95 %% CI: %.2f, %.2f)", scalesMeanDiff, scalesCIMeanDiff[1L], scalesCIMeanDiff[2L])`.
+The 95\ % limits of agreement are
+`r sprintf("%.2f to %.2f g", scalesLADiff[1L], scalesLADiff[2L])`.
+
+```{r plot-bland-altmann, dev = ifelse_is_docx("tiff", "png"), fig.width = 12, fig.height = 8, echo = FALSE, fig.cap = "Bland-Altman plot comparing weight methods for determination of sevoflurane consumption."}
+old.par <- par(no.readonly = TRUE)
+on.exit(par(old.par))
+
+xlim <- range(scales$Avg)
+ylim <- c(min(scalesLADiff, scales$Diff), max(scalesLADiff, scales$Diff))
+
+plot(
+    scales$Avg, scales$Diff,
+    xlim = xlim, ylim = ylim,
+    axes = FALSE, xlab = "", ylab = "",
+    pch = 19,
+    col = viridisLite::cividis(1)
+)
+
+abline(
+    h = c(0, scalesMeanDiff, scalesLADiff),
+    lty = c("dashed", "solid", "solid", "solid"),
+    col = "#808080"
+)
+
+axis(1L, col = "#808080", col.axis = "#808080", lwd.ticks = 0)
+axis(2L, col = "#808080", col.axis = "#808080", lwd.ticks = 0, las = 2)
+title(main = "COMPARISON OF SEVOFLURANE CONSUMPTION MEASURMENTS", col.main = "#808080", adj = 0L)
+title(xlab = "AVERAGE WEIGHT DIFFERENCE [g]", adj = 0L, col.lab = "#808080")
+title(ylab = "DIFFERENCE BETWEEN WEIGHT MEASUREMENTS (VAPORIZER WEIGHT - BOTTLE WEIGHT) [g]", adj = 1L, col.lab = "#808080", cex.lab = 0.8)
+
+text(
+    max(scales$Avg) - strwidth("MEAN - 1.96 SD"),
+    c(scalesMeanDiff, scalesLADiff),
+    labels = toupper(
+        c("MEAN", "MEAN - 1.96 SD", "MEAN + 1.96 SD")
+    ),
+    adj = c(0, 1.5),
+    col = "#808080",
+    cex = 0.8
+)
+```
+
+
 ## Estimation of sevoflurane consumption
 
 After changing the last anaesthetic gas canister *CH0100012088* in `r ORnames[2]`,
