@@ -25,9 +25,9 @@ One line per case.
 - Device: device id.
 - Description: human readable location (could change during study due to relocation of the Draeger Perseus device to another operating room).
 - OR: medlinq operating room Id e.g 21 for ZOP2/Saal 1, or 30 for ZOP2/Saal 10.
-- Date: date.
-- Start: start time of case.
-- End: end time of case.
+- Date: date, format YYYY-MM-DD.
+- Start: start time of case, format YYYY-MM-DD HH:MM:SS.
+- End: end time of case, format YYYY-MM-DD HH:MM:SS.
 - Duration: duration in minutes.
 - AvgFlowTotal: average total fresh gas flow in L/min.
 - AvgFlowO2: average oxygen fresh gas flow in L/min.
@@ -39,7 +39,7 @@ One line per case.
 ## flow-vapor-settings.csv
 
 - Case: case id.
-- TimeStamp: timestamp.
+- TimeStamp: timestamp, format YYYY-MM-DD HH:MM:SS.
 - Flow: fresh gas flow in L/min.
 - Vapor: vapor setting in Vol%.
 - Duration: duration of "Flow" and "Vapor" setting combination in minutes.
