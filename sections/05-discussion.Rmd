@@ -15,12 +15,15 @@ in the two ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` for `r ORnames[1]`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`  for `r ORnames[2]`.
-Despite the different disciplines and procedures,
-the inhaled induction and the duration of anaesthesia are relevant differences.
-During an inhaled induction, even if done with a fresh gas flow
-in the range of the minute ventilation of the respective child, a large amount
-of sevoflurane passes the patients without uptake, thus increasing the amount
-that can be captured by the AGC and yielding higher capture efficiency.
+As `r ORnames[1]` had a higher total number of inductions and far more
+inhaled inductions, a higher leakage of sevoflurane during the
+induction phase could be a major cause for this difference.
+During an inhaled induction using a face mask, the risk of leakage is
+generally quite high.
+And even if done with a fresh gas flow in the range of the minute ventilation
+of the respective child, a large amount of sevoflurane passes the patients
+without uptake, thus increasing the amount that can be captured by the
+AGC and yielding higher capture efficiency in `r ORnames[1]`.
 
 Another major determinant for the lower capture efficiency in `r ORnames[2]`
 may be the longer duration of anaesthesia.
@@ -127,6 +130,14 @@ utilised the AGC only for select procedures to infer associations between captur
 efficiency and patient characteristics,
 we studied a day-to-day use,
 which is why our results can be compared easily to other settings.
+
+The AGCs were permanently connected to the exhaust port of the anaesthesia
+machines, as it is the common practice in most ORs.
+This may have lowered our capture efficiency
+due to spontaneous desorption from the AGCs and due to
+periods with higher fresh gas flows, such as induction, emergence, or total
+intravenous anaesthesia where flow-dependent desorption may occur
+[@Wenzel2024;@Kalmar2024a].
 
 Seven of `r round(nCases[ORnames[2]])` cases of `r ORnames[2]` were inducted in the separate induction room.
 This may overestimate the proportional capture efficiency
