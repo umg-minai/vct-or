@@ -102,4 +102,5 @@ All data processing and statistical analyses were performed using R version
 The two-sided Wilcoxon rank-sum test was used for statistical comparison.
 A *p*-value less than 0.05 was considered to be statistically significant.
 Summary tables were generated using the *gtsummary* package [@Sjoberg2021].
-All data and analysis can be found at https://github.com/umg-minai/vct-or [@vctordata].
+All data and analysis can be found in the zenodo repository,
+`r bib <- bibtex::read.bib(frf("bibliography", "bibliography.bib")); bib[["vctordata"]]$url` @vctordata.
