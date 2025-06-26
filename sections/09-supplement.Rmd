@@ -160,7 +160,7 @@ knitr::kable(
         tapply(flowvapor$Consumption, flowvapor$Case, sum)
     ),
     caption = paste0(
-        "Sevofluran consumption of the last four cases for ",
+        "Sevoflurane consumption of the last four cases for ",
         "anaesthetic gas canister *CH0100009273*."
     )
 )
