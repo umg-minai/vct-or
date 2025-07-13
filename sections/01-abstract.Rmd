@@ -1,6 +1,6 @@
 # Abstract
 
-**Purpose**:
+**Background**:
 Volatile anaesthetics are potent greenhouse gases.
 Recapturing using active charcoal absorbers on the exhaust port of
 anaesthesia machines might reduce their negative climate impact.

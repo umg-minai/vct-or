@@ -1,4 +1,4 @@
-# Introduction
+# Background
 
 The anthropogenic climate crisis is the largest threat to global health [@Daalen2022].
 However, the health-care sector itself is responsible for 5-10&nbsp;% of greenhouse gas emissions [@Hu2021].
