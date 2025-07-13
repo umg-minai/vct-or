@@ -365,7 +365,7 @@ modify_caption(
         "Values are median (lower and upper quartile); ",
         "p-values ",
         "are calculated using the Wilcoxon rank sum (exact) test. ",
-        "CI: confidence intervals; ENT: ear, nose and throat surgery."
+        "ENT: ear, nose and throat surgery."
     )
 )
 ```
