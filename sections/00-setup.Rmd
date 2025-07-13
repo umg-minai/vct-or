@@ -280,20 +280,10 @@ tbl_cases <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_stat(
-        fns = everything() ~ wilcox_effect_size
-    ) |>
-    #add_difference() |>
-    modify_header(
-        p.value = "**p-value**",
-        effect_size = "**Effect size**",
-        difference = "**Difference (95 % CI)**",
-    ) |>
+    add_p() |>
     modify_footnote(
         list(all_stat_cols() ~
-                "Values given as: median (lower quartile, upper quartile)",
-             c("p.value", "effect_size", "difference") ~
-                 "Wilcoxon rank sum (exact) test"
+                "Values given as: median (lower quartile, upper quartile)"
         )
     )
 
@@ -325,16 +315,7 @@ tbl_weights <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_stat(
-        fns = everything() ~ wilcox_effect_size
-    ) |>
-    #add_difference() |>
-    modify_header(
-        p.value = "**p-value**",
-        effect_size = "**Effect size**",
-        difference = "**Difference (95 % CI)**",
-    )
-
+    add_p()
 
 tbl_weights_overall <- add_overall(tbl_weights)
 
@@ -357,16 +338,7 @@ tbl_sevo_consumption <- agc |>
         ),
         digits = all_continuous() ~ 1
     ) |>
-    add_stat(
-        fns = everything() ~ wilcox_effect_size
-    ) |>
-    #add_difference() |>
-    modify_header(
-        p.value = "**p-value**",
-        effect_size = "**Effect size**",
-        difference = "**Difference (95 % CI)**",
-    )
-
+    add_p()
 
 tbl1 <- tbl_stack(
     tbls = list(
@@ -391,7 +363,7 @@ modify_caption(
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
         "Cases, duration, etc. are given as per canister. ",
         "Values are median (lower and upper quartile); ",
-        "p-values, effect sizes, differences and 95 % confidence intervals ",
+        "p-values ",
         "are calculated using the Wilcoxon rank sum (exact) test. ",
         "CI: confidence intervals; ENT: ear, nose and throat surgery."
     )
