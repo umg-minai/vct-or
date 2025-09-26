@@ -347,7 +347,7 @@ tbl1 <- tbl_stack(
     group_header = c(
         "(A) Case summary",
         "(B) Sevoflurane consumption",
-        "(C) Anaesthetic gas canister characteristics"
+        "(C) Canister characteristics"
     )
 ) |>
 ## indent variable names and missing
@@ -358,7 +358,11 @@ modify_table_styling(
     text_format = "indent2"
 ) |>
 modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
-modify_header(label = "**Characteristics per canister**") |>
+modify_header(
+    label = "**Characteristics per canister**",
+    stat_1 = "**OR1 (ENT)**, N = 15 canisters",
+    stat_2 = "**OR2 (Neurosurgery)**, N = 5 canisters"
+) |>
 modify_caption(
     paste0(
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
