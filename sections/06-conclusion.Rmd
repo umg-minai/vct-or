@@ -1,9 +1,9 @@
 ## Conclusion
 
-The capture efficiency of active charcoal based AGCs (CONTRAfluran^TM^)
+The capture efficiency of active charcoal based canisters (CONTRAfluran^TM^)
 might depend on various patient- and procedure-related factors, including
 the fresh gas flow used and the duration of anaesthesia.
-Using metabolic flow, the proportional capture efficiencies were
+Using metabolic fresh gas flow, the proportional capture efficiencies were
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`,

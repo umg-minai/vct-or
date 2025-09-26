@@ -12,87 +12,86 @@ approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`)
 We apply the taxonomy recently introduced by Gandhi et al. [@Gandhi2024].
 Briefly, the capture efficiency refers to the entire recapture process and
 includes the mass of VA that was used in comparison to the mass that was
-eventually recovered from the AGC and could be reused.
+eventually recovered from the canister and could be reused.
 Proportional capture efficiency is the calculated efficiency for each
-individual AGC.
+individual canister.
 The *in vivo* mass transfer describes the increase in mass of the
-AGC in proportion to the mass of the VA used in a clinical setting.
+canister in proportion to the mass of the VA used in a clinical setting.
 
 ## Setting
 
-We collected a total of `r nrow(agc)` consecutive CONTRAfluran^TM^ AGCs in two different ORs in this prospective single-centre exploratory observational study.
+We collected a total of `r nrow(agc)` consecutive CONTRAfluran^TM^ canisters in two different ORs in this prospective single-centre exploratory observational study.
 
 The first OR (referred to as `r ORnames[1]`), was dedicated to
 ear, nose and throat surgery.
-Here, a median number of `r .as.word(round(ORcases[1]))` cases per day
-were treated, mostly with supraglottic airways.
-All cases were inducted and emerged from anaesthesia in the OR.
+Here, a median of `r .as.word(round(ORcases[1]))` cases per day
+were anaesthetized and then generally managed with a supraglottic airway.
+All cases were induced and emerged from anaesthesia in the OR.
 The first and second case each day were generally children,
 where we did inhaled inductions with a fresh gas flow in the range of
 the minute ventilation of the respective child.
-The following cases were mostly adults.
+The following cases in that OR were mostly adults.
 
 The second OR (referred to as `r ORnames[2]`) was dedicated to
-neurosurgical spine surgery.
+spine surgery.
 Here, the median number of cases was `r .as.word(round(ORcases[2]))` per day
-and the patients were mostly adults who were intubated.
-The first case was always inducted in the OR,
-the following cases rarely in a special induction room where no AGC was installed.
+and the patients were generally adults who were intubated.
+The first case was always induced in the OR,
+the following cases rarely in a special induction room where no canister was installed.
 All cases emerged from anaesthesia in the OR.
 
-All anaesthesia cases were performed at the discretion of the
-anaesthesiologists in charge in clinical routine
-according to our local standard operating procedures.
-Following these, a minimal or metabolic flow (< 0.5&nbsp;l·min^-1^, mostly 0.3&nbsp;l·min^-1^) was used during the steady state phase in all cases.
-We did recorded neither the patient data, the type of anaesthesia,
-the induction strategy nor the airway used because of the exploratory, pragmatic
-and anonymous character of the study.
+All anaesthesia cases were managed at the discretion of the
+anaesthesiologists.
+Following induction, a minimal or metabolic fresh gas flow (< 0.5&nbsp;l·min^-1^, mostly 0.3&nbsp;l·min^-1^) was used during the steady state phase in all cases.
+We did not record patient data, type of anaesthesia,
+induction strategy or airway used due to the exploratory, pragmatic
+and anonymous nature of the study.
 
 We used the Draeger connect software (Draeger Medical Deutschland GmbH, Luebeck, Germany) to determine the number, duration and type of anaesthesia cases.
 
 ## Consumption and weight measurement
 
-Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vaporizers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
-The AGCs were permanently connected to the exhaust port of the anaesthesia machines, which work in a passive mode, without an AGSS connected.
-We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vaporizer and used the difference in weight to record the sevoflurane consumption.
-The vaporizers were filled to the maximum before we attached the first CONTRAfluran^TM^ AGC (ZeoSys medical, Luckenwalde, Germany) and started our recordings.
-During the study period, almost every day the two vaporizers were filled completely and the sevoflurane bottle weight difference measured by the study team (NM and SK), which was not involved in the anaesthesia.
+Balanced anaesthesia with VAs was given using Draeger Perseus A500 anaesthesia machines equipped with bypass vaporizers of the type Draeger D-Vapor 3000 (Draeger Medicine Deutschland GmbH, Luebeck, Germany), and a calcium and sodium hydroxide-based carbon dioxide absorber of the type Draegersorb CLIC 800+ (Draeger Medicine Deutschland GmbH, Luebeck, Germany).
+The canisters were permanently connected to the exhaust port of the anaesthesia machines, which work in a passive mode, without an AGSS connected.
+We weighed the sevoflurane (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles before and after maximum filling of the vaporizer and used the difference in weight to determine the sevoflurane consumption.
+The vaporizers were filled to the maximum before we attached the first CONTRAfluran^TM^ canister (ZeoSys medical, Luckenwalde, Germany).
+During the study period, almost every day the two vaporizers were filled completely and the sevoflurane bottle weight difference measured by the study team (NM and SK), which were not involved in providing the anaesthesia.
 
-In the case where a new bottle of sevoflurane was opened, it was initially attached to a non-study vaporizer to lose any excess pressure, and was weighed before the study vaporizer was filled.
+In the case where a new bottle of sevoflurane was opened, it was initially attached to a non-study vaporizer to relieve any excess pressure, and was weighed before the study vaporizer was filled.
 
-Each AGC was only changed after it had been exhausted.
-This was made visible by a red LED and an acoustic warning signal of the SENSOfluran^TM^ sensor unit (ZeoSys medical, Luckenwalde, Germany).
+Each canister was only changed after it had been exhausted as identified
+by a visible red LED and an acoustic warning signal from the SENSOfluran^TM^ sensor unit (ZeoSys medical, Luckenwalde, Germany).
 Subsequently, we refilled the vaporizer to its maximum and measured the weight
 difference of the sevoflurane bottle, again.
-The weight difference was counted as consumption for the just exhausted AGC.
+The weight difference was counted as consumption for the just exhausted canister.
 
-The weight gain of an AGC was determined by weighing the AGC before usage and after it had been exhausted to determine the *in vivo* mass transfer (ratio of absorber
+The weight gain of a canister was determined by weighing the canister before usage and after it had been exhausted to determine the *in vivo* mass transfer (ratio of absorber
 weight gain to consumed weight of sevoflurane).
-Each exhausted AGC was recapped and stored in a closed plastic zip-lock bag.
+Each exhausted canister was recapped and stored in a closed plastic zip-lock bag.
 
-ZeoSys needs at least 20 AGCs for a single desorption process.
-Before returning the AGCs to ZeoSys, we weighed all AGCs again
+ZeoSys needs at least 20 canisters for a single desorption process.
+Before returning the canisters to ZeoSys, we weighed all canisters again
 to determine any potential weight loss.
 
 All weight measurements were done with a precision scale
 (Kern PCB 2500-2; Kern\&Sohn GmbH, Balingen-Frommern; Germany; maximum weight&nbsp;=&nbsp;2500&nbsp;g;&nbsp;d&nbsp;=&nbsp;0.01&nbsp;g)
 
-ZeoSys stored all AGCs for a further four weeks at least, due to regulatory reasons.
-Before starting the desorption and recovery process they weighed all AGCs
+ZeoSys stored all canisters for at least four weeks, due to regulatory reasons.
+Before starting the desorption and recovery process they weighed all canisters
 (Sartorius Cubis II MCA5201S-2S00-0; Sartorius AG, Göttingen; Germany; maximum weight = 5200 g; d = 0.1 g).
-Afterwards, they sent us the information about the total amount of sevoflurane recovered from all 20 AGCs.
+Afterwards, they sent us the information about the total amount of sevoflurane recovered from all 20 canisters.
 
 The capture efficiency was then determined by calculating the
 total amount of sevoflurane recovered relative to the amount used [@Gandhi2024].
-We compare the total amount of sevoflurane recovered to the individual weight of
-each AGC, divided by the total weight of all AGCs, to get the proportional
+We compare the total amount of sevoflurane recovered to the individual weight increase of
+each canister, divided by the total weight increase of all canisters, to obtain the proportional
 capture efficiency.
 
 ## Outcome
 
 The primary outcome was the amount of recovered sevoflurane reported by ZeoSys.
-The secondary outcomes were the difference between the *in vivo* mass transfer and the recapture rate reported by ZeoSys, the difference in the sevoflurane recovery between both ORs
-and the weight loss of the AGC during storage.
+The secondary outcomes were the difference between the *in vivo* mass transfer, the recapture rate reported by ZeoSys, the difference in the sevoflurane recovery between both ORs
+and the weight loss of the canister during storage.
 
 ## Data processing and statistical analysis
 

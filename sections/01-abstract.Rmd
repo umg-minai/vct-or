@@ -2,43 +2,42 @@
 
 **Background**:
 Volatile anaesthetics are potent greenhouse gases.
-Recapturing using active charcoal absorbers on the exhaust port of
+Recapturing volatile anaesthetics using active charcoal absorbers on the exhaust port of
 anaesthesia machines might reduce their negative climate impact.
 Previous studies investigating the capture efficiency of absorbers have been
 performed mostly under circumstances that differ from everyday clinical routine.
-Therefore, we here investigated the
+We here investigated the
 capture efficiency of the CONTRAfluran^TM^ absorbers for sevoflurane
 in routine anaesthesia practice.
 
 **Methods**:
 In this prospective single-centre study, we collected
 `r nrow(agc)` consecutive CONTRAfluran^TM^ absorbers from two
-different operating rooms (ORs) after they were saturated to their maximum
-saturation levels.
+different operating rooms (ORs) after they were maximally saturated.
 After storage and transport, the sevoflurane was recaptured from the absorbers by
 the absorber manufacturer.
 To calculate the capture efficiency, we divided the amount of recaptured
 sevoflurane by the total sevoflurane consumption during the use of the
 absorbers, which was obtained by
 comparing the weight
-of the sevoflurane bottles before versus after refilling the vaporizers.
+of the sevoflurane bottles before and after refilling the vaporizers.
 
 **Results**:
-We observed `r sum(nCasesSev)` balanced anaesthesia cases.
+We monitored `r sum(nCasesSev)` balanced anaesthesia cases.
 A total of
 `r sprintf("%.1f&nbsp;kg", TotalUsedWeightSev / 1000)` sevoflurane was used and
 `r sprintf("%.1f&nbsp;kg", TotalRecoveredSev / 1000)` could be recovered,
 yielding a capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
 The capture efficiencies differed significantly between the ORs, with
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` in the OR with shorter anaesthesia durations and frequently inhaled induction
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` in the OR with shorter anaesthesia durations and frequently inhaled inductions
 versus
-`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`  in the OR with longer anaesthesia duration.
+`r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`  in the OR with longer anaesthesia durations.
 We saw a `r .pct(RatioWeightLoss, prec = ".0")` weight loss over time during storage.
 
 **Conclusions**:
 If CONTRAfluran^TM^ absorbers are used until they are fully saturated,
-almost one-third of the sevoflurane can be recaptured, but
-the capture efficiency might depend on various patient- and procedure-related
+almost one-third of the sevoflurane can be recaptured.
+The capture efficiency may be affected by various patient- and procedure-related
 factors, including the fresh gas flow used and the duration of anaesthesia.
 
 <!--

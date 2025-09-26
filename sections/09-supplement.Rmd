@@ -58,7 +58,7 @@ d[c(
 ```
 
 
-## Comparing sevoflurane consumption measurements
+## Comparing sevoflurane consumption measurements {#cmp-msrmts}
 
 We weighed the sevoflurane
 (SEVOrane, AbbVie Deutschland GmbH & Co. KG, Mainz, Germany) bottles
@@ -138,6 +138,16 @@ $$
 We used 184 mL as *saturated gas volume* [@Biro2015] and a density of
 `r sevodensity` g·mL^-1^ for sevoflurane [@Hu2021].
 
+These four cases yield a calculated consumption of `r sprintf("%.2f g", AGC14EstimatedUsedWeightSev)` sevoflurane.
+Biro et al. described an overestimation of the sevoflurane consumption by 6.2&nbsp;%.
+This would result in an error of
+`r .pct((AGC14EstimatedUsedWeightSev * 0.062) / agc$TotalUsedWeightSev[agc$Id == "CH0100012088"], prec = ".2")`
+for our anaesthetic gas canister CH0100012088
+and just slightly underestimate the *in vivo* mass transfer and proportional
+capture efficiency.
+
+
+
 ```{r sevoflurane-consumption-estimation-agc14-tables, echo = FALSE}
 knitr::kable(
     col.names = c("Case", "Time since vaporizer opened [min]",
@@ -181,4 +191,3 @@ sessionInfo()
 ```{r gitcommithash, echo = FALSE}
 sprintf("Git commit revision: %s", system("git rev-parse HEAD", intern = TRUE))
 ```
-

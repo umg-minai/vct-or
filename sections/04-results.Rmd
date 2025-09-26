@@ -8,22 +8,22 @@ tbl1
 
 ## Sevoflurane consumption and capture efficiency
 
-We observed a total of `r sum(nCases)` anaesthesia cases
+We monitored a total of `r sum(nCases)` anaesthesia cases
 during the `r .as.word(ceiling(difftime(max(periods$End), min(periods$Start), units = "weeks")))` week study period,
 of which `r .pct(sum(nCasesSev) / sum(nCases), prec = ".0")` received VAs
-at a total duration of `r sprintf("%.0f", sum(agc$TotalDurationCasesSev) / 60)` h.
+for a total anaesthesia duration of `r sprintf("%.0f", sum(agc$TotalDurationCasesSev) / 60)` h.
 
 A total of `r sprintf("%.1f&nbsp;kg", TotalUsedWeightSev / 1000)` sevoflurane was used
 and `r sprintf("%.1f&nbsp;kg", TotalRecoveredSev / 1000)` could be recaptured
 (capture efficiency `r .pct(CaptureEfficiency, prec = ".0")`).
-Sevoflurane attributed `r .pct(RatioSevo, prec = ".1")` of AGC's weight gain.
+Sevoflurane attributed `r .pct(RatioSevo, prec = ".1")` of the canisters' weight gain.
 The remaining `r .pct(1 - RatioSevo, prec = ".1")` were water (and only traces of metabolic products like acetone, Compound A-E, etc.).
 
 Comparing the two ORs, we found a large and significant difference in the total
-sevoflurane used, which is partly due to differences in the ratio of patients receiving
-VAs and the variations in the duration of anaesthesia (Table \@ref(tab:table1)A and B).
+sevoflurane used, in the ratio of patients receiving
+VAs and the durations of anaesthesia (Table \@ref(tab:table1)A and B).
 
-While the median weight gain of the AGCs did not differ between the two
+While the median weight gain of the canisters did not differ between the two
 ORs, we observed a large and significant difference in the
 *in vivo* mass transfer, which was at
 `r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_1", pattern = "{median}&nbsp;%")` for `r ORnames[1]`
@@ -31,24 +31,24 @@ and
 `r .tbl(tbl_weights, "InVivoMassTransfer", column = "stat_2", pattern = "{median}&nbsp;%")`  for `r ORnames[2]`
 due to the significantly different sevoflurane consumption in the two ORs (Table \@ref(tab:table1)B and C).
 Thus, assuming the same proportion of sevoflurane could be accounted for the relative
-weight gain of each AGC, the proportional capture efficiency differed
+weight gain of each canister, the proportional capture efficiency differed
 significantly between the two ORs, with
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_1", pattern = "{median}&nbsp;%")` for `r ORnames[1]`
 and
 `r .tbl(tbl_weights, "ProportionalCaptureEfficiency", column = "stat_2", pattern = "{median}&nbsp;%")`  for `r ORnames[2]` (Table \@ref(tab:table1)C).
 
-The details of each AGC can be found in Supplemental Table \@ref(tab:tableagc).
+The details of each canister can be found in Supplemental Table S\@ref(tab:tableagc).
 
 ## Weight loss
 
-The `r paste0(nrow(agc), " AGCs were stored for ", .medLU(agc$DaysStored), " days")`
+The `r paste0(nrow(agc), " saturated canisters were stored for ", .medLU(agc$DaysStored), " days")`
 in median (lower and upper quartile) in our hospital and additional
 `r round(difftime(ymd("20241202"), ymd("20240409"), units = "days"))` days at
 ZeoSys before the desorption process.
-During the whole storage period we observed a loss of
+Over the entire storage period we observed a loss of
 `r .medLU(agc$LostWeight2)` gram in median (lower and upper quartile) for each
-AGC and of `r TotalWeightLoss` gram in total.
-This corresponds to `r .pct(RatioWeightLoss)`
+canister and of `r TotalWeightLoss` gram in total.
+This corresponds to `r .pct(RatioWeightLoss)` of the canisters' weight gain
 (Figure \@ref(fig:plot-weight-lost)).
 
 ```{r plot-weight-lost, dev = ifelse_is_docx("tiff", "png"), fig.width = 12, fig.height = 8, echo = FALSE, fig.cap = "Weight loss of the anaesthetic gas canisters during storage. The dots represent the weight loss of each individual anaesthetic gas canister for the days after exhaustion before shipping and desorption. The gray lines connect the same anaesthetic gas canisters measured at the two different time points."}

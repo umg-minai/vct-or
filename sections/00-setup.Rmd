@@ -358,10 +358,11 @@ modify_table_styling(
     text_format = "indent2"
 ) |>
 modify_spanning_header(c("stat_1", "stat_2") ~ "**Operating rooms**") |>
+modify_header(label = "**Characteristics per canister**") |>
 modify_caption(
     paste0(
         "Characteristics of all ", nrow(agc), " anaesthetic gas canisters. ",
-        "Cases, duration, etc. are given as per canister. ",
+        "Cases, durations, sevoflurane consumption, etc. are given as per canister. ",
         "Values are median (lower and upper quartile); ",
         "p-values ",
         "are calculated using the Wilcoxon rank sum (exact) test. ",

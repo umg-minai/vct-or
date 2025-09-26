@@ -1,21 +1,17 @@
 # Background
 
-The anthropogenic climate crisis is the largest threat to global health [@Daalen2022].
-However, the health-care sector itself is responsible for 5-10&nbsp;% of greenhouse gas emissions [@Hu2021].
-A relevant part of these emissions are caused by volatile anaesthetics (VAs) used in anaesthesia and intensive care [@MacNeill2017;@Hu2021].
+The anthropogenic climate crisis is a significant threat to global health [@Daalen2022].
+The health-care sector is responsible for 5-10&nbsp;% of greenhouse gas emissions [@Hu2021].
+A relevant source of these emissions are volatile anaesthetics (VAs) [@MacNeill2017;@Hu2021].
 
-Active charcoal absorbers can be attached to the exhaust port of the
+Active charcoal absorbers can be attached to the exhaust port of
 anaesthesia machines to capture VAs and might decrease their emissions.
 Using absorbers that allow the recapture of the VAs has the
-additional benefit of being able to reuse the substances.
+additional potential benefit of being able to reuse the captured VAs.
 
-A previous study by Hinterberg et al. [@Hinterberg2022], which investigated the efficiency of the active charcoal absorbers, CONTRAfluran^TM^ anaesthetic gas canisters (AGCs; ZeoSys medical, Luckenwalde, Germany), for VAs in the operating room (OR), found that only 25&nbsp;% of the vapourised desflurane could be recaptured.
-However, as Kalmar et al. pointed out [@Kalmar2023], the desorption process to recapture the substances from the AGC is highly dependent on the saturation level, with a higher capture efficiency for full AGCs.
-Therefore, it can be assumed that a higher efficiency could be obtained, when AGCs are used to a higher saturation level than the 15&nbsp;% in the study by Hinterberg et al. [@Kalmar2023; @Hinterberg2022].
-This might be one reason why Gandhi et al. reported a significantly higher capture efficiency of 43-51&nbsp;% using SageTech Medical's Volatile Capture Device (SageTech Medical, Paignton, UK) for sevoflurane, even though one would expect that the capture efficiency for sevoflurane would be lower in comparison to desflurane, due to the higher blood-gas coefficients and metabolism rate of sevoflurane [@Gandhi2023].
-Mulier et al. weighed the AGC before, during and after anaesthesia for
-laparoscopic surgery and determined an *in vivo* mass transfer (ratio of absorber
-weight gain to consumed weight of sevoflurane) of 45&nbsp;%
-[@Mulier2024].
-But as the system used by Gandhi et al. included an additional anaesthetic gas scavenging system (AGSS) to capture the VA and Mulier et al. did not report the results of the desorption process, it remains unknown how efficient active charcoal based AGC for sevoflurane without an AGSS connected can be when used to maximum saturation levels [@Gandhi2023; @Mulier2024].
-Therefore, we conducted this exploratory study to investigate the efficiency of passive AGCs for sevoflurane and the entire recapture process when AGCs for sevoflurane are used to higher saturation levels in a routine anaesthesia practice.
+Hinterberg et al. [@Hinterberg2022] investigated the efficiency of the active charcoal absorbers, CONTRAfluran^TM^ anaesthetic gas canisters (ZeoSys medical, Luckenwalde, Germany), for VAs in the operating room (OR).
+They found that only 25&nbsp;% of the vapourised desflurane could be recaptured.
+However, as Kalmar et al. pointed out [@Kalmar2023], the desorption process to recapture the substances from the canister is highly dependent on the saturation level, with a higher capture efficiency for full, i.e. saturated canisters.
+Therefore, it expected that a higher efficiency could be obtained, when canisters are used to a higher saturation level than the 15&nbsp;% in the study by Hinterberg et al. [@Kalmar2023; @Hinterberg2022].
+
+We conducted this exploratory study to investigate the efficiency of passive canisters for sevoflurane and the entire recapture process when canisters for sevoflurane are used to higher saturation levels in a routine anaesthesia practice.
