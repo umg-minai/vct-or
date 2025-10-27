@@ -1,7 +1,7 @@
 # Discussion
 
 We demonstrated in this prospective single-center observational study that using
-active charcoal based canisters for sevoflurane until they reached their maximum saturation
+active charcoal-based canisters for sevoflurane until they reached their maximum saturation
 levels can yield a total capture efficiency of `r .pct(CaptureEfficiency, prec = ".0")`.
 This represents `r sprintf("%.1f&nbsp;kg", TotalRecoveredSev / 1000)` of sevoflurane
 that can be recovered from a total of `r sprintf("%.1f&nbsp;kg", TotalUsedWeightSev / 1000)`
@@ -96,9 +96,17 @@ periods with higher fresh gas flows, such as induction, emergence, or total
 intravenous anaesthesia where flow-dependent desorption may occur
 [@Wenzel2024;@Kalmar2024a].
 
+We calculated the proportional capture efficiency based on
+the simplified assumption that the
+sevoflurane-to-water ratio is the same in all canisters.
+However, the sevoflurane binding capacity of activated carbon can be
+significantly reduced by water [@Hojak2022].
+Thus, a higher humidity caused by the lower fresh gas flows in `r ORnames[2]`
+may also have contributed to the lower capture efficiency in this OR.
+
 Seven of `r round(nCases[ORnames[2]])` cases of `r ORnames[2]` were induced in a separate induction room.
-This may sligthly under- or overestimate the proportional capture efficiency of the canisters in this OR because
-the wasteful induction was not captured and/or an external, unmeasured amount of sevoflurane may introduced.
+This may slightly under- or overestimate the proportional capture efficiency of the canisters in this OR because
+the wasteful induction was not captured and/or an external, unmeasured amount of sevoflurane may be introduced.
 The intraoperative change of the carbon dioxide absorber was infrequent and should be negligible.
 
 We decided to weigh the sevoflurane bottles instead of the vaporizer to not interrupt the

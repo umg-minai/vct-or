@@ -83,9 +83,9 @@ Afterwards, they sent us the information about the total amount of sevoflurane r
 
 The capture efficiency was then determined by calculating the
 total amount of sevoflurane recovered relative to the amount used [@Gandhi2024].
-We compare the total amount of sevoflurane recovered to the individual weight increase of
-each canister, divided by the total weight increase of all canisters, to obtain the proportional
-capture efficiency.
+To obtain the proportional capture efficiency,
+we multiplied the total amount of sevoflurane recovered by the ratio of the
+individual weight gain of each canister to the total weight gain of all canisters.
 
 ## Outcome
 
