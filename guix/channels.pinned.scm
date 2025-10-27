@@ -11,7 +11,7 @@
               "7EAB 7082 91D9 28E5 4387  47A7 F9F3 CB1B 50FB 607A"))))
       (channel
         (name 'guix)
-        (url "https://git.savannah.gnu.org/git/guix.git")
+        (url "https://git.guix.gnu.org/guix.git")
         (branch "master")
         (commit
           "fba6896f625dcbeef112387fc90abe83acae1720")
