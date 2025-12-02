@@ -7,6 +7,12 @@ At the Department of Anaesthesiology and Intensive Care of the University Medici
 
 This repository contains the (raw) data and analysis of this investigation.
 
+## Publication
+
+Gibb, S., Möller, N., von Dincklage, F. and Knigge, S.
+**Capture efficiency of CONTRAfluran^TM^ absorbers for sevoflurane in routine anaesthesia practice: a prospective observational single-center study.**
+*BMC Anesthesiol* 25, 600 (2025). https://doi.org/10.1186/s12871-025-03491-3
+
 ## Directory structure
 
 ### Data
