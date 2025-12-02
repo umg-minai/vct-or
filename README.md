@@ -1,6 +1,6 @@
 # Observational study of vapour capture technology in the OR (VCT-OR)
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10442174.svg)](https://doi.org/10.5281/zenodo.10442174)
 
 At the Department of Anaesthesiology and Intensive Care of the University Medicine Greifswald we investigate the recapture/recycling rate of [ZeoSys's CONTRAfluran](https://zeosys-medical.de/human/) carbon filter/vapour capture technology at two Draeger Perseus A500 anaesthesia machines.
