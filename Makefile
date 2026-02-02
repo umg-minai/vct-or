@@ -48,8 +48,7 @@ gh-pages: manuscript
 	git checkout gh-pages
 	sed 's#</h4>#</h4> \
 <div style="background-color: \#ffc107; padding: 10px; text-align: center;"> \
-<strong>This study is work-in-progress!</strong><br /> \
-Please find details at <a href="https://github.com/umg-minai/vct-or">https://github.com/umg-minai/vct-or</a>.<br /> \
+Please find the publication at <strong><a href="https://doi.org/10.1186/s12871-025-03491-3">10.1186/s12871-025-03491-3</a></strong><br /> \
 Manuscript date: $(shell date +"%Y-%m-%d %H:%M"); Version: <a href="https://github.com/umg-minai/vct-or/commit/$(GITHEADL)">$(GITHEAD)</a> \
 </div>#' $(OUTPUTDIR)/$(MANUSCRIPT).html > index.html
 	git add index.html
